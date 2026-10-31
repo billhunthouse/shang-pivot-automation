@@ -8,9 +8,9 @@
 
 | 阻塞项 | 现状 | 需要你提供 |
 |--------|------|------------|
-| 腾讯云服务器 | `111.170.33.2:22` 开放，但现有 SSH 密钥被拒；`28536/60080` 已关闭 | 正确公网 IP、SSH 用户、私钥、known_hosts |
-| GitHub 仓库 | `origin` 指向私有/404 仓库，本机无 GitHub Token/SSH Key | GitHub 仓库写权限（PAT 或 SSH Key），或授权从 Gitee 导入 |
-| 飞书机器人 | 没有 Webhook/签名密钥 | 飞书群自定义机器人 Webhook；如开启签名，再提供 Secret |
+| 腾讯云服务器 | `49.233.135.247:22` 开放，但现有密钥被拒；80 开放、443 关闭 | 把部署公钥加到服务器；确认 SSH 用户 |
+| GitHub 仓库 | PAT 属于 `billhunthouse`，读取正常，但创建分支/文件、触发 workflow、push 均 403（Token 无 Contents/Workflows/Actions 写权限）；HTTPS 经代理可通 | 换有 `Contents: Read and write` + `Workflows: Read and write` + `Actions: Read and write` 的 PAT，或把 SSH 公钥加到 GitHub |
+| 飞书机器人 | 浏览器停在飞书登录页，无法读取你的会话 | 从飞书群机器人复制 Webhook（和 Secret） |
 
 > 这三项不是代码能“猜”出来的。没有它们，工作流可以提交，但 `deploy-tencent` 和飞书通知不会真正执行。
 
@@ -214,10 +214,40 @@ deploy ALL=(root) NOPASSWD: /bin/systemctl restart shang-pivot, /bin/systemctl s
 
 ## 10. 下一步操作清单
 
-1. 提供腾讯云 `host / user / private key`（或把公钥加到服务器）。
-2. 提供 GitHub 仓库写权限（PAT 或 SSH Key），或在 GitHub 用 “Import repository” 导入 `https://gitee.com/aovercome1234/shang-pivot-automation`。
-3. 创建飞书自定义机器人，提供 Webhook（和 Secret）。
+### 10.1 已生成的部署公钥（加到对应平台即可）
+
+腾讯云服务器（加到 `~/.ssh/authorized_keys`，用户可为 root 或 deploy）：
+
+```text
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICESpz7Jq0PRmGLAluCZCUAAW1qmnqXTGpbttPgBZHZh shang-pivot-tencent-deploy
+```
+
+GitHub（Settings → SSH and GPG keys → New SSH key）：
+
+```text
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5ZCcS7s7nRWP8e8aTavAD2KgsOsZRjDpdTBSq0Q0UY shang-pivot-ci
+```
+
+> 私钥只在本地 `~/.ssh/` 与 GitHub Secrets 中使用，不要发到聊天里。
+
+### 10.2 本次实测记录（2026-10-31）
+
+- GitHub API 读取 `simon6wu-sys/shang-pivot` 成功；`permissions.push=true`。
+- 创建 `automation-ci` 分支、写入 workflow：`403 Resource not accessible by personal access token`。
+- 触发 `workflow_dispatch`：`403 Resource not accessible by personal access token`。
+- Git push：`Permission to simon6wu-sys/shang-pivot.git denied to billhunthouse`（HTTP 403）。
+- 代理 `127.0.0.1:7890` 可用，`git ls-remote` 成功，说明网络不是阻塞点，**是 Token 权限不足**。
+- `49.233.135.247:22` 开放，root/ubuntu 使用现有密钥均 `Permission denied (publickey)`；80 开放、443 关闭。
+- 飞书网页跳转到登录页，无法读取你已登录的会话。
+
+### 10.3 操作顺序
+
+1. 把腾讯云公钥加到服务器，确认 `ssh -i ~/.ssh/tencent_deploy <user>@49.233.135.247` 可登录。
+2. 把 GitHub 公钥加到 GitHub，或用 “Import repository” 导入 `https://gitee.com/simon6wu/shang-pivot-automation`（该镜像包含 `3eb03b6` 的 CI）。
+3. 飞书群 → 群机器人 → 自定义机器人 → 复制 Webhook/Secret。
 4. 在 GitHub 添加第 4 节 Secrets。
 5. 先手动跑 `e2e`，确认飞书卡片。
 6. 再手动跑 `deploy-tencent` 的 `staging`，确认健康检查。
 7. 最后跑 `production`，验收后把 `nightly-pytest` 定时打开。
+
+> 当前 GitHub PAT 已在聊天中暴露，完成配置后请立即 revoke/rotate。

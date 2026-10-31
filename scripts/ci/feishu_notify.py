@@ -44,11 +44,22 @@ def load_summary(path: str) -> dict:
         data = json.loads(file.read_text(encoding="utf-8"))
     except Exception:
         return {"raw": file.read_text(encoding="utf-8", errors="replace")[:800]}
-    if isinstance(data, dict) and isinstance(data.get("summary"), dict):
+    if isinstance(data, dict):
         merged = dict(data)
-        merged.update(data["summary"])
+        if isinstance(data.get("summary"), dict):
+            merged.update(data["summary"])
+        if isinstance(data.get("counts"), dict):
+            merged.update(data["counts"])
+        passed = int(merged.get("passed") or 0)
+        failed = int(merged.get("failed") or 0)
+        skipped = int(merged.get("skipped") or 0)
+        total = int(merged.get("total") or merged.get("planned") or (passed + failed + skipped))
+        if not merged.get("total"):
+            merged["total"] = total
+        if total and "passRate" not in merged:
+            merged["passRate"] = round(passed * 100 / total, 2)
         return merged
-    return data if isinstance(data, dict) else {"raw": str(data)[:800]}
+    return {"raw": str(data)[:800]}
 
 
 def pick(summary: dict, *keys: str) -> str:
