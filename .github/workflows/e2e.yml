@@ -4,11 +4,26 @@ on:
   push:
     branches: [main, master]
   pull_request:
+  schedule:
+    # 01:00 Asia/Shanghai（UTC 17:00）
+    - cron: "0 17 * * *"
   workflow_dispatch:
+    inputs:
+      tags:
+        description: "Cucumber tag expression"
+        required: false
+        default: "not @known-defect"
+      notify:
+        description: "发送飞书通知"
+        type: boolean
+        default: true
 
 concurrency:
   group: e2e-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   e2e:
@@ -58,6 +73,7 @@ jobs:
       SHANG_ADMIN_BASE_URL: http://127.0.0.1:5173
       SHANG_UI_HEADLESS: "true"
       CI: "true"
+      CUCUMBER_TAGS: ${{ inputs.tags || 'not @known-defect' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -113,9 +129,9 @@ jobs:
         working-directory: automation
         run: mvn -q exec:java -Dexec.args="install --with-deps chromium"
 
-      - name: 执行全量测试
+      - name: 执行测试
         working-directory: automation
-        run: mvn clean test
+        run: mvn clean test -Dcucumber.filter.tags="$CUCUMBER_TAGS"
 
       - name: 安装 Allure CLI
         if: always()
@@ -132,6 +148,17 @@ jobs:
             allure generate target/allure-results -o artifacts/allure-report --clean
           fi
 
+      - name: 生成 CI 摘要
+        if: always()
+        run: |
+          mkdir -p ci-summary
+          latest=$(ls -td automation/artifacts/run-* 2>/dev/null | head -1 || true)
+          if [ -n "$latest" ] && [ -f "$latest/run-summary.json" ]; then
+            jq '{runId:.runId,total:.summary.total,passed:.summary.passed,failed:.summary.failed,passRate:.summary.passRate}'               "$latest/run-summary.json" > ci-summary/summary.json
+          else
+            printf '{"total":0,"passed":0,"failed":0,"passRate":0}\n' > ci-summary/summary.json
+          fi
+
       - name: 上传测试产物
         if: always()
         uses: actions/upload-artifact@v4
@@ -143,4 +170,43 @@ jobs:
             automation/target/allure-results
             automation/target/cucumber-report.html
             automation/target/automation.log
+            ci-summary/summary.json
           if-no-files-found: warn
+
+      - name: 上传 CI 摘要
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-summary
+          path: ci-summary/summary.json
+          retention-days: 7
+
+  notify:
+    if: always() && (github.event_name != 'workflow_dispatch' || inputs.notify)
+    needs: e2e
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 下载 CI 摘要
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: e2e-summary
+          path: ci-summary
+
+      - name: 飞书通知
+        continue-on-error: true
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
+          FEISHU_STATUS: ${{ needs.e2e.result }}
+          FEISHU_TITLE: "尚品汇自动化测试"
+          FEISHU_PROJECT: "shang-pivot"
+          FEISHU_WORKFLOW: "e2e (Cucumber + Allure)"
+          FEISHU_BRANCH: ${{ github.ref_name }}
+          FEISHU_COMMIT: ${{ github.sha }}
+          FEISHU_ACTOR: ${{ github.actor }}
+          FEISHU_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          FEISHU_SUMMARY_FILE: ci-summary/summary.json
+        run: python3 scripts/ci/feishu_notify.py

@@ -14,6 +14,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 readonly SSH_HOST="${SHANG_SSH_HOST:-111.170.33.2}"
+readonly SSH_USER="${SHANG_SSH_USER:-root}"
 readonly SSH_PORT="${SHANG_SSH_PORT:-28536}"
 readonly SSH_KEY="${SHANG_SSH_KEY:-$HOME/.ssh/${SHANG_SSH_KEY_NAME:-projectku_psyidc}}"
 readonly BASE="/opt/shang-pivot"
@@ -21,7 +22,7 @@ readonly SVC="shang-pivot"
 readonly SSH_OPTS=(-i "$SSH_KEY" -p "$SSH_PORT" -o IdentitiesOnly=yes -o BatchMode=yes
                    -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o ConnectTimeout=15)
 readonly SCP_OPTS=(-i "$SSH_KEY" -P "$SSH_PORT" -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=15)
-readonly HOST="root@${SSH_HOST}"
+readonly HOST="${SSH_USER}@${SSH_HOST}"
 
 JAR=""; MALL=""; ADMIN=""; REVISION=""; ROLLBACK="no"
 while [ $# -gt 0 ]; do

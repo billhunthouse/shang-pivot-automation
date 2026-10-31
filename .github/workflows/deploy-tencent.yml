@@ -1,0 +1,175 @@
+name: deploy-tencent
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "部署环境（production 建议配置 required reviewers）"
+        type: choice
+        options: [staging, production]
+        default: staging
+      ref:
+        description: "要部署的 Git ref"
+        required: true
+        default: main
+      rollback:
+        description: "回滚到上一个 release"
+        type: boolean
+        default: false
+      notify:
+        description: "发送飞书通知"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-tencent-${{ inputs.environment }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment: ${{ inputs.environment }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - uses: actions/setup-java@v4
+        if: ${{ inputs.rollback == false }}
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - uses: actions/setup-node@v4
+        if: ${{ inputs.rollback == false }}
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: |
+            shang-mall/package-lock.json
+            shang-admin-web/package-lock.json
+
+      - name: 构建后端（Java 17 兼容）
+        if: ${{ inputs.rollback == false }}
+        run: mvn -q -DskipTests -Djava.version=17 -f backend/pom.xml -pl shang-server -am package
+
+      - name: 构建前端
+        if: ${{ inputs.rollback == false }}
+        run: |
+          (cd shang-mall && npm ci --no-audit --no-fund && npm run build)
+          (cd shang-admin-web && npm ci --no-audit --no-fund && npm run build)
+
+      - name: 配置 SSH
+        env:
+          TENCENT_SSH_KEY: ${{ secrets.TENCENT_SSH_KEY }}
+          TENCENT_KNOWN_HOSTS: ${{ secrets.TENCENT_KNOWN_HOSTS }}
+        run: |
+          if [ -z "$TENCENT_SSH_KEY" ] || [ -z "$TENCENT_KNOWN_HOSTS" ]; then
+            echo "缺少 TENCENT_SSH_KEY 或 TENCENT_KNOWN_HOSTS 仓库 Secret" >&2
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$TENCENT_SSH_KEY" > ~/.ssh/tencent_deploy
+          chmod 600 ~/.ssh/tencent_deploy
+          printf '%s\n' "$TENCENT_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: 部署
+        if: ${{ inputs.rollback == false }}
+        env:
+          SHANG_SSH_HOST: ${{ secrets.TENCENT_HOST }}
+          SHANG_SSH_PORT: ${{ secrets.TENCENT_PORT || '22' }}
+          SHANG_SSH_USER: ${{ secrets.TENCENT_USER || 'root' }}
+          SHANG_SSH_KEY: /home/runner/.ssh/tencent_deploy
+        run: |
+          bash scripts/deploy-release.sh \
+            --jar backend/shang-server/target/shang-server-0.0.1-SNAPSHOT.jar \
+            --mall-dist shang-mall/dist \
+            --admin-dist shang-admin-web/dist \
+            --revision "${GITHUB_SHA::8}"
+
+      - name: 回滚
+        if: ${{ inputs.rollback == true }}
+        env:
+          SHANG_SSH_HOST: ${{ secrets.TENCENT_HOST }}
+          SHANG_SSH_PORT: ${{ secrets.TENCENT_PORT || '22' }}
+          SHANG_SSH_USER: ${{ secrets.TENCENT_USER || 'root' }}
+          SHANG_SSH_KEY: /home/runner/.ssh/tencent_deploy
+        run: bash scripts/deploy-release.sh --rollback
+
+      - name: 公网冒烟（可选）
+        if: ${{ inputs.rollback == false }}
+        env:
+          PUBLIC_MALL_URL: ${{ secrets.PUBLIC_MALL_URL }}
+          PUBLIC_ADMIN_URL: ${{ secrets.PUBLIC_ADMIN_URL }}
+        run: |
+          if [ -z "$PUBLIC_MALL_URL" ]; then
+            echo "未配置 PUBLIC_MALL_URL，跳过公网冒烟"
+            exit 0
+          fi
+          body=$(curl -fsS --max-time 10 "$PUBLIC_MALL_URL/api/home")
+          echo "$body" | jq -e '.code == 0' >/dev/null
+          if [ -n "$PUBLIC_ADMIN_URL" ]; then
+            curl -fsS -o /dev/null --max-time 10 "$PUBLIC_ADMIN_URL/"
+          fi
+          echo "公网冒烟通过"
+
+      - name: 生成部署摘要
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          mkdir -p ci-summary
+          jq -n \
+            --arg status "$JOB_STATUS" \
+            --arg environment "${{ inputs.environment }}" \
+            --arg ref "${{ inputs.ref }}" \
+            --arg rollback "${{ inputs.rollback }}" \
+            --arg sha "${GITHUB_SHA::8}" \
+            '{status:$status,environment:$environment,ref:$ref,rollback:($rollback=="true"),commit:$sha}' \
+            > ci-summary/summary.json
+
+      - name: 上传部署摘要
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-summary
+          path: ci-summary/summary.json
+          retention-days: 7
+
+  notify:
+    if: always() && (github.event_name != 'workflow_dispatch' || inputs.notify)
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 下载部署摘要
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: deploy-summary
+          path: ci-summary
+
+      - name: 飞书通知
+        continue-on-error: true
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
+          FEISHU_STATUS: ${{ needs.deploy.result }}
+          FEISHU_TITLE: "尚品汇腾讯云部署"
+          FEISHU_PROJECT: "shang-pivot"
+          FEISHU_WORKFLOW: "deploy-tencent"
+          FEISHU_BRANCH: ${{ inputs.ref }}
+          FEISHU_COMMIT: ${{ github.sha }}
+          FEISHU_ACTOR: ${{ github.actor }}
+          FEISHU_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          FEISHU_SUMMARY_FILE: ci-summary/summary.json
+          FEISHU_DETAILS: "环境=${{ inputs.environment }}；回滚=${{ inputs.rollback }}"
+        run: python3 scripts/ci/feishu_notify.py
