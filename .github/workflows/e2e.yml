@@ -2,7 +2,7 @@ name: e2e
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, automation-ci]
   pull_request:
   schedule:
     # 01:00 Asia/Shanghai（UTC 17:00）
