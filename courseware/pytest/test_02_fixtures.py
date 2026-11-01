@@ -10,11 +10,13 @@ def test_customer_profile(api, customer):
     assert body["data"]["status"] == "NORMAL"
 
 
-def test_another_customer_is_isolated(api, customer, unique_phone):
+def test_another_customer_is_isolated(api, customer):
+    other_phone = "137" + customer["phone"][-8:]
     login = api.post(f"{BASE_URL}/api/auth/login", json={
-        "phone": unique_phone, "code": "123456", "clientType": "web"
+        "phone": other_phone, "code": "123456", "clientType": "web"
     }, timeout=10).json()
     other = login["data"]["accessToken"]
     me = api.get(f"{BASE_URL}/api/me", headers={"Authorization": f"Bearer {other}"}, timeout=10).json()
-    assert me["data"]["phone"].endswith(unique_phone[-4:])
-    assert me["data"]["phone"] != customer["phone"]
+    mine = api.get(f"{BASE_URL}/api/me", headers=customer["headers"], timeout=10).json()
+    assert me["data"]["phone"].endswith(other_phone[-4:])
+    assert me["data"]["phone"] != mine["data"]["phone"]
