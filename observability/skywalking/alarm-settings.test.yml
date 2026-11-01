@@ -1,0 +1,15 @@
+# 课堂/联调用的临时告警规则：任意服务有指标就触发。
+# 部署时临时替换 /opt/skywalking/alarm-settings.yml，验证后恢复正式规则。
+rules:
+  manual_alarm_test_rule:
+    expression: sum(service_resp_time >= 0) >= 1
+    period: 1
+    silence-period: 1
+    message: "手工告警测试：服务 {name} 已触发 SkyWalking 告警"
+
+hooks:
+  webhook:
+    default:
+      is-default: true
+      urls:
+        - http://host.docker.internal:18080/alarm

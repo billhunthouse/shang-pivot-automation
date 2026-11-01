@@ -1,0 +1,8 @@
+/var/log/skywalking-alarm/*.jsonl {
+    daily
+    rotate 14
+    compress
+    missingok
+    notifempty
+    copytruncate
+}

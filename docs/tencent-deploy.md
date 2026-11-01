@@ -11,7 +11,11 @@
 | 商城 C 端 | http://49.233.135.247:60084/ | 200 |
 | 管理端 | http://49.233.135.247:60085/ | 200 |
 | 商城 API（nginx 反代） | http://49.233.135.247:60084/api/home | 200 |
+| 禅道 22.6 | http://49.233.135.247:60084/zentao/ | 302 → 登录页 |
+| SkyWalking UI | http://49.233.135.247:60084/skywalking/ | 200，HTTP Basic Auth |
 | 原 Moodle | http://49.233.135.247/（80） | 200，未改动 |
+
+> 禅道与 SkyWalking 的部署细节、凭证位置、链路验证见 [tencent-ops-stack.md](tencent-ops-stack.md)。
 
 ![商城首页](tencent-deploy/mall-home.png)
 
@@ -186,6 +190,12 @@ ssh shangpivot-tencent 'curl -s http://127.0.0.1:8087/actuator/health'
 10. 没有飞书真实通知（Webhook 未提供）。
 11. 前端 admin bundle 868KB，建议 code split。
 12. 商品图片是 WebP 但扩展名 `.jpg`，不影响显示，建议统一 MIME。
+13. SkyWalking UI 走 `/skywalking/` 子路径时需要修补前端路由 base；升级 UI 镜像后要重新处理，详见 [tencent-ops-stack.md](tencent-ops-stack.md)。
+14. 禅道与 SkyWalking 均已部署，但没有接告警；SkyWalking Alarm 未配置，禅道 Bug 也还没有由 CI 自动创建。
+
+## 9. 禅道与全链路监控
+
+见 [tencent-ops-stack.md](tencent-ops-stack.md)：禅道 22.6 + 内置 MariaDB、SkyWalking 10.2 + PostgreSQL、Java Agent 9.5.0、HTTP/SQL 链路、Nginx 路径分流、凭证与安全。
 
 ## 8. 凭证撤销
 

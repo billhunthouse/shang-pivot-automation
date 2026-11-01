@@ -1,11 +1,12 @@
 # 尚品汇自动化测试课件
 
-两套可运行课件，全部基于当前电商项目真实接口与数据：
+三套可运行课件，全部基于当前电商项目真实接口与数据：
 
 | 课件 | 文档 | 脚本 | 已验证结果 |
 |---|---|---|---|
 | Pytest | [01-Pytest自动化测试课件.md](01-Pytest自动化测试课件.md) | [`pytest/`](pytest/) | 22 passed |
 | Java Cucumber + Allure | [02-Java-Cucumber课件.md](02-Java-Cucumber课件.md) | [`../automation/src/test/resources/features/courseware/`](../automation/src/test/resources/features/courseware/) | 11 passed |
+| SkyWalking 全链路监控 | [03-SkyWalking全链路监控课件.md](03-SkyWalking全链路监控课件.md) | [`../observability/skywalking/`](../observability/skywalking/)、[`../scripts/observability/`](../scripts/observability/) | 服务/HTTP/SQL/JVM/告警通道已验证 |
 
 ## 一、启动环境
 
@@ -114,3 +115,35 @@ mvn test -Dcucumber.filter.tags="@courseware and @e2e"
 2. 再跑 Java Cucumber 11 条，理解 BDD 分层；
 3. 对照 `docs/CI-CD-面试题与实战解析.md` 的流水线章节；
 4. 最后把课件脚本接进自己的 GitHub Actions 练习。
+
+## 七、SkyWalking 全链路监控课件
+
+课件：[03-SkyWalking全链路监控课件.md](03-SkyWalking全链路监控课件.md)  
+手册：[../docs/SkyWalking运维手册.md](../docs/SkyWalking运维手册.md)
+
+不要求本地启动整套监控，直接在已部署的腾讯云环境练习：
+
+```bash
+# SkyWalking UI
+open http://49.233.135.247:60084/skywalking/
+
+# 链路查询（在服务器上执行）
+python3 /opt/skywalking/skywalking-query.py \
+  --service shang-pivot --minutes 30 --endpoint /api/home
+
+# 告警接收器
+curl -s http://172.17.0.1:18080/health
+tail -f /var/log/skywalking-alarm/alarms.jsonl
+```
+
+课件覆盖：
+
+1. Trace/Span/Segment/Endpoint/Instance 基础；
+2. SkyWalking 架构与 Agent 接入；
+3. 服务/实例/端点/JVM 指标；
+4. 从告警到 SQL 的七步排查法；
+5. 首页慢、登录慢、连接池、GC 四个案例；
+6. 慢 SQL 阈值与 SQL 参数；
+7. 告警规则/Webhook/Runbook；
+8. 系统级监控缺口与补齐路线；
+9. Lab 1–7 实验手册。
