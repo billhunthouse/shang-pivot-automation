@@ -119,8 +119,8 @@ fi
 echo "  服务已就绪：$(systemctl is-active "$SVC")（重启计数 $(systemctl show "$SVC" -p NRestarts --value)）"
 echo "  版本标识：$(cat "$BASE/current/REVISION")"
 echo "  端口监听数：$(ss -lnt | grep -cE ':8086|:8087')"
-curl -s -o /dev/null -w "  内网 /api/home -> %{http_code}\n" -m 8 http://127.0.0.1:8090/api/home
-curl -s -o /dev/null -w "  管理端首页 -> %{http_code}\n" -m 8 http://127.0.0.1:8091/
+curl -s -o /dev/null -w "  内网 /api/home -> %{http_code}\n" -m 8 http://127.0.0.1:60084/api/home
+curl -s -o /dev/null -w "  管理端首页 -> %{http_code}\n" -m 8 http://127.0.0.1:60085/
 REMOTE
 
 cat <<EOF

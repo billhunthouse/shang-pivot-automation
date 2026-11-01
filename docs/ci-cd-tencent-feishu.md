@@ -1,5 +1,15 @@
 # 腾讯云部署 + GitHub Actions + 飞书通知
 
+## 0. 2026-11-01 实际部署结果
+
+- 服务器：腾讯云轻量 `lhins-0lfp6s8w`，Debian 13，4C8G，`49.233.135.247`
+- 商城：http://49.233.135.247:60084/
+- 管理端：http://49.233.135.247:60085/
+- 后端：`/opt/shang-pivot/current/app.jar`，systemd `shang-pivot`
+- 依赖：PostgreSQL 17、Redis 8、RabbitMQ、MinIO（商品图）
+- 验证：商城/管理端 200，会员/管理员登录成功，商品图 200，Moodle 80 未受影响
+- 详细记录：[`docs/tencent-deploy.md`](tencent-deploy.md)
+
 ## 1. 结论先说
 
 代码侧已经补齐：GitHub Actions 定时/手动触发、测试摘要、飞书卡片通知、腾讯云部署工作流（含审批、健康检查、回滚）。
@@ -8,7 +18,7 @@
 
 | 阻塞项 | 现状 | 需要你提供 |
 |--------|------|------------|
-| 腾讯云服务器 | `49.233.135.247:22` 开放，但现有密钥被拒；80 开放、443 关闭 | 把部署公钥加到服务器；确认 SSH 用户 |
+| 腾讯云服务器 | 已部署：`49.233.135.247:60084`（商城）、`:60085`（管理端），SSH root 密钥已配置；Moodle 80 未动 | ✅ 已完成，见 `docs/tencent-deploy.md` |
 | GitHub 仓库 | PAT 属于 `billhunthouse`，读取正常，但创建分支/文件、触发 workflow、push 均 403（Token 无 Contents/Workflows/Actions 写权限）；HTTPS 经代理可通 | 换有 `Contents: Read and write` + `Workflows: Read and write` + `Actions: Read and write` 的 PAT，或把 SSH 公钥加到 GitHub |
 | 飞书机器人 | 浏览器停在飞书登录页，无法读取你的会话 | 从飞书群机器人复制 Webhook（和 Secret） |
 
@@ -242,7 +252,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5ZCcS7s7nRWP8e8aTavAD2KgsOsZRjDpdTBSq0Q0UY
 
 ### 10.3 操作顺序
 
-1. 把腾讯云公钥加到服务器，确认 `ssh -i ~/.ssh/tencent_deploy <user>@49.233.135.247` 可登录。
+1. 腾讯云已完成部署；SSH 已用 `/root/.ssh/authorized_keys` + 本地 `~/.ssh/tencent_deploy` 打通。
 2. 把 GitHub 公钥加到 GitHub，或用 “Import repository” 导入 `https://gitee.com/simon6wu/shang-pivot-automation`（该镜像包含 `3eb03b6` 的 CI）。
 3. 飞书群 → 群机器人 → 自定义机器人 → 复制 Webhook/Secret。
 4. 在 GitHub 添加第 4 节 Secrets。
