@@ -43,6 +43,7 @@ ssh shangpivot-tencent 'cat /opt/skywalking/ui-password'
 | 告警规则 | 挂载进 OAP | - | `/opt/skywalking/alarm-settings.yml` |
 | 告警接收器 | `skywalking-alarm-webhook` | 172.17.0.1:18080 | `/opt/skywalking/alarm-webhook.py` |
 | 告警日志 | - | - | `/var/log/skywalking-alarm/alarms.jsonl` |
+| 函数级追踪 | Agent optional plugin | - | `/opt/skywalking/customize_enhance.xml` + `agent.config` |
 | 存储 | PostgreSQL `skywalking` 库 | 5432 | 表按天分区 |
 
 systemd drop-in：`/etc/systemd/system/shang-pivot.service.d/skywalking.conf`
@@ -158,6 +159,27 @@ Agent 侧：
 
 注意：这是 **客户端视角**，不是 PostgreSQL/Redis 服务端指标。服务端连接数、慢查询、缓存命中率需要 exporter，见第 11 节。
 
+### 5.5 函数级业务 Span（customize-enhance）
+
+Agent 默认只在 HTTP、JDBC 等边界生成 Span。当前通过 optional plugin
+`apm-customize-enhance-plugin` + `/opt/skywalking/customize_enhance.xml` 显式追踪业务方法：
+
+```text
+Entry Tomcat GET:/api/home
+└─ Local Unknown StorefrontController.home
+   └─ Local Unknown CatalogReadService.home
+      ├─ Local Unknown SiteBrandService.get
+      ├─ Local Unknown HomeSlotService.listForStorefront
+      ├─ Local Unknown SystemConfigApiImpl.getValue
+      └─ Local Unknown CatalogReadService.productPage
+         └─ Local Unknown CatalogReadService.toCard ×20
+```
+
+- `Local Unknown` 是 customize-enhance 生成的本地 Span，属正常现象；
+- 函数 Span 的耗时为“包含子 Span”的总耗时，自身耗时 = 本 Span − 子 Span 之和；
+- 规则文件仓库路径：`observability/skywalking/customize_enhance.xml`；
+- 新增方法后需同步 XML，并重启 `shang-pivot` 生效。
+
 ## 6. 一步步排查方法
 
 ### 6.1 总流程
@@ -168,7 +190,7 @@ Agent 侧：
   → 实例指标（是不是单实例/JVM/GC）
   → 端点 TopN（是哪个接口）
   → Trace（一次请求的完整 span）
-  → Span 下钻（Tomcat → HikariCP → JDBC/Redis）
+  → Span 下钻（Tomcat → Controller/Service → HikariCP → JDBC/Redis）
   → SQL/下游/日志确认
   → 止损 → 验证恢复 → 复盘
 ```
@@ -390,6 +412,7 @@ python3 /opt/skywalking/skywalking-query.py \
 ### 11.1 已有
 
 - HTTP/Trace/SQL/Redis Span；
+- Controller/Service 业务方法级 Local Span（customize-enhance）；
 - 服务、实例、端点 RED 指标；
 - JVM CPU/Heap/Thread/GC；
 - 服务拓扑；
@@ -444,7 +467,9 @@ sudo -u postgres pg_dump -Fc skywalking > /var/backups/skywalking-$(date +%F).du
 3. 更新 systemd drop-in 的 `-javaagent` 路径；
 4. `systemctl daemon-reload && systemctl restart shang-pivot`；
 5. 验证 `actuator/health`、UI 服务列表、Trace；
-6. 失败回滚旧 Agent 路径。
+6. 升级后重新复制 `apm-customize-enhance-plugin-9.5.0.jar` 到 `plugins/`，并确认 `agent.config`
+   仍有 `plugin.customize.enhance_file=/opt/skywalking/customize_enhance.xml`，否则函数级 Span 会消失；
+7. 失败回滚旧 Agent 路径。
 
 ### 12.3 OAP/UI 升级
 

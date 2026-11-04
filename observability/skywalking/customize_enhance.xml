@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SkyWalking customize-enhance 规则：显式追踪 C 端浏览/购物车关键方法。
+  规则文件部署到 /opt/skywalking/customize_enhance.xml，并在 agent.config 中设置：
+    plugin.customize.enhance_file=/opt/skywalking/customize_enhance.xml
+  方法签名必须是完整参数类型；改方法签名后同步本文件。
+-->
+<enhanced>
+    <class class_name="com.shangpivot.commerce.controller.StorefrontController">
+        <method method="brand()" operation_name="StorefrontController.brand" static="false"/>
+        <method method="home(int)" operation_name="StorefrontController.home" static="false">
+            <tag key="feedSize">arg[0]</tag>
+        </method>
+        <method method="categories()" operation_name="StorefrontController.categories" static="false"/>
+        <method method="products(java.lang.Long,int,int,java.lang.String)" operation_name="StorefrontController.products" static="false">
+            <tag key="categoryId">arg[0]</tag>
+            <tag key="page">arg[1]</tag>
+            <tag key="size">arg[2]</tag>
+        </method>
+        <method method="productDetail(java.lang.Long)" operation_name="StorefrontController.productDetail" static="false">
+            <tag key="spuId">arg[0]</tag>
+        </method>
+        <method method="search(java.lang.String,int,int)" operation_name="StorefrontController.search" static="false">
+            <tag key="page">arg[1]</tag>
+            <tag key="size">arg[2]</tag>
+        </method>
+        <method method="cart()" operation_name="StorefrontController.cart" static="false"/>
+        <method method="addCart(java.util.Map)" operation_name="StorefrontController.addCart" static="false"/>
+    </class>
+
+    <class class_name="com.shangpivot.commerce.application.CatalogReadService">
+        <method method="home(int)" operation_name="CatalogReadService.home" static="false"/>
+        <method method="categories()" operation_name="CatalogReadService.categories" static="false"/>
+        <method method="productPage(java.lang.Long,int,int,java.lang.String)" operation_name="CatalogReadService.productPage" static="false"/>
+        <method method="search(java.lang.String,int,int)" operation_name="CatalogReadService.search" static="false"/>
+        <method method="detail(java.lang.Long)" operation_name="CatalogReadService.detail" static="false"/>
+        <method method="toCard(com.shangpivot.commerce.entity.Spu)" operation_name="CatalogReadService.toCard" static="false"/>
+    </class>
+
+    <class class_name="com.shangpivot.commerce.application.SiteBrandService">
+        <method method="get()" operation_name="SiteBrandService.get" static="false"/>
+    </class>
+
+    <class class_name="com.shangpivot.commerce.application.HomeSlotService">
+        <method method="listForStorefront()" operation_name="HomeSlotService.listForStorefront" static="false"/>
+    </class>
+
+    <class class_name="com.shangpivot.commerce.application.CartService">
+        <method method="getCart()" operation_name="CartService.getCart" static="false"/>
+        <method method="addItem(java.lang.Long,int)" operation_name="CartService.addItem" static="false">
+            <tag key="skuId">arg[0]</tag>
+            <tag key="quantity">arg[1]</tag>
+        </method>
+    </class>
+
+    <class class_name="com.shangpivot.identity.application.SystemConfigApiImpl">
+        <method method="getValue(java.lang.String,java.lang.String)" operation_name="SystemConfigApiImpl.getValue" static="false">
+            <tag key="configKey">arg[0]</tag>
+        </method>
+    </class>
+</enhanced>
