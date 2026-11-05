@@ -4,6 +4,8 @@
 > **文档位置说明**：本上下文即本工程的 AI 产品层（V3.0 智能客服），故设计文档归入 `docs/03-ai/`；identity / commerce 的技术细节见 `docs/04-architecture/`（`v1.0/`、`v2.0/`、`adr/`）。三者仍为 ADR-0001 定义的平行上下文。V3.0 PRD 产出后按 `docs/01-requirements/_template-PRD.md` 生成，本文档为其 §15（AI 功能需求）与开发设计的技术基线。
 >
 > **版本纪律**：本文属于 **V3.0**，尚未实现。V1.0 / V2.0 的文档、原型与代码中**不得出现**本上下文的概念（客服入口、会话、坐席、工单、知识库等）——包括配置项与「占位入口」。落地 V3.0 时按 `00-product/roadmap.md` 新建 `PRD-V3.0-*.md`、`02-design/v3.0/`、`04-architecture/v3.0/`。
+>
+> **落地规划**：子 Agent、主 Agent 协议、Tool Gateway、模型数据与分阶段路线见 [Agent 与子 Agent 技术规划](Agent与子Agent技术规划.md)。
 
 ## 1. 边界与职责
 

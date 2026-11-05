@@ -1,0 +1,1190 @@
+{
+  "llm": "deepseek-flash",
+  "metrics": {
+    "total": 8,
+    "intent_accuracy": 1.0,
+    "agent_accuracy": 1.0,
+    "status_accuracy": 1.0,
+    "tool_accuracy": 1.0,
+    "answer_fact_accuracy": 1.0,
+    "trace_coverage": 1.0,
+    "avg_latency_ms": 2105.068,
+    "case_pass_rate": 1.0
+  },
+  "results": [
+    {
+      "case_id": "EVAL-SHOP-001",
+      "message": "帮我找一顶露营帐篷",
+      "run_id": "run_05fea57953414ed0a55fabd6578dd817",
+      "trace_id": "trace_0c8196f765034797a8a4bb53263bda72",
+      "actual_intent": "shopping",
+      "expected_intent": "shopping",
+      "intent_ok": true,
+      "actual_agent": "ShoppingGuideAgent",
+      "expected_agent": "ShoppingGuideAgent",
+      "agent_ok": true,
+      "actual_status": "ok",
+      "expected_status": "ok",
+      "status_ok": true,
+      "tools": [
+        "searchProducts"
+      ],
+      "expected_tool": "searchProducts",
+      "tool_ok": true,
+      "answer_facts": [
+        "帐篷"
+      ],
+      "answer_any": [],
+      "answer": "为您找到一款：**轻量徒步帐篷**（SPU：101），价格 **¥399–499**。需要我帮您查看详情或下单吗？",
+      "fact_ok": true,
+      "latency_ms": 2230.661,
+      "trace_llm_calls": 2,
+      "trace_tool_calls": 1,
+      "trace": {
+        "run_id": "run_05fea57953414ed0a55fabd6578dd817",
+        "trace_id": "trace_0c8196f765034797a8a4bb53263bda72",
+        "session_id": "eval-EVAL-SHOP-001",
+        "customer_id": null,
+        "channel": "web_mall",
+        "message": "帮我找一顶露营帐篷",
+        "started_at": "2026-11-05T12:09:17.702+00:00",
+        "finished_at": "2026-11-05T12:09:19.932+00:00",
+        "intent": "shopping",
+        "agent": "ShoppingGuideAgent",
+        "status": "ok",
+        "answer": "为您找到一款：**轻量徒步帐篷**（SPU：101），价格 **¥399–499**。需要我帮您查看详情或下单吗？",
+        "error": null,
+        "steps": [
+          {
+            "name": "chain_start:route",
+            "status": "running",
+            "at": "2026-11-05T12:09:17.709+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:route_to_agent",
+            "status": "running",
+            "at": "2026-11-05T12:09:18.335+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:18.335+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:18.336+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:shopping",
+            "status": "running",
+            "at": "2026-11-05T12:09:18.340+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:19.930+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:finalize",
+            "status": "running",
+            "at": "2026-11-05T12:09:19.931+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:19.932+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:19.932+00:00",
+            "detail": null
+          }
+        ],
+        "llm_calls": [
+          {
+            "node": "route",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商意图路由器。只输出一个 JSON 对象，不要解释。\nintent 只能是：shopping | order_status | after_sale | knowledge | handoff。\n判定优先级：\n1. 投诉、要求转人工 -> handoff\n2. 明确要发起退货、换货、退款申请或售后 -> after_sale\n3. 查询自己的订单、物流、发货进度 -> order_status\n4. 找商品、推荐商品、购买商品 -> shopping\n5. 咨询政策、规则、时效、发票、退款到账、流程 -> knowledge\n示例：\n用户：帮我找一顶露营帐篷 -> {\"intent\":\"shopping\",\"confidence\":0.97}\n用户：我的订单到哪了？ -> {\"intent\":\"order_status\",\"confidence\":0.96}\n用户：鞋不合脚，想退货 -> {\"intent\":\"after_sale\",\"confidence\":0.95}\n用户：退款一般多久到账？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：支持开票吗？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：我要投诉，转人工 -> {\"intent\":\"handoff\",\"confidence\":0.98}\n用户：帮我找一顶露营帐篷",
+            "response": "{\"intent\":\"shopping\",\"confidence\":0.97}",
+            "input_tokens": 289,
+            "output_tokens": 14,
+            "latency_ms": 623.342,
+            "at": "2026-11-05T12:09:18.334+00:00"
+          },
+          {
+            "node": "ShoppingGuideAgent",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商客服。只根据给定事实回答；不确定时建议转人工。\n用户想购物：帮我找一顶露营帐篷\n工具结果：[{\"spuId\": \"101\", \"name\": \"轻量徒步帐篷\", \"price\": 399, \"priceMax\": 499}, {\"spuId\": \"102\", \"name\": \"通勤跑鞋\", \"price\": 299, \"priceMax\": null}]\n请用简洁中文回答。",
+            "response": "为您找到一款：**轻量徒步帐篷**（SPU：101），价格 **¥399–499**。需要我帮您查看详情或下单吗？",
+            "input_tokens": 129,
+            "output_tokens": 154,
+            "latency_ms": 1588.76,
+            "at": "2026-11-05T12:09:19.930+00:00"
+          }
+        ],
+        "tool_calls": [
+          {
+            "name": "searchProducts",
+            "args": {
+              "query": "帮我找一顶露营帐篷",
+              "limit": 3
+            },
+            "result": [
+              {
+                "spuId": "101",
+                "name": "轻量徒步帐篷",
+                "price": 399,
+                "priceMax": 499
+              },
+              {
+                "spuId": "102",
+                "name": "通勤跑鞋",
+                "price": 299,
+                "priceMax": null
+              }
+            ],
+            "status": "ok",
+            "latency_ms": 8.0,
+            "at": "2026-11-05T12:09:18.340+00:00"
+          }
+        ],
+        "retrievals": [],
+        "latency_ms": 2230.661
+      }
+    },
+    {
+      "case_id": "EVAL-ORDER-001",
+      "message": "我的订单到哪了？",
+      "run_id": "run_8b5b4298163f4eef806de457980fd007",
+      "trace_id": "trace_6d870c4ec7494859ac3d760974162f1d",
+      "actual_intent": "order_status",
+      "expected_intent": "order_status",
+      "intent_ok": true,
+      "actual_agent": "OrderAgent",
+      "expected_agent": "OrderAgent",
+      "agent_ok": true,
+      "actual_status": "ok",
+      "expected_status": "ok",
+      "status_ok": true,
+      "tools": [
+        "getOrders"
+      ],
+      "expected_tool": "getOrders",
+      "tool_ok": true,
+      "answer_facts": [
+        "O202611050001"
+      ],
+      "answer_any": [],
+      "answer": "您的订单 **O202611050001** 目前状态是**待付款**，金额为 399 元，因此暂时还没有发货，也没有物流信息可以查询。请您先完成支付；支付后商家会安排发货，届时就可以查看物流进展了。如需进一步帮助，建议转人工客服。",
+      "fact_ok": true,
+      "latency_ms": 2680.403,
+      "trace_llm_calls": 2,
+      "trace_tool_calls": 1,
+      "trace": {
+        "run_id": "run_8b5b4298163f4eef806de457980fd007",
+        "trace_id": "trace_6d870c4ec7494859ac3d760974162f1d",
+        "session_id": "eval-EVAL-ORDER-001",
+        "customer_id": null,
+        "channel": "web_mall",
+        "message": "我的订单到哪了？",
+        "started_at": "2026-11-05T12:09:19.933+00:00",
+        "finished_at": "2026-11-05T12:09:22.613+00:00",
+        "intent": "order_status",
+        "agent": "OrderAgent",
+        "status": "ok",
+        "answer": "您的订单 **O202611050001** 目前状态是**待付款**，金额为 399 元，因此暂时还没有发货，也没有物流信息可以查询。请您先完成支付；支付后商家会安排发货，届时就可以查看物流进展了。如需进一步帮助，建议转人工客服。",
+        "error": null,
+        "steps": [
+          {
+            "name": "chain_start:route",
+            "status": "running",
+            "at": "2026-11-05T12:09:19.934+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:route_to_agent",
+            "status": "running",
+            "at": "2026-11-05T12:09:20.889+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:20.890+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:20.890+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:order_status",
+            "status": "running",
+            "at": "2026-11-05T12:09:20.891+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:22.612+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:finalize",
+            "status": "running",
+            "at": "2026-11-05T12:09:22.612+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:22.613+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:22.613+00:00",
+            "detail": null
+          }
+        ],
+        "llm_calls": [
+          {
+            "node": "route",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商意图路由器。只输出一个 JSON 对象，不要解释。\nintent 只能是：shopping | order_status | after_sale | knowledge | handoff。\n判定优先级：\n1. 投诉、要求转人工 -> handoff\n2. 明确要发起退货、换货、退款申请或售后 -> after_sale\n3. 查询自己的订单、物流、发货进度 -> order_status\n4. 找商品、推荐商品、购买商品 -> shopping\n5. 咨询政策、规则、时效、发票、退款到账、流程 -> knowledge\n示例：\n用户：帮我找一顶露营帐篷 -> {\"intent\":\"shopping\",\"confidence\":0.97}\n用户：我的订单到哪了？ -> {\"intent\":\"order_status\",\"confidence\":0.96}\n用户：鞋不合脚，想退货 -> {\"intent\":\"after_sale\",\"confidence\":0.95}\n用户：退款一般多久到账？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：支持开票吗？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：我要投诉，转人工 -> {\"intent\":\"handoff\",\"confidence\":0.98}\n用户：我的订单到哪了？",
+            "response": "{\"intent\":\"order_status\",\"confidence\":0.96}",
+            "input_tokens": 289,
+            "output_tokens": 24,
+            "latency_ms": 953.361,
+            "at": "2026-11-05T12:09:20.888+00:00"
+          },
+          {
+            "node": "OrderAgent",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商客服。只根据给定事实回答；不确定时建议转人工。\n用户问订单/物流：我的订单到哪了？\n订单工具结果：[{\"orderId\": \"1\", \"orderNo\": \"O202611050001\", \"status\": \"PENDING_PAY\", \"payAmount\": 399}]\n请回答并保留订单号。",
+            "response": "您的订单 **O202611050001** 目前状态是**待付款**，金额为 399 元，因此暂时还没有发货，也没有物流信息可以查询。请您先完成支付；支付后商家会安排发货，届时就可以查看物流进展了。如需进一步帮助，建议转人工客服。",
+            "input_tokens": 107,
+            "output_tokens": 125,
+            "latency_ms": 1719.595,
+            "at": "2026-11-05T12:09:22.611+00:00"
+          }
+        ],
+        "tool_calls": [
+          {
+            "name": "getOrders",
+            "args": {
+              "hasToken": true,
+              "limit": 5
+            },
+            "result": [
+              {
+                "orderId": "1",
+                "orderNo": "O202611050001",
+                "status": "PENDING_PAY",
+                "payAmount": 399
+              }
+            ],
+            "status": "ok",
+            "latency_ms": 6.0,
+            "at": "2026-11-05T12:09:20.891+00:00"
+          }
+        ],
+        "retrievals": [],
+        "latency_ms": 2680.403
+      }
+    },
+    {
+      "case_id": "EVAL-ORDER-002",
+      "message": "查一下我的订单",
+      "run_id": "run_f13dd3f191d4447491164b0597f4f0af",
+      "trace_id": "trace_799316f3ea3c475e8ad5f56cd2702581",
+      "actual_intent": "order_status",
+      "expected_intent": "order_status",
+      "intent_ok": true,
+      "actual_agent": "OrderAgent",
+      "expected_agent": "OrderAgent",
+      "agent_ok": true,
+      "actual_status": "need_auth",
+      "expected_status": "need_auth",
+      "status_ok": true,
+      "tools": [],
+      "expected_tool": null,
+      "tool_ok": true,
+      "answer_facts": [],
+      "answer_any": [],
+      "answer": "查订单需要先登录。你可以在商城登录后再问我，或者我帮你转人工。",
+      "fact_ok": true,
+      "latency_ms": 681.117,
+      "trace_llm_calls": 1,
+      "trace_tool_calls": 0,
+      "trace": {
+        "run_id": "run_f13dd3f191d4447491164b0597f4f0af",
+        "trace_id": "trace_799316f3ea3c475e8ad5f56cd2702581",
+        "session_id": "eval-EVAL-ORDER-002",
+        "customer_id": null,
+        "channel": "web_mall",
+        "message": "查一下我的订单",
+        "started_at": "2026-11-05T12:09:22.614+00:00",
+        "finished_at": "2026-11-05T12:09:23.295+00:00",
+        "intent": "order_status",
+        "agent": "OrderAgent",
+        "status": "need_auth",
+        "answer": "查订单需要先登录。你可以在商城登录后再问我，或者我帮你转人工。",
+        "error": null,
+        "steps": [
+          {
+            "name": "chain_start:route",
+            "status": "running",
+            "at": "2026-11-05T12:09:22.616+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:route_to_agent",
+            "status": "running",
+            "at": "2026-11-05T12:09:23.291+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:23.292+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:23.292+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:order_status",
+            "status": "running",
+            "at": "2026-11-05T12:09:23.293+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:23.293+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:finalize",
+            "status": "running",
+            "at": "2026-11-05T12:09:23.294+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:23.294+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:23.295+00:00",
+            "detail": null
+          }
+        ],
+        "llm_calls": [
+          {
+            "node": "route",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商意图路由器。只输出一个 JSON 对象，不要解释。\nintent 只能是：shopping | order_status | after_sale | knowledge | handoff。\n判定优先级：\n1. 投诉、要求转人工 -> handoff\n2. 明确要发起退货、换货、退款申请或售后 -> after_sale\n3. 查询自己的订单、物流、发货进度 -> order_status\n4. 找商品、推荐商品、购买商品 -> shopping\n5. 咨询政策、规则、时效、发票、退款到账、流程 -> knowledge\n示例：\n用户：帮我找一顶露营帐篷 -> {\"intent\":\"shopping\",\"confidence\":0.97}\n用户：我的订单到哪了？ -> {\"intent\":\"order_status\",\"confidence\":0.96}\n用户：鞋不合脚，想退货 -> {\"intent\":\"after_sale\",\"confidence\":0.95}\n用户：退款一般多久到账？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：支持开票吗？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：我要投诉，转人工 -> {\"intent\":\"handoff\",\"confidence\":0.98}\n用户：查一下我的订单",
+            "response": "{\"intent\":\"order_status\",\"confidence\":0.96}",
+            "input_tokens": 287,
+            "output_tokens": 21,
+            "latency_ms": 673.645,
+            "at": "2026-11-05T12:09:23.291+00:00"
+          }
+        ],
+        "tool_calls": [],
+        "retrievals": [],
+        "latency_ms": 681.117
+      }
+    },
+    {
+      "case_id": "EVAL-AFTER-001",
+      "message": "鞋不合脚，想退货",
+      "run_id": "run_9c322b954f3b472598b1b871428fd37f",
+      "trace_id": "trace_c3b8a512182242b68e4b47acabcd885e",
+      "actual_intent": "after_sale",
+      "expected_intent": "after_sale",
+      "intent_ok": true,
+      "actual_agent": "AfterSaleAgent",
+      "expected_agent": "AfterSaleAgent",
+      "agent_ok": true,
+      "actual_status": "need_confirmation",
+      "expected_status": "need_confirmation",
+      "status_ok": true,
+      "tools": [
+        "searchFaq",
+        "getAfterSales"
+      ],
+      "expected_tool": "searchFaq",
+      "tool_ok": true,
+      "answer_facts": [
+        "7 天",
+        "确认"
+      ],
+      "answer_any": [],
+      "answer": "您好，关于鞋不合脚的退货：\n\n- 签收后 **7 天内**可申请无理由退货；\n- 商品需保持**完好**；\n- **定制商品**和**已拆封的贴身用品**不支持无理由退货。\n\n系统显示您有一笔退货申请处于**待处理**状态，原因填写为“不合脚”。请您确认是否继续处理该退货申请；**确认后我们才能为您创建/推进售后**。如鞋子属于定制或已拆封贴身用品等特殊情形，建议转人工进一步核实。",
+      "fact_ok": true,
+      "latency_ms": 3473.384,
+      "trace_llm_calls": 2,
+      "trace_tool_calls": 2,
+      "trace": {
+        "run_id": "run_9c322b954f3b472598b1b871428fd37f",
+        "trace_id": "trace_c3b8a512182242b68e4b47acabcd885e",
+        "session_id": "eval-EVAL-AFTER-001",
+        "customer_id": null,
+        "channel": "web_mall",
+        "message": "鞋不合脚，想退货",
+        "started_at": "2026-11-05T12:09:23.296+00:00",
+        "finished_at": "2026-11-05T12:09:26.769+00:00",
+        "intent": "after_sale",
+        "agent": "AfterSaleAgent",
+        "status": "need_confirmation",
+        "answer": "您好，关于鞋不合脚的退货：\n\n- 签收后 **7 天内**可申请无理由退货；\n- 商品需保持**完好**；\n- **定制商品**和**已拆封的贴身用品**不支持无理由退货。\n\n系统显示您有一笔退货申请处于**待处理**状态，原因填写为“不合脚”。请您确认是否继续处理该退货申请；**确认后我们才能为您创建/推进售后**。如鞋子属于定制或已拆封贴身用品等特殊情形，建议转人工进一步核实。",
+        "error": null,
+        "steps": [
+          {
+            "name": "chain_start:route",
+            "status": "running",
+            "at": "2026-11-05T12:09:23.298+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:route_to_agent",
+            "status": "running",
+            "at": "2026-11-05T12:09:24.283+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:24.284+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:24.284+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:after_sale",
+            "status": "running",
+            "at": "2026-11-05T12:09:24.285+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:26.766+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:finalize",
+            "status": "running",
+            "at": "2026-11-05T12:09:26.767+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:26.768+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:26.769+00:00",
+            "detail": null
+          }
+        ],
+        "llm_calls": [
+          {
+            "node": "route",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商意图路由器。只输出一个 JSON 对象，不要解释。\nintent 只能是：shopping | order_status | after_sale | knowledge | handoff。\n判定优先级：\n1. 投诉、要求转人工 -> handoff\n2. 明确要发起退货、换货、退款申请或售后 -> after_sale\n3. 查询自己的订单、物流、发货进度 -> order_status\n4. 找商品、推荐商品、购买商品 -> shopping\n5. 咨询政策、规则、时效、发票、退款到账、流程 -> knowledge\n示例：\n用户：帮我找一顶露营帐篷 -> {\"intent\":\"shopping\",\"confidence\":0.97}\n用户：我的订单到哪了？ -> {\"intent\":\"order_status\",\"confidence\":0.96}\n用户：鞋不合脚，想退货 -> {\"intent\":\"after_sale\",\"confidence\":0.95}\n用户：退款一般多久到账？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：支持开票吗？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：我要投诉，转人工 -> {\"intent\":\"handoff\",\"confidence\":0.98}\n用户：鞋不合脚，想退货",
+            "response": "{\"intent\":\"after_sale\",\"confidence\":0.96}",
+            "input_tokens": 289,
+            "output_tokens": 15,
+            "latency_ms": 982.777,
+            "at": "2026-11-05T12:09:24.282+00:00"
+          },
+          {
+            "node": "AfterSaleAgent",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商客服。只根据给定事实回答；不确定时建议转人工。\n用户问售后：鞋不合脚，想退货\n售后工具结果：[{\"question\": \"退货政策\", \"answer\": \"签收后 7 天内可申请无理由退货，商品需保持完好，定制商品和已拆封的贴身用品除外。\", \"keywords\": [\"退货\", \"退货政策\"]}, {\"id\": \"1\", \"type\": \"RETURN\", \"status\": \"PENDING\", \"reason\": \"不合脚\"}]\n请说明政策，并提示需要确认后才能创建售后。",
+            "response": "您好，关于鞋不合脚的退货：\n\n- 签收后 **7 天内**可申请无理由退货；\n- 商品需保持**完好**；\n- **定制商品**和**已拆封的贴身用品**不支持无理由退货。\n\n系统显示您有一笔退货申请处于**待处理**状态，原因填写为“不合脚”。请您确认是否继续处理该退货申请；**确认后我们才能为您创建/推进售后**。如鞋子属于定制或已拆封贴身用品等特殊情形，建议转人工进一步核实。",
+            "input_tokens": 156,
+            "output_tokens": 324,
+            "latency_ms": 2479.446,
+            "at": "2026-11-05T12:09:26.766+00:00"
+          }
+        ],
+        "tool_calls": [
+          {
+            "name": "searchFaq",
+            "args": {
+              "query": "鞋不合脚，想退货",
+              "limit": 2
+            },
+            "result": [
+              {
+                "question": "退货政策",
+                "answer": "签收后 7 天内可申请无理由退货，商品需保持完好，定制商品和已拆封的贴身用品除外。",
+                "keywords": [
+                  "退货",
+                  "退货政策"
+                ]
+              }
+            ],
+            "status": "ok",
+            "latency_ms": 2.0,
+            "at": "2026-11-05T12:09:24.285+00:00"
+          },
+          {
+            "name": "getAfterSales",
+            "args": {
+              "hasToken": true,
+              "limit": 5
+            },
+            "result": [
+              {
+                "id": "1",
+                "type": "RETURN",
+                "status": "PENDING",
+                "reason": "不合脚"
+              }
+            ],
+            "status": "ok",
+            "latency_ms": 5.0,
+            "at": "2026-11-05T12:09:24.285+00:00"
+          }
+        ],
+        "retrievals": [
+          {
+            "query": "鞋不合脚，想退货",
+            "backend": "keyword",
+            "hits": [
+              {
+                "title": "退货政策",
+                "source": "faq.json",
+                "score": null
+              }
+            ],
+            "fallback": false,
+            "error": null,
+            "at": "2026-11-05T12:09:24.285+00:00"
+          }
+        ],
+        "latency_ms": 3473.384
+      }
+    },
+    {
+      "case_id": "EVAL-KB-001",
+      "message": "退款一般多久到账？",
+      "run_id": "run_6f64b7aa619344809ef42b46d6d2cbef",
+      "trace_id": "trace_e981cdfebc4b41448efc8c7cdf81ba6b",
+      "actual_intent": "knowledge",
+      "expected_intent": "knowledge",
+      "intent_ok": true,
+      "actual_agent": "KnowledgeAgent",
+      "expected_agent": "KnowledgeAgent",
+      "agent_ok": true,
+      "actual_status": "ok",
+      "expected_status": "ok",
+      "status_ok": true,
+      "tools": [
+        "searchFaq"
+      ],
+      "expected_tool": "searchFaq",
+      "tool_ok": true,
+      "answer_facts": [
+        "1-3"
+      ],
+      "answer_any": [],
+      "answer": "退款审核通过后会原路退回，通常 **1-3 个工作日**到账。  \n温馨提示：相关政策可能变化，请以最新规则或页面说明为准。",
+      "fact_ok": true,
+      "latency_ms": 2432.225,
+      "trace_llm_calls": 2,
+      "trace_tool_calls": 1,
+      "trace": {
+        "run_id": "run_6f64b7aa619344809ef42b46d6d2cbef",
+        "trace_id": "trace_e981cdfebc4b41448efc8c7cdf81ba6b",
+        "session_id": "eval-EVAL-KB-001",
+        "customer_id": null,
+        "channel": "web_mall",
+        "message": "退款一般多久到账？",
+        "started_at": "2026-11-05T12:09:26.771+00:00",
+        "finished_at": "2026-11-05T12:09:29.203+00:00",
+        "intent": "knowledge",
+        "agent": "KnowledgeAgent",
+        "status": "ok",
+        "answer": "退款审核通过后会原路退回，通常 **1-3 个工作日**到账。  \n温馨提示：相关政策可能变化，请以最新规则或页面说明为准。",
+        "error": null,
+        "steps": [
+          {
+            "name": "chain_start:route",
+            "status": "running",
+            "at": "2026-11-05T12:09:26.772+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:route_to_agent",
+            "status": "running",
+            "at": "2026-11-05T12:09:27.777+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:27.778+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:27.778+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:knowledge",
+            "status": "running",
+            "at": "2026-11-05T12:09:27.779+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:29.194+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:finalize",
+            "status": "running",
+            "at": "2026-11-05T12:09:29.197+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:29.198+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:29.202+00:00",
+            "detail": null
+          }
+        ],
+        "llm_calls": [
+          {
+            "node": "route",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商意图路由器。只输出一个 JSON 对象，不要解释。\nintent 只能是：shopping | order_status | after_sale | knowledge | handoff。\n判定优先级：\n1. 投诉、要求转人工 -> handoff\n2. 明确要发起退货、换货、退款申请或售后 -> after_sale\n3. 查询自己的订单、物流、发货进度 -> order_status\n4. 找商品、推荐商品、购买商品 -> shopping\n5. 咨询政策、规则、时效、发票、退款到账、流程 -> knowledge\n示例：\n用户：帮我找一顶露营帐篷 -> {\"intent\":\"shopping\",\"confidence\":0.97}\n用户：我的订单到哪了？ -> {\"intent\":\"order_status\",\"confidence\":0.96}\n用户：鞋不合脚，想退货 -> {\"intent\":\"after_sale\",\"confidence\":0.95}\n用户：退款一般多久到账？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：支持开票吗？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：我要投诉，转人工 -> {\"intent\":\"handoff\",\"confidence\":0.98}\n用户：退款一般多久到账？",
+            "response": "{\"intent\":\"knowledge\",\"confidence\":0.96}",
+            "input_tokens": 289,
+            "output_tokens": 27,
+            "latency_ms": 1002.996,
+            "at": "2026-11-05T12:09:27.777+00:00"
+          },
+          {
+            "node": "KnowledgeAgent",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商客服。只根据给定事实回答；不确定时建议转人工。\n用户问题：退款一般多久到账？\n知识库：[{\"question\": \"退款到账\", \"answer\": \"退款审核通过后原路退回，通常 1-3 个工作日到账。\", \"keywords\": [\"退款\", \"到账\", \"退款到账\"]}]\n只根据知识库回答，并说明政策可能变化。",
+            "response": "退款审核通过后会原路退回，通常 **1-3 个工作日**到账。  \n温馨提示：相关政策可能变化，请以最新规则或页面说明为准。",
+            "input_tokens": 122,
+            "output_tokens": 154,
+            "latency_ms": 1397.414,
+            "at": "2026-11-05T12:09:29.190+00:00"
+          }
+        ],
+        "tool_calls": [
+          {
+            "name": "searchFaq",
+            "args": {
+              "query": "退款一般多久到账？",
+              "limit": 2
+            },
+            "result": [
+              {
+                "question": "退款到账",
+                "answer": "退款审核通过后原路退回，通常 1-3 个工作日到账。",
+                "keywords": [
+                  "退款",
+                  "到账",
+                  "退款到账"
+                ]
+              }
+            ],
+            "status": "ok",
+            "latency_ms": 2.0,
+            "at": "2026-11-05T12:09:27.779+00:00"
+          }
+        ],
+        "retrievals": [
+          {
+            "query": "退款一般多久到账？",
+            "backend": "keyword",
+            "hits": [
+              {
+                "title": "退款到账",
+                "source": "faq.json",
+                "score": null
+              }
+            ],
+            "fallback": false,
+            "error": null,
+            "at": "2026-11-05T12:09:27.779+00:00"
+          }
+        ],
+        "latency_ms": 2432.225
+      }
+    },
+    {
+      "case_id": "EVAL-HANDOFF-001",
+      "message": "我要投诉，转人工",
+      "run_id": "run_a339d378b11641f0ad50b644aec7bea0",
+      "trace_id": "trace_b6796e8688764680b0d17871dc189883",
+      "actual_intent": "handoff",
+      "expected_intent": "handoff",
+      "intent_ok": true,
+      "actual_agent": "HandoffAgent",
+      "expected_agent": "HandoffAgent",
+      "agent_ok": true,
+      "actual_status": "handoff",
+      "expected_status": "handoff",
+      "status_ok": true,
+      "tools": [],
+      "expected_tool": null,
+      "tool_ok": true,
+      "answer_facts": [
+        "人工"
+      ],
+      "answer_any": [],
+      "answer": "这个问题需要人工进一步处理，我已经为你标记转人工。请补充订单号或联系方式，坐席会尽快接入。",
+      "fact_ok": true,
+      "latency_ms": 893.938,
+      "trace_llm_calls": 1,
+      "trace_tool_calls": 0,
+      "trace": {
+        "run_id": "run_a339d378b11641f0ad50b644aec7bea0",
+        "trace_id": "trace_b6796e8688764680b0d17871dc189883",
+        "session_id": "eval-EVAL-HANDOFF-001",
+        "customer_id": null,
+        "channel": "web_mall",
+        "message": "我要投诉，转人工",
+        "started_at": "2026-11-05T12:09:29.206+00:00",
+        "finished_at": "2026-11-05T12:09:30.099+00:00",
+        "intent": "handoff",
+        "agent": "HandoffAgent",
+        "status": "handoff",
+        "answer": "这个问题需要人工进一步处理，我已经为你标记转人工。请补充订单号或联系方式，坐席会尽快接入。",
+        "error": null,
+        "steps": [
+          {
+            "name": "chain_start:route",
+            "status": "running",
+            "at": "2026-11-05T12:09:29.218+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:route_to_agent",
+            "status": "running",
+            "at": "2026-11-05T12:09:30.094+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:30.095+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:30.095+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:handoff",
+            "status": "running",
+            "at": "2026-11-05T12:09:30.097+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:30.097+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:finalize",
+            "status": "running",
+            "at": "2026-11-05T12:09:30.098+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:30.098+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:30.099+00:00",
+            "detail": null
+          }
+        ],
+        "llm_calls": [
+          {
+            "node": "route",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商意图路由器。只输出一个 JSON 对象，不要解释。\nintent 只能是：shopping | order_status | after_sale | knowledge | handoff。\n判定优先级：\n1. 投诉、要求转人工 -> handoff\n2. 明确要发起退货、换货、退款申请或售后 -> after_sale\n3. 查询自己的订单、物流、发货进度 -> order_status\n4. 找商品、推荐商品、购买商品 -> shopping\n5. 咨询政策、规则、时效、发票、退款到账、流程 -> knowledge\n示例：\n用户：帮我找一顶露营帐篷 -> {\"intent\":\"shopping\",\"confidence\":0.97}\n用户：我的订单到哪了？ -> {\"intent\":\"order_status\",\"confidence\":0.96}\n用户：鞋不合脚，想退货 -> {\"intent\":\"after_sale\",\"confidence\":0.95}\n用户：退款一般多久到账？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：支持开票吗？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：我要投诉，转人工 -> {\"intent\":\"handoff\",\"confidence\":0.98}\n用户：我要投诉，转人工",
+            "response": "{\"intent\":\"handoff\",\"confidence\":0.98}",
+            "input_tokens": 288,
+            "output_tokens": 14,
+            "latency_ms": 872.51,
+            "at": "2026-11-05T12:09:30.094+00:00"
+          }
+        ],
+        "tool_calls": [],
+        "retrievals": [],
+        "latency_ms": 893.938
+      }
+    },
+    {
+      "case_id": "EVAL-SHOP-002",
+      "message": "推荐一款通勤跑鞋",
+      "run_id": "run_4da10693b1734a109c017b979e87639e",
+      "trace_id": "trace_0baa4b040eb74bdea9f72c471b67e908",
+      "actual_intent": "shopping",
+      "expected_intent": "shopping",
+      "intent_ok": true,
+      "actual_agent": "ShoppingGuideAgent",
+      "expected_agent": "ShoppingGuideAgent",
+      "agent_ok": true,
+      "actual_status": "ok",
+      "expected_status": "ok",
+      "status_ok": true,
+      "tools": [
+        "searchProducts"
+      ],
+      "expected_tool": "searchProducts",
+      "tool_ok": true,
+      "answer_facts": [
+        "跑鞋"
+      ],
+      "answer_any": [],
+      "answer": "推荐这款「通勤跑鞋」，售价 299 元。需要我帮您进一步确认购买信息吗？",
+      "fact_ok": true,
+      "latency_ms": 2157.648,
+      "trace_llm_calls": 2,
+      "trace_tool_calls": 1,
+      "trace": {
+        "run_id": "run_4da10693b1734a109c017b979e87639e",
+        "trace_id": "trace_0baa4b040eb74bdea9f72c471b67e908",
+        "session_id": "eval-EVAL-SHOP-002",
+        "customer_id": null,
+        "channel": "web_mall",
+        "message": "推荐一款通勤跑鞋",
+        "started_at": "2026-11-05T12:09:30.100+00:00",
+        "finished_at": "2026-11-05T12:09:32.258+00:00",
+        "intent": "shopping",
+        "agent": "ShoppingGuideAgent",
+        "status": "ok",
+        "answer": "推荐这款「通勤跑鞋」，售价 299 元。需要我帮您进一步确认购买信息吗？",
+        "error": null,
+        "steps": [
+          {
+            "name": "chain_start:route",
+            "status": "running",
+            "at": "2026-11-05T12:09:30.102+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:route_to_agent",
+            "status": "running",
+            "at": "2026-11-05T12:09:30.996+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:30.996+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:30.996+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:shopping",
+            "status": "running",
+            "at": "2026-11-05T12:09:30.998+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:32.256+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:finalize",
+            "status": "running",
+            "at": "2026-11-05T12:09:32.256+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:32.257+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:32.257+00:00",
+            "detail": null
+          }
+        ],
+        "llm_calls": [
+          {
+            "node": "route",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商意图路由器。只输出一个 JSON 对象，不要解释。\nintent 只能是：shopping | order_status | after_sale | knowledge | handoff。\n判定优先级：\n1. 投诉、要求转人工 -> handoff\n2. 明确要发起退货、换货、退款申请或售后 -> after_sale\n3. 查询自己的订单、物流、发货进度 -> order_status\n4. 找商品、推荐商品、购买商品 -> shopping\n5. 咨询政策、规则、时效、发票、退款到账、流程 -> knowledge\n示例：\n用户：帮我找一顶露营帐篷 -> {\"intent\":\"shopping\",\"confidence\":0.97}\n用户：我的订单到哪了？ -> {\"intent\":\"order_status\",\"confidence\":0.96}\n用户：鞋不合脚，想退货 -> {\"intent\":\"after_sale\",\"confidence\":0.95}\n用户：退款一般多久到账？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：支持开票吗？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：我要投诉，转人工 -> {\"intent\":\"handoff\",\"confidence\":0.98}\n用户：推荐一款通勤跑鞋",
+            "response": "{\"intent\":\"shopping\",\"confidence\":0.97}",
+            "input_tokens": 289,
+            "output_tokens": 25,
+            "latency_ms": 892.168,
+            "at": "2026-11-05T12:09:30.996+00:00"
+          },
+          {
+            "node": "ShoppingGuideAgent",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商客服。只根据给定事实回答；不确定时建议转人工。\n用户想购物：推荐一款通勤跑鞋\n工具结果：[{\"spuId\": \"101\", \"name\": \"轻量徒步帐篷\", \"price\": 399, \"priceMax\": 499}, {\"spuId\": \"102\", \"name\": \"通勤跑鞋\", \"price\": 299, \"priceMax\": null}]\n请用简洁中文回答。",
+            "response": "推荐这款「通勤跑鞋」，售价 299 元。需要我帮您进一步确认购买信息吗？",
+            "input_tokens": 129,
+            "output_tokens": 106,
+            "latency_ms": 1255.075,
+            "at": "2026-11-05T12:09:32.255+00:00"
+          }
+        ],
+        "tool_calls": [
+          {
+            "name": "searchProducts",
+            "args": {
+              "query": "推荐一款通勤跑鞋",
+              "limit": 3
+            },
+            "result": [
+              {
+                "spuId": "101",
+                "name": "轻量徒步帐篷",
+                "price": 399,
+                "priceMax": 499
+              },
+              {
+                "spuId": "102",
+                "name": "通勤跑鞋",
+                "price": 299,
+                "priceMax": null
+              }
+            ],
+            "status": "ok",
+            "latency_ms": 8.0,
+            "at": "2026-11-05T12:09:30.998+00:00"
+          }
+        ],
+        "retrievals": [],
+        "latency_ms": 2157.648
+      }
+    },
+    {
+      "case_id": "EVAL-KB-002",
+      "message": "支持开票吗？",
+      "run_id": "run_ddf74330ecc44643a9998d9d31558b1a",
+      "trace_id": "trace_da79c2d4934d45518be7f7025697cb6a",
+      "actual_intent": "knowledge",
+      "expected_intent": "knowledge",
+      "intent_ok": true,
+      "actual_agent": "KnowledgeAgent",
+      "expected_agent": "KnowledgeAgent",
+      "agent_ok": true,
+      "actual_status": "ok",
+      "expected_status": "ok",
+      "status_ok": true,
+      "tools": [
+        "searchFaq"
+      ],
+      "expected_tool": "searchFaq",
+      "tool_ok": true,
+      "answer_facts": [],
+      "answer_any": [
+        "发票",
+        "开票",
+        "电子普票"
+      ],
+      "answer": "您好，我们是支持开票的。目前平台支持开具**电子普通发票**，您下单后联系客服登记开票信息即可。\n\n温馨提示：相关开票政策可能会有所调整，具体请以客服当前确认为准。如您需要进一步确认，建议转接人工客服核实。",
+      "fact_ok": true,
+      "latency_ms": 2291.171,
+      "trace_llm_calls": 2,
+      "trace_tool_calls": 1,
+      "trace": {
+        "run_id": "run_ddf74330ecc44643a9998d9d31558b1a",
+        "trace_id": "trace_da79c2d4934d45518be7f7025697cb6a",
+        "session_id": "eval-EVAL-KB-002",
+        "customer_id": null,
+        "channel": "web_mall",
+        "message": "支持开票吗？",
+        "started_at": "2026-11-05T12:09:32.258+00:00",
+        "finished_at": "2026-11-05T12:09:34.549+00:00",
+        "intent": "knowledge",
+        "agent": "KnowledgeAgent",
+        "status": "ok",
+        "answer": "您好，我们是支持开票的。目前平台支持开具**电子普通发票**，您下单后联系客服登记开票信息即可。\n\n温馨提示：相关开票政策可能会有所调整，具体请以客服当前确认为准。如您需要进一步确认，建议转接人工客服核实。",
+        "error": null,
+        "steps": [
+          {
+            "name": "chain_start:route",
+            "status": "running",
+            "at": "2026-11-05T12:09:32.259+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:route_to_agent",
+            "status": "running",
+            "at": "2026-11-05T12:09:32.909+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:32.910+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:32.910+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:knowledge",
+            "status": "running",
+            "at": "2026-11-05T12:09:32.910+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:34.548+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_start:finalize",
+            "status": "running",
+            "at": "2026-11-05T12:09:34.548+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:34.549+00:00",
+            "detail": null
+          },
+          {
+            "name": "chain_end:chain",
+            "status": "ok",
+            "at": "2026-11-05T12:09:34.549+00:00",
+            "detail": null
+          }
+        ],
+        "llm_calls": [
+          {
+            "node": "route",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商意图路由器。只输出一个 JSON 对象，不要解释。\nintent 只能是：shopping | order_status | after_sale | knowledge | handoff。\n判定优先级：\n1. 投诉、要求转人工 -> handoff\n2. 明确要发起退货、换货、退款申请或售后 -> after_sale\n3. 查询自己的订单、物流、发货进度 -> order_status\n4. 找商品、推荐商品、购买商品 -> shopping\n5. 咨询政策、规则、时效、发票、退款到账、流程 -> knowledge\n示例：\n用户：帮我找一顶露营帐篷 -> {\"intent\":\"shopping\",\"confidence\":0.97}\n用户：我的订单到哪了？ -> {\"intent\":\"order_status\",\"confidence\":0.96}\n用户：鞋不合脚，想退货 -> {\"intent\":\"after_sale\",\"confidence\":0.95}\n用户：退款一般多久到账？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：支持开票吗？ -> {\"intent\":\"knowledge\",\"confidence\":0.95}\n用户：我要投诉，转人工 -> {\"intent\":\"handoff\",\"confidence\":0.98}\n用户：支持开票吗？",
+            "response": "{\"intent\":\"knowledge\",\"confidence\":0.96}",
+            "input_tokens": 288,
+            "output_tokens": 13,
+            "latency_ms": 648.954,
+            "at": "2026-11-05T12:09:32.909+00:00"
+          },
+          {
+            "node": "KnowledgeAgent",
+            "model": "deepseek-flash",
+            "prompt": "你是尚品汇电商客服。只根据给定事实回答；不确定时建议转人工。\n用户问题：支持开票吗？\n知识库：[{\"question\": \"发票\", \"answer\": \"支持电子普票，下单后联系客服登记开票信息。\", \"keywords\": [\"发票\", \"开票\"]}]\n只根据知识库回答，并说明政策可能变化。",
+            "response": "您好，我们是支持开票的。目前平台支持开具**电子普通发票**，您下单后联系客服登记开票信息即可。\n\n温馨提示：相关开票政策可能会有所调整，具体请以客服当前确认为准。如您需要进一步确认，建议转接人工客服核实。",
+            "input_tokens": 109,
+            "output_tokens": 117,
+            "latency_ms": 1635.767,
+            "at": "2026-11-05T12:09:34.548+00:00"
+          }
+        ],
+        "tool_calls": [
+          {
+            "name": "searchFaq",
+            "args": {
+              "query": "支持开票吗？",
+              "limit": 2
+            },
+            "result": [
+              {
+                "question": "发票",
+                "answer": "支持电子普票，下单后联系客服登记开票信息。",
+                "keywords": [
+                  "发票",
+                  "开票"
+                ]
+              }
+            ],
+            "status": "ok",
+            "latency_ms": 2.0,
+            "at": "2026-11-05T12:09:32.911+00:00"
+          }
+        ],
+        "retrievals": [
+          {
+            "query": "支持开票吗？",
+            "backend": "keyword",
+            "hits": [
+              {
+                "title": "发票",
+                "source": "faq.json",
+                "score": null
+              }
+            ],
+            "fallback": false,
+            "error": null,
+            "at": "2026-11-05T12:09:32.911+00:00"
+          }
+        ],
+        "latency_ms": 2291.171
+      }
+    }
+  ]
+}

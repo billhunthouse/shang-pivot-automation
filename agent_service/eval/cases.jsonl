@@ -1,0 +1,8 @@
+{"case_id":"EVAL-SHOP-001","message":"帮我找一顶露营帐篷","expected_intent":"shopping","expected_agent":"ShoppingGuideAgent","expected_tool":"searchProducts","expected_status":"ok","answer_facts":["帐篷"]}
+{"case_id":"EVAL-ORDER-001","message":"我的订单到哪了？","auth":"Bearer test-token","expected_intent":"order_status","expected_agent":"OrderAgent","expected_tool":"getOrders","expected_status":"ok","answer_facts":["O202611050001"]}
+{"case_id":"EVAL-ORDER-002","message":"查一下我的订单","expected_intent":"order_status","expected_agent":"OrderAgent","expected_status":"need_auth"}
+{"case_id":"EVAL-AFTER-001","message":"鞋不合脚，想退货","auth":"Bearer test-token","expected_intent":"after_sale","expected_agent":"AfterSaleAgent","expected_tool":"searchFaq","expected_status":"need_confirmation","answer_facts":["7 天","确认"]}
+{"case_id":"EVAL-KB-001","message":"退款一般多久到账？","expected_intent":"knowledge","expected_agent":"KnowledgeAgent","expected_tool":"searchFaq","expected_status":"ok","answer_facts":["1-3"]}
+{"case_id":"EVAL-HANDOFF-001","message":"我要投诉，转人工","expected_intent":"handoff","expected_agent":"HandoffAgent","expected_status":"handoff","answer_facts":["人工"]}
+{"case_id":"EVAL-SHOP-002","message":"推荐一款通勤跑鞋","expected_intent":"shopping","expected_agent":"ShoppingGuideAgent","expected_tool":"searchProducts","expected_status":"ok","answer_facts":["跑鞋"]}
+{"case_id":"EVAL-KB-002","message":"支持开票吗？","expected_intent":"knowledge","expected_agent":"KnowledgeAgent","expected_tool":"searchFaq","expected_status":"ok","answer_any":["发票","开票","电子普票"]}
