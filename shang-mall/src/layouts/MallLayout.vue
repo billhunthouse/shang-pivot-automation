@@ -7,6 +7,7 @@ import { useCartStore } from '@/stores/cart'
 import { useAuthStore } from '@/stores/auth'
 import { resolveMediaUrl } from '@/utils/media'
 import { fetchHome } from '@/api/catalog'
+import AiAssistant from '@/components/AiAssistant.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -201,5 +202,7 @@ function goChannel(to: string) {
       </van-tabbar-item>
       <van-tabbar-item name="me" icon="user-o">我的</van-tabbar-item>
     </van-tabbar>
+
+    <AiAssistant />
   </div>
 </template>

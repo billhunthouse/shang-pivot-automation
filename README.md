@@ -1,6 +1,6 @@
 # Shang Pivot
 
-> 一个**分版本演进的电商全栈演示项目**：后台供给（V1）→ C 端交易（V2）→ 智能客服（V3，设计就绪）。
+> 一个**分版本演进的电商全栈演示项目**：后台供给（V1）→ C 端交易（V2）→ 智能客服（V3，C 端 AI 助手已接入）。
 > 工程 / 后台名 **Shang Pivot**，C 端品牌 **尚品汇**（Slogan：选好物，享生活）。
 
 `Java 21` · `Spring Boot 4.1.1` · `PostgreSQL 16 + pgvector` · `Redis 7` · `MinIO` · `Vue 3` · `Vite` · `TypeScript`
@@ -60,9 +60,11 @@
 
 > V2.0 对 V1.0 的改动仅三处：订单列表（筛选与导出增强）、商品编辑（上架方式）、系统设置（新增交易分组），其余 V1 页面零改动。
 
-### V3.0 智能客服（设计就绪，未实现）
+### V3.0 智能客服（C 端 AI 助手已接入）
 
-应答 / 查单 / 转人工 / 工单 + 护栏设计。设计主源见 [`docs/03-ai/customer-service-智能客服.md`](docs/03-ai/customer-service-智能客服.md)，代码侧 `backend/shang-customerservice` 目前仅为骨架模块。
+商城 C 端已接入 AI 助手浮窗，支持商品推荐、知识问答、订单查询（透传登录态）和售后边界提示；完整人工坐席、工单、知识库管理仍未实现。设计主源见 [`docs/03-ai/customer-service-智能客服.md`](docs/03-ai/customer-service-智能客服.md)，代码侧 `backend/shang-customerservice` 已提供 `/api/customer-service/chat` 代理，前端见 `shang-mall/src/components/AiAssistant.vue`。
+
+> 匿名聊天会触发 Agent/LLM 调用；当前未接限流和风控，生产环境需要补 Rate Limit、验证码或登录门槛。
 
 ---
 
@@ -92,7 +94,7 @@ shang-pivot/
 │   ├── shang-identity/           # 身份上下文实现：RBAC、配置、文件、操作日志
 │   ├── shang-commerce-api/       # 交易上下文对外契约
 │   ├── shang-commerce/           # 交易上下文实现：商品、库存、订单、售后
-│   ├── shang-customerservice/    # 智能客服模块（V3 骨架，未实现）
+│   ├── shang-customerservice/    # 智能客服模块（C 端 AI 助手已接入）
 │   ├── shang-server/             # 启动模块 + Flyway 迁移脚本（db/migration）
 │   ├── docker-compose.yml        # 一键起 PostgreSQL / Redis / MinIO
 │   └── .env.example              # 环境变量模板（复制为 .env 使用）
@@ -197,7 +199,7 @@ docker compose down -v && docker compose up -d
 | `shang-common` | 统一响应体 `{ code, msg, data, traceId }`、工具类、安全、OSS 客户端、审计切面 |
 | `shang-identity` | 身份上下文：RBAC、系统配置、文件管理、操作日志 |
 | `shang-commerce` | 交易上下文：类目 / 品牌 / 商品 / SKU / 库存 / 订单 / 售后 |
-| `shang-customerservice` | 智能客服（V3，占位） |
+| `shang-customerservice` | 智能客服：C 端 AI 助手聊天代理；人工坐席/工单待实现 |
 | `shang-server` | 应用启动、Flyway 迁移、跨模块装配 |
 
 **依赖规则（红线）**：模块实现之间**禁止互相依赖**；跨上下文调用只能通过 `*-api` 模块暴露的接口。这条规则是保持模块边界可演进的关键。
