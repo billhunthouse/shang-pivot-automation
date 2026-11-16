@@ -9,7 +9,7 @@ import PageHead from '@/components/PageHead.vue'
 import StatusBadge from '@/components/StatusBadge.vue'
 import ListPager from '@/components/ListPager.vue'
 import FormDialog from '@/components/FormDialog.vue'
-import { fetchReviews, updateReviewStatus } from '@/api/reviews'
+import { fetchReviews, replyReview, updateReviewStatus } from '@/api/reviews'
 import { usePager } from '@/composables/usePager'
 import { unwrapPage } from '@/utils/page'
 import { formatDateTime } from '@/utils/datetime'
@@ -36,6 +36,8 @@ type Row = {
   rating: number
   content: string
   status: string
+  merchantReply?: string
+  repliedAt?: string
   createdAt: string
 }
 
@@ -49,6 +51,12 @@ const statusDialog = ref(false)
 const statusTarget = ref<Row | null>(null)
 const statusSaving = ref(false)
 const statusError = ref('')
+
+const replyDialog = ref(false)
+const replyTarget = ref<Row | null>(null)
+const replyText = ref('')
+const replySaving = ref(false)
+const replyError = ref('')
 
 const isVisible = computed(() => statusTarget.value?.status === 'VISIBLE')
 
@@ -91,6 +99,8 @@ async function load() {
       rating: Number(r.rating ?? 0),
       content: String(r.content ?? ''),
       status: String(r.status ?? ''),
+      merchantReply: r.merchantReply == null ? '' : String(r.merchantReply),
+      repliedAt: r.repliedAt ? formatDateTime(r.repliedAt) : '',
       createdAt: formatDateTime(r.createdAt),
     }))
   } catch {
@@ -136,6 +146,39 @@ async function confirmStatus() {
     statusError.value = readErrMsg(e) || `${label}失败，请稍后重试`
   } finally {
     statusSaving.value = false
+  }
+}
+
+function openReply(row: Row) {
+  replyTarget.value = row
+  replyText.value = row.merchantReply || ''
+  replyError.value = ''
+  replyDialog.value = true
+}
+
+async function confirmReply() {
+  const row = replyTarget.value
+  if (!row) return
+  const text = replyText.value.trim()
+  if (!text) {
+    replyError.value = '回复内容不能为空'
+    return
+  }
+  if (text.length > 500) {
+    replyError.value = '回复不能超过 500 字'
+    return
+  }
+  replySaving.value = true
+  replyError.value = ''
+  try {
+    await replyReview(row.id, text)
+    ElMessage.success('回复已保存')
+    replyDialog.value = false
+    await load()
+  } catch (e: unknown) {
+    replyError.value = readErrMsg(e) || '回复保存失败，请稍后重试'
+  } finally {
+    replySaving.value = false
   }
 }
 
@@ -197,6 +240,7 @@ onMounted(load)
             <th>会员</th>
             <th class="num">星级</th>
             <th>内容摘要</th>
+            <th>商家回复</th>
             <th>可见性</th>
             <th class="code">发表时间</th>
             <th class="col-op">操作</th>
@@ -204,7 +248,7 @@ onMounted(load)
         </thead>
         <tbody>
           <tr v-if="!rows.length">
-            <td colspan="8" class="hint empty-cell">暂无评价</td>
+            <td colspan="9" class="hint empty-cell">暂无评价</td>
           </tr>
           <tr v-for="row in rows" :key="row.id">
             <td class="code">{{ row.id }}</td>
@@ -212,6 +256,10 @@ onMounted(load)
             <td>{{ row.customerPhone }}</td>
             <td class="num">{{ row.rating }}</td>
             <td>{{ row.content.slice(0, 40) }}{{ row.content.length > 40 ? '…' : '' }}</td>
+            <td class="reply-cell">
+              <span v-if="row.merchantReply">{{ row.merchantReply.slice(0, 30) }}{{ row.merchantReply.length > 30 ? '…' : '' }}</span>
+              <span v-else class="hint">—</span>
+            </td>
             <td>
               <StatusBadge
                 :text="row.status === 'VISIBLE' ? '展示' : '隐藏'"
@@ -220,6 +268,9 @@ onMounted(load)
             </td>
             <td class="code">{{ row.createdAt }}</td>
             <td class="col-op">
+              <button class="btn btn-ghost btn-sm" type="button" @click="openReply(row)">
+                {{ row.merchantReply ? '修改回复' : '回复' }}
+              </button>
               <button
                 v-if="hasPermission('review:hide')"
                 class="btn btn-sm"
@@ -273,6 +324,33 @@ onMounted(load)
       恢复后该评价<b>立即回到商品详情</b>并重新计入商品评分；顾客端刷新即可看到，无需重新审核。
     </div>
   </FormDialog>
+
+  <FormDialog
+    v-model="replyDialog"
+    :title="replyTarget?.merchantReply ? '修改商家回复' : '回复评价'"
+    icon="info"
+    width="is-md"
+    :loading="replySaving"
+    confirm-text="保存回复"
+    @submit="confirmReply"
+  >
+    <p v-if="replyError" class="error-text">{{ replyError }}</p>
+    <div class="reply-summary">
+      <div>商品：<b>{{ replyTarget?.spuName }}</b></div>
+      <div>评价：{{ replyTarget?.content || '（无文字）' }}</div>
+    </div>
+    <label class="field">
+      <span>商家回复</span>
+      <textarea
+        v-model="replyText"
+        class="textarea"
+        rows="5"
+        maxlength="500"
+        placeholder="回复顾客的评价，最多 500 字"
+      />
+      <span class="hint">{{ replyText.length }} / 500</span>
+    </label>
+  </FormDialog>
 </template>
 
 <style scoped>
@@ -282,5 +360,18 @@ onMounted(load)
 }
 .impact-alert {
   margin-top: 12px;
+}
+.reply-cell {
+  max-width: 220px;
+  color: var(--text-secondary, #5b6475);
+}
+.reply-summary {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f7f9fc;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.7;
 }
 </style>

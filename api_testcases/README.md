@@ -60,6 +60,42 @@ ZENTAO_USER=test ZENTAO_PASSWORD='运行时输入' \
 python3 scripts/case_lint.py --inventory test_cases_inventory.md --online
 ```
 
+## UI 自动化（Playwright + Allure 3）
+
+规范：`../docs/测试资料/UI自动化用例设计规范.md`  
+测试点：`../docs/测试资料/UI自动化测试点-评价与核心交易.md`
+
+```bash
+cd api_testcases
+
+RUN_UI=1 \
+ADMIN_UI_URL=http://127.0.0.1:5173 \
+MALL_UI_URL=http://127.0.0.1:5174 \
+ADMIN_BASE_URL=http://127.0.0.1:8086/admin \
+MALL_BASE_URL=http://127.0.0.1:8086 \
+ADMIN_TEST_ACCOUNT=admin \
+ADMIN_TEST_PASSWORD='Admin@123' \
+MALL_TEST_PHONE=13800000001 \
+MALL_TEST_CODE=123456 \
+UI_HEADLESS=true \
+python3 -m pytest tests/ui \
+  -q --alluredir=artifacts/allure-ui-results --clean-alluredir
+
+python3 scripts/ui_coverage.py \
+  --results artifacts/allure-ui-results \
+  --out-md ../docs/测试资料/UI覆盖率报告.md \
+  --out-json artifacts/ui-coverage.json
+
+/Users/imac/.local/opt/allure3/node_modules/.bin/allure generate \
+  artifacts/allure-ui-results \
+  --output artifacts/allure3-ui-report \
+  --report-name "尚品汇 UI 自动化"
+```
+
+报告：`artifacts/allure3-ui-report/index.html`，本地服务 `http://127.0.0.1:9093/`。  
+当前结果：58 passed / 100%；41/41 页面覆盖，140 个测试体步骤 / 141 个附件。  
+覆盖率报告：`../docs/测试资料/UI覆盖率报告.md`。
+
 ## 试点与修复
 
 `upload-cases` 不支持区间，试点用**子集清单**（表头 + 选中的 3–5 行）。

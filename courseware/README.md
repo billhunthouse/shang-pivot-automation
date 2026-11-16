@@ -1,12 +1,13 @@
 # 尚品汇自动化测试课件
 
-三套可运行课件，全部基于当前电商项目真实接口与数据：
+四套可运行课件，全部基于当前电商项目真实接口与数据：
 
 | 课件 | 文档 | 脚本 | 已验证结果 |
 |---|---|---|---|
 | Pytest | [01-Pytest自动化测试课件.md](01-Pytest自动化测试课件.md) | [`pytest/`](pytest/) | 22 passed |
 | Java Cucumber + Allure | [02-Java-Cucumber课件.md](02-Java-Cucumber课件.md) | [`../automation/src/test/resources/features/courseware/`](../automation/src/test/resources/features/courseware/) | 11 passed |
 | SkyWalking 全链路监控 | [03-SkyWalking全链路监控课件.md](03-SkyWalking全链路监控课件.md) | [`../observability/skywalking/`](../observability/skywalking/)、[`../scripts/observability/`](../scripts/observability/) | 服务/HTTP/SQL/JVM/告警通道已验证 |
+| 禅道 MCP 开发与使用 | [04-禅道MCP开发与使用课件.md](04-禅道MCP开发与使用课件.md) | [`../zentao_mcp/`](../zentao_mcp/) | 连接/查询/创建/更新/删除 smoke test 通过 |
 
 ## 一、启动环境
 
@@ -147,3 +148,30 @@ tail -f /var/log/skywalking-alarm/alarms.jsonl
 7. 告警规则/Webhook/Runbook；
 8. 系统级监控缺口与补齐路线；
 9. Lab 1–7 实验手册。
+
+## 八、禅道 MCP 开发与使用课件
+
+课件：[04-禅道MCP开发与使用课件.md](04-禅道MCP开发与使用课件.md)
+代码：[../zentao_mcp/](../zentao_mcp/)
+
+课件覆盖：
+
+1. MCP Host / Server / 下游系统三层架构；
+2. FastMCP、`@mcp.tool()`、类型注解与 docstring；
+3. 禅道 Token 登录、401 重试、密码文件安全；
+4. 产品查询、用例查询、用例详情、用例创建；
+5. 禅道 22.6 的状态更新与步骤更新限制；
+6. ZCode `mcp.servers.zentao` 注册与启动；
+7. `smoke_test.py` 真实验证：创建、更新、查询、清理；
+8. 产品查询、用例查询、创建用例的完整案例；
+9. 常见故障排查与课堂练习。
+
+验证命令：
+
+```bash
+cd zentao_mcp
+ZENTAO_BASE_URL=http://49.233.135.247:60084 \
+ZENTAO_ACCOUNT=admin \
+ZENTAO_PASSWORD_FILE=$HOME/.zcode/secrets/zentao-admin-password \
+.venv/bin/python smoke_test.py
+```

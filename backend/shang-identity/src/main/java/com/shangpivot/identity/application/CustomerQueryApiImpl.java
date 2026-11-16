@@ -29,4 +29,16 @@ public class CustomerQueryApiImpl implements CustomerQueryApi {
         Customer c = customerMapper.selectById(customerId);
         return c == null ? null : CustomerAuthService.maskPhone(c.getPhone());
     }
+
+    @Override
+    public ActiveCustomer findActive(Long customerId) {
+        if (customerId == null) {
+            return null;
+        }
+        Customer c = customerMapper.selectById(customerId);
+        if (c == null || !"NORMAL".equals(c.getStatus())) {
+            return null;
+        }
+        return new ActiveCustomer(CustomerAuthService.maskPhone(c.getPhone()));
+    }
 }

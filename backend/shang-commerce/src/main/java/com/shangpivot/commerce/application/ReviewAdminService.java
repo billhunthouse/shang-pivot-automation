@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -51,6 +52,8 @@ public class ReviewAdminService {
             m.put("content", r.getContent());
             m.put("pics", r.getPics());
             m.put("status", r.getStatus());
+            m.put("merchantReply", r.getMerchantReply());
+            m.put("repliedAt", r.getRepliedAt());
             m.put("createdAt", r.getCreatedAt());
             Spu spu = spuMap.get(r.getSpuId());
             m.put("spuName", spu == null ? null : spu.getName());
@@ -70,6 +73,24 @@ public class ReviewAdminService {
             throw new BizException(ErrorCode.NOT_FOUND);
         }
         review.setStatus(status);
+        reviewMapper.updateById(review);
+    }
+
+    @Transactional
+    public void reply(Long id, String reply) {
+        if (!StringUtils.hasText(reply)) {
+            throw new BizException(ErrorCode.BAD_REQUEST, "回复内容不能为空");
+        }
+        String text = reply.trim();
+        if (text.length() > 500) {
+            throw new BizException(ErrorCode.BAD_REQUEST, "回复不能超过 500 字");
+        }
+        Review review = reviewMapper.selectById(id);
+        if (review == null) {
+            throw new BizException(ErrorCode.NOT_FOUND);
+        }
+        review.setMerchantReply(text);
+        review.setRepliedAt(OffsetDateTime.now());
         reviewMapper.updateById(review);
     }
 }

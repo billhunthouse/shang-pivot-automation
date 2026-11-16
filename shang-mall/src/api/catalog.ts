@@ -74,6 +74,8 @@ export interface ProductDetailVO {
     rating: number
     content?: string
     pics?: string[]
+    merchantReply?: string | null
+    repliedAt?: string | null
     createdAt?: string
   }>
   soldCount?: number

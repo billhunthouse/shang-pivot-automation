@@ -28,7 +28,7 @@ import { unwrapList, unwrapPage } from '@/utils/page'
 import { formatDateTime } from '@/utils/datetime'
 
 type UserRow = {
-  id: number
+  id: string
   username: string
   name: string
   phone: string
@@ -76,7 +76,7 @@ const depts = ref<DeptOpt[]>([])
 
 /* ===== 新增 / 编辑用户（D7-01）===== */
 const formDialog = ref(false)
-const editingId = ref<number | null>(null)
+const editingId = ref<string | null>(null)
 const formSaving = ref(false)
 const formError = ref('')
 const form = ref({
@@ -144,7 +144,7 @@ function readErrMsg(e: unknown): string {
 }
 
 function isSuperAdmin(row: UserRow): boolean {
-  return row.id === 1 || row.roleCodes.includes('SUPER_ADMIN')
+  return row.id === '1' || row.roleCodes.includes('SUPER_ADMIN')
 }
 
 function isSelf(row: UserRow): boolean {
@@ -215,7 +215,7 @@ async function load() {
       const deptId = u.deptId == null ? '' : String(u.deptId)
       const phone = String(u.phone ?? '')
       return {
-        id: Number(u.id),
+        id: String(u.id),
         username: String(u.username ?? ''),
         name: String(u.realName ?? u.username ?? ''),
         phone: phone || '—',

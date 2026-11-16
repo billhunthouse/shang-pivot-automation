@@ -1,0 +1,6372 @@
+{
+  "generated_at": "2026-11-11T16:48:21.473688+00:00",
+  "nodes": [
+    {
+      "id": "page:mall:/login",
+      "type": "page",
+      "label": "登录"
+    },
+    {
+      "id": "page:mall:/",
+      "type": "page",
+      "label": "首页"
+    },
+    {
+      "id": "page:mall:/promo/:code",
+      "type": "page",
+      "label": "活动专区"
+    },
+    {
+      "id": "page:mall:/category",
+      "type": "page",
+      "label": "分类"
+    },
+    {
+      "id": "page:mall:/product/:spuId",
+      "type": "page",
+      "label": "商品详情"
+    },
+    {
+      "id": "page:mall:/search",
+      "type": "page",
+      "label": "搜索"
+    },
+    {
+      "id": "page:mall:/cart",
+      "type": "page",
+      "label": "购物车"
+    },
+    {
+      "id": "page:mall:/checkout",
+      "type": "page",
+      "label": "确认订单"
+    },
+    {
+      "id": "page:mall:/orders",
+      "type": "page",
+      "label": "我的订单"
+    },
+    {
+      "id": "page:mall:/orders/:id",
+      "type": "page",
+      "label": "订单详情"
+    },
+    {
+      "id": "page:mall:/pay/:orderId",
+      "type": "page",
+      "label": "支付"
+    },
+    {
+      "id": "page:mall:/me",
+      "type": "page",
+      "label": "个人中心"
+    },
+    {
+      "id": "page:mall:/settings",
+      "type": "page",
+      "label": "个人设置"
+    },
+    {
+      "id": "page:mall:/addresses",
+      "type": "page",
+      "label": "收货地址"
+    },
+    {
+      "id": "page:mall:/favorites",
+      "type": "page",
+      "label": "我的收藏"
+    },
+    {
+      "id": "page:mall:/history",
+      "type": "page",
+      "label": "浏览足迹"
+    },
+    {
+      "id": "page:mall:/after-sales",
+      "type": "page",
+      "label": "我的售后"
+    },
+    {
+      "id": "page:mall:/after-sales/apply",
+      "type": "page",
+      "label": "申请售后"
+    },
+    {
+      "id": "page:mall:/after-sales/:id",
+      "type": "page",
+      "label": "售后详情"
+    },
+    {
+      "id": "page:admin:/login",
+      "type": "page",
+      "label": "登录"
+    },
+    {
+      "id": "page:admin:/dashboard",
+      "type": "page",
+      "label": "工作台"
+    },
+    {
+      "id": "page:admin:/products",
+      "type": "page",
+      "label": "商品列表"
+    },
+    {
+      "id": "page:admin:/products/edit",
+      "type": "page",
+      "label": "新增商品"
+    },
+    {
+      "id": "page:admin:/products/edit/:id",
+      "type": "page",
+      "label": "编辑商品"
+    },
+    {
+      "id": "page:admin:/categories",
+      "type": "page",
+      "label": "类目与品牌"
+    },
+    {
+      "id": "page:admin:/inventory",
+      "type": "page",
+      "label": "库存管理"
+    },
+    {
+      "id": "page:admin:/in-out",
+      "type": "page",
+      "label": "出入库单"
+    },
+    {
+      "id": "page:admin:/orders",
+      "type": "page",
+      "label": "订单列表"
+    },
+    {
+      "id": "page:admin:/aftersales",
+      "type": "page",
+      "label": "售后管理"
+    },
+    {
+      "id": "page:admin:/reviews",
+      "type": "page",
+      "label": "评价管理"
+    },
+    {
+      "id": "page:admin:/customers",
+      "type": "page",
+      "label": "会员管理"
+    },
+    {
+      "id": "page:admin:/site-brand",
+      "type": "page",
+      "label": "站点品牌"
+    },
+    {
+      "id": "page:admin:/home-slots",
+      "type": "page",
+      "label": "首页运营位"
+    },
+    {
+      "id": "page:admin:/users",
+      "type": "page",
+      "label": "用户管理"
+    },
+    {
+      "id": "page:admin:/roles",
+      "type": "page",
+      "label": "角色管理"
+    },
+    {
+      "id": "page:admin:/menus",
+      "type": "page",
+      "label": "菜单与权限"
+    },
+    {
+      "id": "page:admin:/depts",
+      "type": "page",
+      "label": "部门管理"
+    },
+    {
+      "id": "page:admin:/dicts",
+      "type": "page",
+      "label": "字典管理"
+    },
+    {
+      "id": "page:admin:/logs",
+      "type": "page",
+      "label": "操作日志"
+    },
+    {
+      "id": "page:admin:/settings",
+      "type": "page",
+      "label": "系统设置"
+    },
+    {
+      "id": "page:mall:ai-assistant",
+      "type": "page",
+      "label": "AI 助手浮窗"
+    },
+    {
+      "id": "api:POST:/api/customer-service/chat",
+      "type": "api",
+      "label": "POST /api/customer-service/chat"
+    },
+    {
+      "id": "controller:CustomerServiceController",
+      "type": "controller",
+      "label": "CustomerServiceController"
+    },
+    {
+      "id": "service:CustomerServiceAgentClient",
+      "type": "service",
+      "label": "CustomerServiceAgentClient"
+    },
+    {
+      "id": "api:GET:/api/addresses",
+      "type": "api",
+      "label": "GET /api/addresses"
+    },
+    {
+      "id": "controller:StorefrontController",
+      "type": "controller",
+      "label": "StorefrontController"
+    },
+    {
+      "id": "service:AddressService",
+      "type": "service",
+      "label": "AddressService"
+    },
+    {
+      "id": "table:commerce.address",
+      "type": "table",
+      "label": "commerce.address"
+    },
+    {
+      "id": "api:POST:/api/addresses",
+      "type": "api",
+      "label": "POST /api/addresses"
+    },
+    {
+      "id": "api:DELETE:/api/addresses/{id}",
+      "type": "api",
+      "label": "DELETE /api/addresses/{id}"
+    },
+    {
+      "id": "api:PUT:/api/addresses/{id}",
+      "type": "api",
+      "label": "PUT /api/addresses/{id}"
+    },
+    {
+      "id": "api:PUT:/api/addresses/{id}/default",
+      "type": "api",
+      "label": "PUT /api/addresses/{id}/default"
+    },
+    {
+      "id": "api:GET:/api/after-sales",
+      "type": "api",
+      "label": "GET /api/after-sales"
+    },
+    {
+      "id": "service:AfterSaleService",
+      "type": "service",
+      "label": "AfterSaleService"
+    },
+    {
+      "id": "table:commerce.after_sale",
+      "type": "table",
+      "label": "commerce.after_sale"
+    },
+    {
+      "id": "table:commerce.order",
+      "type": "table",
+      "label": "commerce.order"
+    },
+    {
+      "id": "api:POST:/api/after-sales",
+      "type": "api",
+      "label": "POST /api/after-sales"
+    },
+    {
+      "id": "api:GET:/api/after-sales/{id}",
+      "type": "api",
+      "label": "GET /api/after-sales/{id}"
+    },
+    {
+      "id": "api:GET:/api/cart",
+      "type": "api",
+      "label": "GET /api/cart"
+    },
+    {
+      "id": "service:CartService",
+      "type": "service",
+      "label": "CartService"
+    },
+    {
+      "id": "table:commerce.cart",
+      "type": "table",
+      "label": "commerce.cart"
+    },
+    {
+      "id": "table:commerce.cart_item",
+      "type": "table",
+      "label": "commerce.cart_item"
+    },
+    {
+      "id": "table:commerce.sku",
+      "type": "table",
+      "label": "commerce.sku"
+    },
+    {
+      "id": "table:commerce.spu",
+      "type": "table",
+      "label": "commerce.spu"
+    },
+    {
+      "id": "table:commerce.stock",
+      "type": "table",
+      "label": "commerce.stock"
+    },
+    {
+      "id": "api:POST:/api/cart/clear-invalid",
+      "type": "api",
+      "label": "POST /api/cart/clear-invalid"
+    },
+    {
+      "id": "api:POST:/api/cart/items",
+      "type": "api",
+      "label": "POST /api/cart/items"
+    },
+    {
+      "id": "api:DELETE:/api/cart/items/{id}",
+      "type": "api",
+      "label": "DELETE /api/cart/items/{id}"
+    },
+    {
+      "id": "api:PUT:/api/cart/items/{id}",
+      "type": "api",
+      "label": "PUT /api/cart/items/{id}"
+    },
+    {
+      "id": "api:GET:/api/categories",
+      "type": "api",
+      "label": "GET /api/categories"
+    },
+    {
+      "id": "service:CatalogReadService",
+      "type": "service",
+      "label": "CatalogReadService"
+    },
+    {
+      "id": "table:commerce.category",
+      "type": "table",
+      "label": "commerce.category"
+    },
+    {
+      "id": "table:commerce.review",
+      "type": "table",
+      "label": "commerce.review"
+    },
+    {
+      "id": "api:GET:/api/favorites",
+      "type": "api",
+      "label": "GET /api/favorites"
+    },
+    {
+      "id": "service:FavoriteBrowseService",
+      "type": "service",
+      "label": "FavoriteBrowseService"
+    },
+    {
+      "id": "table:commerce.browse_history",
+      "type": "table",
+      "label": "commerce.browse_history"
+    },
+    {
+      "id": "table:commerce.favorite",
+      "type": "table",
+      "label": "commerce.favorite"
+    },
+    {
+      "id": "api:DELETE:/api/favorites/{spuId}",
+      "type": "api",
+      "label": "DELETE /api/favorites/{spuId}"
+    },
+    {
+      "id": "api:POST:/api/favorites/{spuId}",
+      "type": "api",
+      "label": "POST /api/favorites/{spuId}"
+    },
+    {
+      "id": "api:DELETE:/api/history",
+      "type": "api",
+      "label": "DELETE /api/history"
+    },
+    {
+      "id": "api:GET:/api/history",
+      "type": "api",
+      "label": "GET /api/history"
+    },
+    {
+      "id": "api:GET:/api/home",
+      "type": "api",
+      "label": "GET /api/home"
+    },
+    {
+      "id": "api:GET:/api/orders",
+      "type": "api",
+      "label": "GET /api/orders"
+    },
+    {
+      "id": "api:POST:/api/orders",
+      "type": "api",
+      "label": "POST /api/orders"
+    },
+    {
+      "id": "service:OrderSubmitService",
+      "type": "service",
+      "label": "OrderSubmitService"
+    },
+    {
+      "id": "table:commerce.order_item",
+      "type": "table",
+      "label": "commerce.order_item"
+    },
+    {
+      "id": "table:commerce.stock_log",
+      "type": "table",
+      "label": "commerce.stock_log"
+    },
+    {
+      "id": "api:GET:/api/orders/{id}",
+      "type": "api",
+      "label": "GET /api/orders/{id}"
+    },
+    {
+      "id": "api:POST:/api/orders/{id}/cancel",
+      "type": "api",
+      "label": "POST /api/orders/{id}/cancel"
+    },
+    {
+      "id": "api:POST:/api/orders/{id}/confirm",
+      "type": "api",
+      "label": "POST /api/orders/{id}/confirm"
+    },
+    {
+      "id": "api:GET:/api/orders/{id}/logistics",
+      "type": "api",
+      "label": "GET /api/orders/{id}/logistics"
+    },
+    {
+      "id": "api:POST:/api/payment/sandbox",
+      "type": "api",
+      "label": "POST /api/payment/sandbox"
+    },
+    {
+      "id": "service:PaymentSandboxService",
+      "type": "service",
+      "label": "PaymentSandboxService"
+    },
+    {
+      "id": "table:commerce.payment",
+      "type": "table",
+      "label": "commerce.payment"
+    },
+    {
+      "id": "api:GET:/api/payment/{orderId}/status",
+      "type": "api",
+      "label": "GET /api/payment/{orderId}/status"
+    },
+    {
+      "id": "api:GET:/api/products",
+      "type": "api",
+      "label": "GET /api/products"
+    },
+    {
+      "id": "api:GET:/api/products/{spuId}",
+      "type": "api",
+      "label": "GET /api/products/{spuId}"
+    },
+    {
+      "id": "api:GET:/api/products/{spuId}/reviews",
+      "type": "api",
+      "label": "GET /api/products/{spuId}/reviews"
+    },
+    {
+      "id": "api:POST:/api/reviews",
+      "type": "api",
+      "label": "POST /api/reviews"
+    },
+    {
+      "id": "api:GET:/api/search",
+      "type": "api",
+      "label": "GET /api/search"
+    },
+    {
+      "id": "api:GET:/api/site/brand",
+      "type": "api",
+      "label": "GET /api/site/brand"
+    },
+    {
+      "id": "service:SiteBrandService",
+      "type": "service",
+      "label": "SiteBrandService"
+    },
+    {
+      "id": "table:commerce.site_brand",
+      "type": "table",
+      "label": "commerce.site_brand"
+    },
+    {
+      "id": "api:POST:/api/files/confirm",
+      "type": "api",
+      "label": "POST /api/files/confirm"
+    },
+    {
+      "id": "controller:CustomerFileController",
+      "type": "controller",
+      "label": "CustomerFileController"
+    },
+    {
+      "id": "api:POST:/api/files/presign",
+      "type": "api",
+      "label": "POST /api/files/presign"
+    },
+    {
+      "id": "api:POST:/api/files/upload",
+      "type": "api",
+      "label": "POST /api/files/upload"
+    },
+    {
+      "id": "api:GET:/api/files/view",
+      "type": "api",
+      "label": "GET /api/files/view"
+    },
+    {
+      "id": "api:GET:/admin/home/slots",
+      "type": "api",
+      "label": "GET /admin/home/slots"
+    },
+    {
+      "id": "controller:AdminOpsController",
+      "type": "controller",
+      "label": "AdminOpsController"
+    },
+    {
+      "id": "service:HomeSlotService",
+      "type": "service",
+      "label": "HomeSlotService"
+    },
+    {
+      "id": "table:commerce.home_slot",
+      "type": "table",
+      "label": "commerce.home_slot"
+    },
+    {
+      "id": "table:commerce.home_slot_item",
+      "type": "table",
+      "label": "commerce.home_slot_item"
+    },
+    {
+      "id": "api:GET:/admin/home/slots/{code}",
+      "type": "api",
+      "label": "GET /admin/home/slots/{code}"
+    },
+    {
+      "id": "api:PUT:/admin/home/slots/{code}",
+      "type": "api",
+      "label": "PUT /admin/home/slots/{code}"
+    },
+    {
+      "id": "api:GET:/admin/in-out",
+      "type": "api",
+      "label": "GET /admin/in-out"
+    },
+    {
+      "id": "service:InOutOrderService",
+      "type": "service",
+      "label": "InOutOrderService"
+    },
+    {
+      "id": "table:commerce.in_out_item",
+      "type": "table",
+      "label": "commerce.in_out_item"
+    },
+    {
+      "id": "table:commerce.in_out_order",
+      "type": "table",
+      "label": "commerce.in_out_order"
+    },
+    {
+      "id": "api:POST:/admin/in-out",
+      "type": "api",
+      "label": "POST /admin/in-out"
+    },
+    {
+      "id": "api:GET:/admin/reviews",
+      "type": "api",
+      "label": "GET /admin/reviews"
+    },
+    {
+      "id": "service:ReviewAdminService",
+      "type": "service",
+      "label": "ReviewAdminService"
+    },
+    {
+      "id": "api:PUT:/admin/reviews/{id}/status",
+      "type": "api",
+      "label": "PUT /admin/reviews/{id}/status"
+    },
+    {
+      "id": "api:GET:/admin/site/brand",
+      "type": "api",
+      "label": "GET /admin/site/brand"
+    },
+    {
+      "id": "api:PUT:/admin/site/brand",
+      "type": "api",
+      "label": "PUT /admin/site/brand"
+    },
+    {
+      "id": "api:GET:/admin/warehouses",
+      "type": "api",
+      "label": "GET /admin/warehouses"
+    },
+    {
+      "id": "controller:WarehouseController",
+      "type": "controller",
+      "label": "WarehouseController"
+    },
+    {
+      "id": "api:POST:/admin/warehouses",
+      "type": "api",
+      "label": "POST /admin/warehouses"
+    },
+    {
+      "id": "api:PUT:/admin/warehouses/{id}",
+      "type": "api",
+      "label": "PUT /admin/warehouses/{id}"
+    },
+    {
+      "id": "api:GET:/admin/customers",
+      "type": "api",
+      "label": "GET /admin/customers"
+    },
+    {
+      "id": "controller:CustomerAdminController",
+      "type": "controller",
+      "label": "CustomerAdminController"
+    },
+    {
+      "id": "service:CustomerAdminService",
+      "type": "service",
+      "label": "CustomerAdminService"
+    },
+    {
+      "id": "table:identity.customer",
+      "type": "table",
+      "label": "identity.customer"
+    },
+    {
+      "id": "api:GET:/admin/customers/{id}",
+      "type": "api",
+      "label": "GET /admin/customers/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/customers/{id}/status",
+      "type": "api",
+      "label": "PUT /admin/customers/{id}/status"
+    },
+    {
+      "id": "api:GET:/admin/brands",
+      "type": "api",
+      "label": "GET /admin/brands"
+    },
+    {
+      "id": "controller:BrandController",
+      "type": "controller",
+      "label": "BrandController"
+    },
+    {
+      "id": "service:BrandService",
+      "type": "service",
+      "label": "BrandService"
+    },
+    {
+      "id": "table:commerce.brand",
+      "type": "table",
+      "label": "commerce.brand"
+    },
+    {
+      "id": "api:POST:/admin/brands",
+      "type": "api",
+      "label": "POST /admin/brands"
+    },
+    {
+      "id": "api:DELETE:/admin/brands/{id}",
+      "type": "api",
+      "label": "DELETE /admin/brands/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/brands/{id}",
+      "type": "api",
+      "label": "PUT /admin/brands/{id}"
+    },
+    {
+      "id": "api:GET:/admin/after-sales",
+      "type": "api",
+      "label": "GET /admin/after-sales"
+    },
+    {
+      "id": "controller:AfterSaleController",
+      "type": "controller",
+      "label": "AfterSaleController"
+    },
+    {
+      "id": "api:GET:/admin/after-sales/{id}",
+      "type": "api",
+      "label": "GET /admin/after-sales/{id}"
+    },
+    {
+      "id": "api:POST:/admin/after-sales/{id}/audit",
+      "type": "api",
+      "label": "POST /admin/after-sales/{id}/audit"
+    },
+    {
+      "id": "api:GET:/admin/products",
+      "type": "api",
+      "label": "GET /admin/products"
+    },
+    {
+      "id": "controller:ProductController",
+      "type": "controller",
+      "label": "ProductController"
+    },
+    {
+      "id": "service:ProductService",
+      "type": "service",
+      "label": "ProductService"
+    },
+    {
+      "id": "api:POST:/admin/products",
+      "type": "api",
+      "label": "POST /admin/products"
+    },
+    {
+      "id": "api:PUT:/admin/products/batch-off",
+      "type": "api",
+      "label": "PUT /admin/products/batch-off"
+    },
+    {
+      "id": "api:DELETE:/admin/products/{id}",
+      "type": "api",
+      "label": "DELETE /admin/products/{id}"
+    },
+    {
+      "id": "api:GET:/admin/products/{id}",
+      "type": "api",
+      "label": "GET /admin/products/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/products/{id}",
+      "type": "api",
+      "label": "PUT /admin/products/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/products/{id}/off",
+      "type": "api",
+      "label": "PUT /admin/products/{id}/off"
+    },
+    {
+      "id": "api:PUT:/admin/products/{id}/on",
+      "type": "api",
+      "label": "PUT /admin/products/{id}/on"
+    },
+    {
+      "id": "api:GET:/admin/dict-items",
+      "type": "api",
+      "label": "GET /admin/dict-items"
+    },
+    {
+      "id": "controller:DictController",
+      "type": "controller",
+      "label": "DictController"
+    },
+    {
+      "id": "api:POST:/admin/dict-items",
+      "type": "api",
+      "label": "POST /admin/dict-items"
+    },
+    {
+      "id": "api:GET:/admin/dict-items/by-code",
+      "type": "api",
+      "label": "GET /admin/dict-items/by-code"
+    },
+    {
+      "id": "api:DELETE:/admin/dict-items/{id}",
+      "type": "api",
+      "label": "DELETE /admin/dict-items/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/dict-items/{id}",
+      "type": "api",
+      "label": "PUT /admin/dict-items/{id}"
+    },
+    {
+      "id": "api:GET:/admin/dicts",
+      "type": "api",
+      "label": "GET /admin/dicts"
+    },
+    {
+      "id": "api:POST:/admin/dicts",
+      "type": "api",
+      "label": "POST /admin/dicts"
+    },
+    {
+      "id": "api:DELETE:/admin/dicts/{id}",
+      "type": "api",
+      "label": "DELETE /admin/dicts/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/dicts/{id}",
+      "type": "api",
+      "label": "PUT /admin/dicts/{id}"
+    },
+    {
+      "id": "api:GET:/admin/attributes",
+      "type": "api",
+      "label": "GET /admin/attributes"
+    },
+    {
+      "id": "controller:AttributeController",
+      "type": "controller",
+      "label": "AttributeController"
+    },
+    {
+      "id": "service:AttributeService",
+      "type": "service",
+      "label": "AttributeService"
+    },
+    {
+      "id": "table:commerce.attribute",
+      "type": "table",
+      "label": "commerce.attribute"
+    },
+    {
+      "id": "api:POST:/admin/attributes",
+      "type": "api",
+      "label": "POST /admin/attributes"
+    },
+    {
+      "id": "api:DELETE:/admin/attributes/{id}",
+      "type": "api",
+      "label": "DELETE /admin/attributes/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/attributes/{id}",
+      "type": "api",
+      "label": "PUT /admin/attributes/{id}"
+    },
+    {
+      "id": "api:GET:/admin/dashboard/stats",
+      "type": "api",
+      "label": "GET /admin/dashboard/stats"
+    },
+    {
+      "id": "controller:DashboardController",
+      "type": "controller",
+      "label": "DashboardController"
+    },
+    {
+      "id": "api:GET:/admin/stocks",
+      "type": "api",
+      "label": "GET /admin/stocks"
+    },
+    {
+      "id": "controller:StockController",
+      "type": "controller",
+      "label": "StockController"
+    },
+    {
+      "id": "service:StockService",
+      "type": "service",
+      "label": "StockService"
+    },
+    {
+      "id": "table:commerce.warehouse",
+      "type": "table",
+      "label": "commerce.warehouse"
+    },
+    {
+      "id": "api:PUT:/admin/stocks/adjust",
+      "type": "api",
+      "label": "PUT /admin/stocks/adjust"
+    },
+    {
+      "id": "api:GET:/admin/operation-logs",
+      "type": "api",
+      "label": "GET /admin/operation-logs"
+    },
+    {
+      "id": "controller:OperationLogController",
+      "type": "controller",
+      "label": "OperationLogController"
+    },
+    {
+      "id": "api:GET:/admin/operation-logs/export",
+      "type": "api",
+      "label": "GET /admin/operation-logs/export"
+    },
+    {
+      "id": "api:GET:/admin/operation-logs/{id}",
+      "type": "api",
+      "label": "GET /admin/operation-logs/{id}"
+    },
+    {
+      "id": "service:OperationLogService",
+      "type": "service",
+      "label": "OperationLogService"
+    },
+    {
+      "id": "table:identity.operation_log",
+      "type": "table",
+      "label": "identity.operation_log"
+    },
+    {
+      "id": "api:POST:/admin/files/confirm",
+      "type": "api",
+      "label": "POST /admin/files/confirm"
+    },
+    {
+      "id": "controller:FileController",
+      "type": "controller",
+      "label": "FileController"
+    },
+    {
+      "id": "api:POST:/admin/files/presign",
+      "type": "api",
+      "label": "POST /admin/files/presign"
+    },
+    {
+      "id": "api:POST:/admin/files/upload",
+      "type": "api",
+      "label": "POST /admin/files/upload"
+    },
+    {
+      "id": "api:GET:/admin/files/view",
+      "type": "api",
+      "label": "GET /admin/files/view"
+    },
+    {
+      "id": "api:GET:/admin/users",
+      "type": "api",
+      "label": "GET /admin/users"
+    },
+    {
+      "id": "controller:AdminUserController",
+      "type": "controller",
+      "label": "AdminUserController"
+    },
+    {
+      "id": "service:AdminUserService",
+      "type": "service",
+      "label": "AdminUserService"
+    },
+    {
+      "id": "table:identity.admin_user",
+      "type": "table",
+      "label": "identity.admin_user"
+    },
+    {
+      "id": "api:POST:/admin/users",
+      "type": "api",
+      "label": "POST /admin/users"
+    },
+    {
+      "id": "api:DELETE:/admin/users/{id}",
+      "type": "api",
+      "label": "DELETE /admin/users/{id}"
+    },
+    {
+      "id": "api:GET:/admin/users/{id}",
+      "type": "api",
+      "label": "GET /admin/users/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/users/{id}",
+      "type": "api",
+      "label": "PUT /admin/users/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/users/{id}/password",
+      "type": "api",
+      "label": "PUT /admin/users/{id}/password"
+    },
+    {
+      "id": "api:PUT:/admin/users/{id}/status",
+      "type": "api",
+      "label": "PUT /admin/users/{id}/status"
+    },
+    {
+      "id": "api:GET:/admin/categories",
+      "type": "api",
+      "label": "GET /admin/categories"
+    },
+    {
+      "id": "controller:CategoryController",
+      "type": "controller",
+      "label": "CategoryController"
+    },
+    {
+      "id": "api:POST:/admin/categories",
+      "type": "api",
+      "label": "POST /admin/categories"
+    },
+    {
+      "id": "api:GET:/admin/categories/tree",
+      "type": "api",
+      "label": "GET /admin/categories/tree"
+    },
+    {
+      "id": "api:DELETE:/admin/categories/{id}",
+      "type": "api",
+      "label": "DELETE /admin/categories/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/categories/{id}",
+      "type": "api",
+      "label": "PUT /admin/categories/{id}"
+    },
+    {
+      "id": "api:GET:/admin/system-configs",
+      "type": "api",
+      "label": "GET /admin/system-configs"
+    },
+    {
+      "id": "controller:SystemConfigController",
+      "type": "controller",
+      "label": "SystemConfigController"
+    },
+    {
+      "id": "api:PUT:/admin/system-configs/{id}",
+      "type": "api",
+      "label": "PUT /admin/system-configs/{id}"
+    },
+    {
+      "id": "api:GET:/admin/permissions",
+      "type": "api",
+      "label": "GET /admin/permissions"
+    },
+    {
+      "id": "controller:PermissionController",
+      "type": "controller",
+      "label": "PermissionController"
+    },
+    {
+      "id": "api:POST:/admin/permissions",
+      "type": "api",
+      "label": "POST /admin/permissions"
+    },
+    {
+      "id": "api:GET:/admin/permissions/tree",
+      "type": "api",
+      "label": "GET /admin/permissions/tree"
+    },
+    {
+      "id": "service:PermissionQueryService",
+      "type": "service",
+      "label": "PermissionQueryService"
+    },
+    {
+      "id": "table:identity.admin_role",
+      "type": "table",
+      "label": "identity.admin_role"
+    },
+    {
+      "id": "table:identity.permission",
+      "type": "table",
+      "label": "identity.permission"
+    },
+    {
+      "id": "table:identity.role",
+      "type": "table",
+      "label": "identity.role"
+    },
+    {
+      "id": "table:identity.role_permission",
+      "type": "table",
+      "label": "identity.role_permission"
+    },
+    {
+      "id": "api:DELETE:/admin/permissions/{id}",
+      "type": "api",
+      "label": "DELETE /admin/permissions/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/permissions/{id}",
+      "type": "api",
+      "label": "PUT /admin/permissions/{id}"
+    },
+    {
+      "id": "api:GET:/admin/roles",
+      "type": "api",
+      "label": "GET /admin/roles"
+    },
+    {
+      "id": "controller:RoleController",
+      "type": "controller",
+      "label": "RoleController"
+    },
+    {
+      "id": "service:RoleService",
+      "type": "service",
+      "label": "RoleService"
+    },
+    {
+      "id": "api:POST:/admin/roles",
+      "type": "api",
+      "label": "POST /admin/roles"
+    },
+    {
+      "id": "api:GET:/admin/roles/all",
+      "type": "api",
+      "label": "GET /admin/roles/all"
+    },
+    {
+      "id": "api:DELETE:/admin/roles/{id}",
+      "type": "api",
+      "label": "DELETE /admin/roles/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/roles/{id}",
+      "type": "api",
+      "label": "PUT /admin/roles/{id}"
+    },
+    {
+      "id": "api:GET:/admin/orders",
+      "type": "api",
+      "label": "GET /admin/orders"
+    },
+    {
+      "id": "controller:OrderController",
+      "type": "controller",
+      "label": "OrderController"
+    },
+    {
+      "id": "service:OrderService",
+      "type": "service",
+      "label": "OrderService"
+    },
+    {
+      "id": "table:commerce.shipment",
+      "type": "table",
+      "label": "commerce.shipment"
+    },
+    {
+      "id": "api:GET:/admin/orders/export",
+      "type": "api",
+      "label": "GET /admin/orders/export"
+    },
+    {
+      "id": "api:GET:/admin/orders/{id}",
+      "type": "api",
+      "label": "GET /admin/orders/{id}"
+    },
+    {
+      "id": "api:POST:/admin/orders/{id}/ship",
+      "type": "api",
+      "label": "POST /admin/orders/{id}/ship"
+    },
+    {
+      "id": "api:POST:/admin/auth/login",
+      "type": "api",
+      "label": "POST /admin/auth/login"
+    },
+    {
+      "id": "controller:AuthController",
+      "type": "controller",
+      "label": "AuthController"
+    },
+    {
+      "id": "service:AuthService",
+      "type": "service",
+      "label": "AuthService"
+    },
+    {
+      "id": "api:POST:/admin/auth/logout",
+      "type": "api",
+      "label": "POST /admin/auth/logout"
+    },
+    {
+      "id": "api:GET:/admin/auth/me",
+      "type": "api",
+      "label": "GET /admin/auth/me"
+    },
+    {
+      "id": "api:POST:/admin/auth/refresh",
+      "type": "api",
+      "label": "POST /admin/auth/refresh"
+    },
+    {
+      "id": "api:PUT:/admin/reviews/{id}/reply",
+      "type": "api",
+      "label": "PUT /admin/reviews/{id}/reply"
+    },
+    {
+      "id": "api:GET:/admin/depts",
+      "type": "api",
+      "label": "GET /admin/depts"
+    },
+    {
+      "id": "controller:DeptController",
+      "type": "controller",
+      "label": "DeptController"
+    },
+    {
+      "id": "api:POST:/admin/depts",
+      "type": "api",
+      "label": "POST /admin/depts"
+    },
+    {
+      "id": "api:GET:/admin/depts/tree",
+      "type": "api",
+      "label": "GET /admin/depts/tree"
+    },
+    {
+      "id": "api:DELETE:/admin/depts/{id}",
+      "type": "api",
+      "label": "DELETE /admin/depts/{id}"
+    },
+    {
+      "id": "api:PUT:/admin/depts/{id}",
+      "type": "api",
+      "label": "PUT /admin/depts/{id}"
+    },
+    {
+      "id": "api:POST:/api/auth/login",
+      "type": "api",
+      "label": "POST /api/auth/login"
+    },
+    {
+      "id": "controller:CustomerAuthController",
+      "type": "controller",
+      "label": "CustomerAuthController"
+    },
+    {
+      "id": "service:CustomerAuthService",
+      "type": "service",
+      "label": "CustomerAuthService"
+    },
+    {
+      "id": "api:POST:/api/auth/logout",
+      "type": "api",
+      "label": "POST /api/auth/logout"
+    },
+    {
+      "id": "api:POST:/api/auth/phone",
+      "type": "api",
+      "label": "POST /api/auth/phone"
+    },
+    {
+      "id": "api:POST:/api/auth/refresh",
+      "type": "api",
+      "label": "POST /api/auth/refresh"
+    },
+    {
+      "id": "api:POST:/api/auth/sms/send",
+      "type": "api",
+      "label": "POST /api/auth/sms/send"
+    },
+    {
+      "id": "api:GET:/api/me",
+      "type": "api",
+      "label": "GET /api/me"
+    },
+    {
+      "id": "api:PUT:/api/me",
+      "type": "api",
+      "label": "PUT /api/me"
+    },
+    {
+      "id": "EXT-AI-001",
+      "type": "requirement",
+      "label": "EXT-AI-001 商城 C 端 AI 助手浮窗（商品/知识/订单）"
+    },
+    {
+      "id": "EXT-REVIEW-REPLY-001",
+      "type": "requirement",
+      "label": "EXT-REVIEW-REPLY-001 商品评价商家回复（管理端回复、C 端展示）"
+    },
+    {
+      "id": "V1-FR-001",
+      "type": "requirement",
+      "label": "V1-FR-001 账密登录、失败锁定、登出"
+    },
+    {
+      "id": "V1-FR-002",
+      "type": "requirement",
+      "label": "V1-FR-002 用户增删改查、启禁用、重置密码"
+    },
+    {
+      "id": "V1-FR-003",
+      "type": "requirement",
+      "label": "V1-FR-003 角色、权限绑定、数据范围"
+    },
+    {
+      "id": "V1-FR-004",
+      "type": "requirement",
+      "label": "V1-FR-004 权限树维护、侧栏与按钮权限"
+    },
+    {
+      "id": "V1-FR-005",
+      "type": "requirement",
+      "label": "V1-FR-005 部门树增删改查"
+    },
+    {
+      "id": "V1-FR-006",
+      "type": "requirement",
+      "label": "V1-FR-006 字典类型与项"
+    },
+    {
+      "id": "V1-FR-007",
+      "type": "requirement",
+      "label": "V1-FR-007 记录、查询、详情、导出"
+    },
+    {
+      "id": "V1-FR-008",
+      "type": "requirement",
+      "label": "V1-FR-008 类目树增删改查"
+    },
+    {
+      "id": "V1-FR-009",
+      "type": "requirement",
+      "label": "V1-FR-009 品牌增删改查、归属类目"
+    },
+    {
+      "id": "V1-FR-010",
+      "type": "requirement",
+      "label": "V1-FR-010 属性、规格值维护"
+    },
+    {
+      "id": "V1-FR-011",
+      "type": "requirement",
+      "label": "V1-FR-011 SPU + 规格 + SKU 维护"
+    },
+    {
+      "id": "V1-FR-012",
+      "type": "requirement",
+      "label": "V1-FR-012 查询、聚合展示"
+    },
+    {
+      "id": "V1-FR-013",
+      "type": "requirement",
+      "label": "V1-FR-013 上架校验、单个/批量下架、删除草稿"
+    },
+    {
+      "id": "V1-FR-014",
+      "type": "requirement",
+      "label": "V1-FR-014 图片上传与引用"
+    },
+    {
+      "id": "V1-FR-015",
+      "type": "requirement",
+      "label": "V1-FR-015 三态查询、手动调整"
+    },
+    {
+      "id": "V1-FR-016",
+      "type": "requirement",
+      "label": "V1-FR-016 阈值、低库存/关注两档、筛选"
+    },
+    {
+      "id": "V1-FR-017",
+      "type": "requirement",
+      "label": "V1-FR-017 默认仓种子；无独立管理页"
+    },
+    {
+      "id": "V1-FR-018",
+      "type": "requirement",
+      "label": "V1-FR-018 列表、详情"
+    },
+    {
+      "id": "V1-FR-019",
+      "type": "requirement",
+      "label": "V1-FR-019 承运商 + 运单号、状态流转"
+    },
+    {
+      "id": "V1-FR-020",
+      "type": "requirement",
+      "label": "V1-FR-020 列表、详情"
+    },
+    {
+      "id": "V1-FR-021",
+      "type": "requirement",
+      "label": "V1-FR-021 同意/拒绝"
+    },
+    {
+      "id": "V1-FR-022",
+      "type": "requirement",
+      "label": "V1-FR-022 配置 KV（分类 Tab、敏感脱敏）"
+    },
+    {
+      "id": "V1-FR-023",
+      "type": "requirement",
+      "label": "V1-FR-023 统计摘要、低库存入口"
+    },
+    {
+      "id": "V1-FR-024",
+      "type": "requirement",
+      "label": "V1-FR-024 全站统一的确认/表单/拒绝/提示规范"
+    },
+    {
+      "id": "V2-FR-001",
+      "type": "requirement",
+      "label": "V2-FR-001 手机号登录、游客浏览、登录引导、退出"
+    },
+    {
+      "id": "V2-FR-002",
+      "type": "requirement",
+      "label": "V2-FR-002 个人资料"
+    },
+    {
+      "id": "V2-FR-003",
+      "type": "requirement",
+      "label": "V2-FR-003 站点品牌、运营位、推荐流"
+    },
+    {
+      "id": "V2-FR-004",
+      "type": "requirement",
+      "label": "V2-FR-004 分类导航与商品列表"
+    },
+    {
+      "id": "V2-FR-005",
+      "type": "requirement",
+      "label": "V2-FR-005 搜索"
+    },
+    {
+      "id": "V2-FR-006",
+      "type": "requirement",
+      "label": "V2-FR-006 商品详情与加购/购买"
+    },
+    {
+      "id": "V2-FR-007",
+      "type": "requirement",
+      "label": "V2-FR-007 增删改、勾选、失效、角标"
+    },
+    {
+      "id": "V2-FR-008",
+      "type": "requirement",
+      "label": "V2-FR-008 确认订单"
+    },
+    {
+      "id": "V2-FR-009",
+      "type": "requirement",
+      "label": "V2-FR-009 提交订单与待付款倒计时"
+    },
+    {
+      "id": "V2-FR-010",
+      "type": "requirement",
+      "label": "V2-FR-010 模拟支付与结果页"
+    },
+    {
+      "id": "V2-FR-011",
+      "type": "requirement",
+      "label": "V2-FR-011 列表、详情、取消、收货、物流"
+    },
+    {
+      "id": "V2-FR-012",
+      "type": "requirement",
+      "label": "V2-FR-012 申请、列表、详情、凭证上传"
+    },
+    {
+      "id": "V2-FR-013",
+      "type": "requirement",
+      "label": "V2-FR-013 首页、收藏、足迹、设置"
+    },
+    {
+      "id": "V2-FR-014",
+      "type": "requirement",
+      "label": "V2-FR-014 地址管理"
+    },
+    {
+      "id": "V2-FR-015",
+      "type": "requirement",
+      "label": "V2-FR-015 发表评价与详情页展示"
+    },
+    {
+      "id": "V2-FR-016",
+      "type": "requirement",
+      "label": "V2-FR-016 Web/H5 双布局"
+    },
+    {
+      "id": "V2-FR-017",
+      "type": "requirement",
+      "label": "V2-FR-017 会员管理"
+    },
+    {
+      "id": "V2-FR-018",
+      "type": "requirement",
+      "label": "V2-FR-018 站点品牌"
+    },
+    {
+      "id": "V2-FR-019",
+      "type": "requirement",
+      "label": "V2-FR-019 首页运营位"
+    },
+    {
+      "id": "V2-FR-020",
+      "type": "requirement",
+      "label": "V2-FR-020 交易配置"
+    },
+    {
+      "id": "V2-FR-021",
+      "type": "requirement",
+      "label": "V2-FR-021 超时关单与销量回写"
+    },
+    {
+      "id": "V2-FR-022",
+      "type": "requirement",
+      "label": "V2-FR-022 订单增强与导出"
+    },
+    {
+      "id": "V2-FR-023",
+      "type": "requirement",
+      "label": "V2-FR-023 定时上架"
+    },
+    {
+      "id": "V2-FR-024",
+      "type": "requirement",
+      "label": "V2-FR-024 出入库单"
+    },
+    {
+      "id": "V2-FR-025",
+      "type": "requirement",
+      "label": "V2-FR-025 评价管理"
+    },
+    {
+      "id": "V2-FR-026",
+      "type": "requirement",
+      "label": "V2-FR-026 弹窗与提示规范（C 端）"
+    }
+  ],
+  "edges": [
+    {
+      "from": "V2-FR-001",
+      "to": "page:mall:/login",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-002",
+      "to": "page:mall:/login",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/login",
+      "to": "api:POST:/api/auth/login",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/login",
+      "to": "api:POST:/api/auth/sms/send",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-003",
+      "to": "page:mall:/",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "page:mall:/",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/",
+      "to": "api:GET:/api/categories",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/",
+      "to": "api:GET:/api/home",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/",
+      "to": "api:GET:/api/products",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-003",
+      "to": "page:mall:/promo/:code",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/promo/:code",
+      "to": "api:GET:/api/home",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "page:mall:/category",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "page:mall:/category",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "page:mall:/category",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/category",
+      "to": "api:GET:/api/categories",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/category",
+      "to": "api:GET:/api/products",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "EXT-REVIEW-REPLY-001",
+      "to": "page:mall:/product/:spuId",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "page:mall:/product/:spuId",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "page:mall:/product/:spuId",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-006",
+      "to": "page:mall:/product/:spuId",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-015",
+      "to": "page:mall:/product/:spuId",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/product/:spuId",
+      "to": "api:DELETE:/api/favorites/{spuId}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/product/:spuId",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/product/:spuId",
+      "to": "api:POST:/api/cart/items",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/product/:spuId",
+      "to": "api:POST:/api/favorites/{spuId}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "page:mall:/search",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "page:mall:/search",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/search",
+      "to": "api:GET:/api/home",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/search",
+      "to": "api:GET:/api/products",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/search",
+      "to": "api:GET:/api/search",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-007",
+      "to": "page:mall:/cart",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "page:mall:/cart",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/cart",
+      "to": "api:DELETE:/api/cart/items/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/cart",
+      "to": "api:POST:/api/cart/clear-invalid",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/cart",
+      "to": "api:PUT:/api/cart/items/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-008",
+      "to": "page:mall:/checkout",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-009",
+      "to": "page:mall:/checkout",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-010",
+      "to": "page:mall:/checkout",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/checkout",
+      "to": "api:GET:/api/addresses",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/checkout",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/checkout",
+      "to": "api:POST:/api/orders",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "page:mall:/orders",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/orders",
+      "to": "api:GET:/api/orders",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "page:mall:/orders/:id",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/orders/:id",
+      "to": "api:GET:/api/orders/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/orders/:id",
+      "to": "api:GET:/api/orders/{id}/logistics",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/orders/:id",
+      "to": "api:POST:/api/files/upload",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/orders/:id",
+      "to": "api:POST:/api/orders/{id}/cancel",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/orders/:id",
+      "to": "api:POST:/api/orders/{id}/confirm",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/orders/:id",
+      "to": "api:POST:/api/reviews",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-008",
+      "to": "page:mall:/pay/:orderId",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-009",
+      "to": "page:mall:/pay/:orderId",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-010",
+      "to": "page:mall:/pay/:orderId",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/pay/:orderId",
+      "to": "api:GET:/api/orders/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/pay/:orderId",
+      "to": "api:POST:/api/payment/sandbox",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-001",
+      "to": "page:mall:/me",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-002",
+      "to": "page:mall:/me",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "page:mall:/me",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "page:mall:/me",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "page:mall:/me",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/me",
+      "to": "api:GET:/api/me",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-001",
+      "to": "page:mall:/settings",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-002",
+      "to": "page:mall:/settings",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/settings",
+      "to": "api:GET:/api/me",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/settings",
+      "to": "api:POST:/api/auth/logout",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/settings",
+      "to": "api:PUT:/api/me",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "page:mall:/addresses",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "page:mall:/addresses",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/addresses",
+      "to": "api:DELETE:/api/addresses/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/addresses",
+      "to": "api:GET:/api/addresses",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/addresses",
+      "to": "api:POST:/api/addresses",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/addresses",
+      "to": "api:PUT:/api/addresses/{id}/default",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "page:mall:/favorites",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "page:mall:/favorites",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/favorites",
+      "to": "api:DELETE:/api/favorites/{spuId}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/favorites",
+      "to": "api:GET:/api/favorites",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "page:mall:/history",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "page:mall:/history",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/history",
+      "to": "api:DELETE:/api/history",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/history",
+      "to": "api:GET:/api/history",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-012",
+      "to": "page:mall:/after-sales",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/after-sales",
+      "to": "api:GET:/api/after-sales",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-012",
+      "to": "page:mall:/after-sales/apply",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/after-sales/apply",
+      "to": "api:GET:/api/orders/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/after-sales/apply",
+      "to": "api:POST:/api/after-sales",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:mall:/after-sales/apply",
+      "to": "api:POST:/api/files/upload",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-012",
+      "to": "page:mall:/after-sales/:id",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:/after-sales/:id",
+      "to": "api:GET:/api/after-sales/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-001",
+      "to": "page:admin:/login",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/login",
+      "to": "api:POST:/admin/auth/login",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-023",
+      "to": "page:admin:/dashboard",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/dashboard",
+      "to": "api:GET:/admin/dashboard/stats",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/dashboard",
+      "to": "api:GET:/admin/stocks",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-012",
+      "to": "page:admin:/products",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-013",
+      "to": "page:admin:/products",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/products",
+      "to": "api:DELETE:/admin/products/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products",
+      "to": "api:GET:/admin/products",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products",
+      "to": "api:GET:/admin/stocks",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products",
+      "to": "api:PUT:/admin/products/batch-off",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products",
+      "to": "api:PUT:/admin/products/{id}/off",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products",
+      "to": "api:PUT:/admin/products/{id}/on",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "page:admin:/products/edit",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "page:admin:/products/edit",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "page:admin:/products/edit",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/products/edit",
+      "to": "api:GET:/admin/brands",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit",
+      "to": "api:GET:/admin/products/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit",
+      "to": "api:POST:/admin/files/upload",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit",
+      "to": "api:POST:/admin/products",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit",
+      "to": "api:PUT:/admin/products/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit",
+      "to": "api:PUT:/admin/products/{id}/on",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "page:admin:/products/edit/:id",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "page:admin:/products/edit/:id",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "page:admin:/products/edit/:id",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/products/edit/:id",
+      "to": "api:GET:/admin/brands",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit/:id",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit/:id",
+      "to": "api:GET:/admin/products/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit/:id",
+      "to": "api:POST:/admin/files/upload",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit/:id",
+      "to": "api:POST:/admin/products",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit/:id",
+      "to": "api:PUT:/admin/products/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/products/edit/:id",
+      "to": "api:PUT:/admin/products/{id}/on",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "page:admin:/categories",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "page:admin:/categories",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "page:admin:/categories",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:DELETE:/admin/attributes/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:DELETE:/admin/brands/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:DELETE:/admin/categories/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:GET:/admin/attributes",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:GET:/admin/brands",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:GET:/admin/products",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:POST:/admin/attributes",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:POST:/admin/brands",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:POST:/admin/categories",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:PUT:/admin/attributes/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:PUT:/admin/brands/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/categories",
+      "to": "api:PUT:/admin/categories/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-015",
+      "to": "page:admin:/inventory",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-016",
+      "to": "page:admin:/inventory",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-017",
+      "to": "page:admin:/inventory",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/inventory",
+      "to": "api:GET:/admin/stocks",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/inventory",
+      "to": "api:PUT:/admin/stocks/adjust",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-024",
+      "to": "page:admin:/in-out",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/in-out",
+      "to": "api:GET:/admin/in-out",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/in-out",
+      "to": "api:GET:/admin/stocks",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/in-out",
+      "to": "api:POST:/admin/in-out",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-018",
+      "to": "page:admin:/orders",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-019",
+      "to": "page:admin:/orders",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-021",
+      "to": "page:admin:/orders",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-022",
+      "to": "page:admin:/orders",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/orders",
+      "to": "api:GET:/admin/orders",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/orders",
+      "to": "api:GET:/admin/orders/export",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/orders",
+      "to": "api:GET:/admin/orders/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/orders",
+      "to": "api:POST:/admin/orders/{id}/ship",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-020",
+      "to": "page:admin:/aftersales",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V1-FR-021",
+      "to": "page:admin:/aftersales",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/aftersales",
+      "to": "api:GET:/admin/after-sales",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/aftersales",
+      "to": "api:GET:/admin/after-sales/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/aftersales",
+      "to": "api:GET:/admin/orders/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/aftersales",
+      "to": "api:POST:/admin/after-sales/{id}/audit",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "EXT-REVIEW-REPLY-001",
+      "to": "page:admin:/reviews",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-025",
+      "to": "page:admin:/reviews",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/reviews",
+      "to": "api:GET:/admin/reviews",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/reviews",
+      "to": "api:PUT:/admin/reviews/{id}/reply",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/reviews",
+      "to": "api:PUT:/admin/reviews/{id}/status",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-017",
+      "to": "page:admin:/customers",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/customers",
+      "to": "api:GET:/admin/customers",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/customers",
+      "to": "api:PUT:/admin/customers/{id}/status",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "page:admin:/site-brand",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-018",
+      "to": "page:admin:/site-brand",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/site-brand",
+      "to": "api:GET:/admin/site/brand",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/site-brand",
+      "to": "api:POST:/admin/files/upload",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/site-brand",
+      "to": "api:PUT:/admin/site/brand",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V2-FR-019",
+      "to": "page:admin:/home-slots",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/home-slots",
+      "to": "api:GET:/admin/home/slots",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/home-slots",
+      "to": "api:GET:/admin/home/slots/{code}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/home-slots",
+      "to": "api:GET:/admin/products",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/home-slots",
+      "to": "api:PUT:/admin/home/slots/{code}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "page:admin:/users",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/users",
+      "to": "api:DELETE:/admin/users/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/users",
+      "to": "api:GET:/admin/depts/tree",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/users",
+      "to": "api:GET:/admin/roles/all",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/users",
+      "to": "api:GET:/admin/users",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/users",
+      "to": "api:POST:/admin/users",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/users",
+      "to": "api:PUT:/admin/users/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/users",
+      "to": "api:PUT:/admin/users/{id}/password",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/users",
+      "to": "api:PUT:/admin/users/{id}/status",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-003",
+      "to": "page:admin:/roles",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/roles",
+      "to": "api:DELETE:/admin/roles/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/roles",
+      "to": "api:GET:/admin/permissions/tree",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/roles",
+      "to": "api:GET:/admin/roles",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/roles",
+      "to": "api:GET:/admin/users",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/roles",
+      "to": "api:POST:/admin/roles",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/roles",
+      "to": "api:PUT:/admin/roles/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-004",
+      "to": "page:admin:/menus",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/menus",
+      "to": "api:DELETE:/admin/permissions/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/menus",
+      "to": "api:GET:/admin/permissions/tree",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/menus",
+      "to": "api:GET:/admin/roles",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/menus",
+      "to": "api:POST:/admin/permissions",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/menus",
+      "to": "api:PUT:/admin/permissions/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-005",
+      "to": "page:admin:/depts",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/depts",
+      "to": "api:DELETE:/admin/depts/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/depts",
+      "to": "api:GET:/admin/depts/tree",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/depts",
+      "to": "api:GET:/admin/users",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/depts",
+      "to": "api:POST:/admin/depts",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/depts",
+      "to": "api:PUT:/admin/depts/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "page:admin:/dicts",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/dicts",
+      "to": "api:DELETE:/admin/dict-items/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/dicts",
+      "to": "api:DELETE:/admin/dicts/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/dicts",
+      "to": "api:GET:/admin/dict-items",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/dicts",
+      "to": "api:GET:/admin/dicts",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/dicts",
+      "to": "api:POST:/admin/dict-items",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/dicts",
+      "to": "api:POST:/admin/dicts",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/dicts",
+      "to": "api:PUT:/admin/dict-items/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/dicts",
+      "to": "api:PUT:/admin/dicts/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-007",
+      "to": "page:admin:/logs",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/logs",
+      "to": "api:GET:/admin/operation-logs",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/logs",
+      "to": "api:GET:/admin/operation-logs/export",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/logs",
+      "to": "api:GET:/admin/operation-logs/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "V1-FR-022",
+      "to": "page:admin:/settings",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "V2-FR-020",
+      "to": "page:admin:/settings",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:admin:/settings",
+      "to": "api:GET:/admin/system-configs",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "page:admin:/settings",
+      "to": "api:PUT:/admin/system-configs/{id}",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "EXT-AI-001",
+      "to": "page:mall:ai-assistant",
+      "type": "requirement_has_page"
+    },
+    {
+      "from": "page:mall:ai-assistant",
+      "to": "api:POST:/api/customer-service/chat",
+      "type": "page_calls_api"
+    },
+    {
+      "from": "api:POST:/api/customer-service/chat",
+      "to": "controller:CustomerServiceController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/customer-service/chat",
+      "to": "service:CustomerServiceAgentClient",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/addresses",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/addresses",
+      "to": "service:AddressService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/addresses",
+      "to": "table:commerce.address",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/addresses",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/addresses",
+      "to": "service:AddressService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/addresses",
+      "to": "table:commerce.address",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/addresses/{id}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/api/addresses/{id}",
+      "to": "service:AddressService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:DELETE:/api/addresses/{id}",
+      "to": "table:commerce.address",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/api/addresses/{id}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/api/addresses/{id}",
+      "to": "service:AddressService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/api/addresses/{id}",
+      "to": "table:commerce.address",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/api/addresses/{id}/default",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/api/addresses/{id}/default",
+      "to": "service:AddressService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/api/addresses/{id}/default",
+      "to": "table:commerce.address",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/after-sales",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/after-sales",
+      "to": "service:AfterSaleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/after-sales",
+      "to": "table:commerce.after_sale",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/after-sales",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/after-sales",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/after-sales",
+      "to": "service:AfterSaleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/after-sales",
+      "to": "table:commerce.after_sale",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/after-sales",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/after-sales/{id}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/after-sales/{id}",
+      "to": "service:AfterSaleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/after-sales/{id}",
+      "to": "table:commerce.after_sale",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/after-sales/{id}",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/cart",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/cart",
+      "to": "service:CartService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/cart",
+      "to": "table:commerce.cart",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/cart",
+      "to": "table:commerce.cart_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/cart",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/cart",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/cart",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/clear-invalid",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/cart/clear-invalid",
+      "to": "service:CartService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/cart/clear-invalid",
+      "to": "table:commerce.cart",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/clear-invalid",
+      "to": "table:commerce.cart_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/clear-invalid",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/clear-invalid",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/clear-invalid",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/items",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/cart/items",
+      "to": "service:CartService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/cart/items",
+      "to": "table:commerce.cart",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/items",
+      "to": "table:commerce.cart_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/items",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/items",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/cart/items",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/cart/items/{id}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/api/cart/items/{id}",
+      "to": "service:CartService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:DELETE:/api/cart/items/{id}",
+      "to": "table:commerce.cart",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/cart/items/{id}",
+      "to": "table:commerce.cart_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/cart/items/{id}",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/cart/items/{id}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/cart/items/{id}",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/api/cart/items/{id}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/api/cart/items/{id}",
+      "to": "service:CartService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/api/cart/items/{id}",
+      "to": "table:commerce.cart",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/api/cart/items/{id}",
+      "to": "table:commerce.cart_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/api/cart/items/{id}",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/api/cart/items/{id}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/api/cart/items/{id}",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/categories",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/categories",
+      "to": "service:CatalogReadService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/categories",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/categories",
+      "to": "table:commerce.review",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/categories",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/categories",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/categories",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/favorites",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/favorites",
+      "to": "service:FavoriteBrowseService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/favorites",
+      "to": "table:commerce.browse_history",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/favorites",
+      "to": "table:commerce.favorite",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/favorites",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/favorites/{spuId}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/api/favorites/{spuId}",
+      "to": "service:FavoriteBrowseService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:DELETE:/api/favorites/{spuId}",
+      "to": "table:commerce.browse_history",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/favorites/{spuId}",
+      "to": "table:commerce.favorite",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/favorites/{spuId}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/favorites/{spuId}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/favorites/{spuId}",
+      "to": "service:FavoriteBrowseService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/favorites/{spuId}",
+      "to": "table:commerce.browse_history",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/favorites/{spuId}",
+      "to": "table:commerce.favorite",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/favorites/{spuId}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/history",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/api/history",
+      "to": "service:FavoriteBrowseService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:DELETE:/api/history",
+      "to": "table:commerce.browse_history",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/history",
+      "to": "table:commerce.favorite",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/api/history",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/history",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/history",
+      "to": "service:FavoriteBrowseService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/history",
+      "to": "table:commerce.browse_history",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/history",
+      "to": "table:commerce.favorite",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/history",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/home",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/home",
+      "to": "service:CatalogReadService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/home",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/home",
+      "to": "table:commerce.review",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/home",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/home",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/home",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/orders",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "service:OrderSubmitService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.address",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.cart",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.cart_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/orders/{id}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "service:OrderSubmitService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.address",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.cart",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.cart_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/cancel",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "service:OrderSubmitService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.address",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.cart",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.cart_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/orders/{id}/confirm",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/orders/{id}/logistics",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/payment/sandbox",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/payment/sandbox",
+      "to": "service:PaymentSandboxService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/payment/sandbox",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/payment/sandbox",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/payment/sandbox",
+      "to": "table:commerce.payment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/payment/sandbox",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/payment/{orderId}/status",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/payment/{orderId}/status",
+      "to": "service:PaymentSandboxService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/payment/{orderId}/status",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/payment/{orderId}/status",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/payment/{orderId}/status",
+      "to": "table:commerce.payment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/payment/{orderId}/status",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/products",
+      "to": "service:CatalogReadService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/products",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products",
+      "to": "table:commerce.review",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "service:CatalogReadService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "service:FavoriteBrowseService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "table:commerce.browse_history",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "table:commerce.favorite",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "table:commerce.review",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/products/{spuId}/reviews",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/reviews",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/search",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/search",
+      "to": "service:CatalogReadService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/search",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/search",
+      "to": "table:commerce.review",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/search",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/search",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/search",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/site/brand",
+      "to": "controller:StorefrontController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/site/brand",
+      "to": "service:SiteBrandService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/site/brand",
+      "to": "table:commerce.site_brand",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/files/confirm",
+      "to": "controller:CustomerFileController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/files/presign",
+      "to": "controller:CustomerFileController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/files/upload",
+      "to": "controller:CustomerFileController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/files/view",
+      "to": "controller:CustomerFileController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/home/slots",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/home/slots",
+      "to": "service:HomeSlotService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/home/slots",
+      "to": "table:commerce.home_slot",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/home/slots",
+      "to": "table:commerce.home_slot_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/home/slots",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/home/slots",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/home/slots/{code}",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/home/slots/{code}",
+      "to": "service:HomeSlotService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/home/slots/{code}",
+      "to": "table:commerce.home_slot",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/home/slots/{code}",
+      "to": "table:commerce.home_slot_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/home/slots/{code}",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/home/slots/{code}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/home/slots/{code}",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/home/slots/{code}",
+      "to": "service:HomeSlotService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/home/slots/{code}",
+      "to": "table:commerce.home_slot",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/home/slots/{code}",
+      "to": "table:commerce.home_slot_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/home/slots/{code}",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/home/slots/{code}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/in-out",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/in-out",
+      "to": "service:InOutOrderService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/in-out",
+      "to": "table:commerce.in_out_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/in-out",
+      "to": "table:commerce.in_out_order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/in-out",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/in-out",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/in-out",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/in-out",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/in-out",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/in-out",
+      "to": "service:InOutOrderService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/in-out",
+      "to": "table:commerce.in_out_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/in-out",
+      "to": "table:commerce.in_out_order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/in-out",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/in-out",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/in-out",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/in-out",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/reviews",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/reviews",
+      "to": "service:ReviewAdminService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/reviews",
+      "to": "table:commerce.review",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/reviews",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/reviews/{id}/status",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/reviews/{id}/status",
+      "to": "service:ReviewAdminService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/reviews/{id}/status",
+      "to": "table:commerce.review",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/reviews/{id}/status",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/site/brand",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/site/brand",
+      "to": "service:SiteBrandService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/site/brand",
+      "to": "table:commerce.site_brand",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/site/brand",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/site/brand",
+      "to": "service:SiteBrandService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/site/brand",
+      "to": "table:commerce.site_brand",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/warehouses",
+      "to": "controller:WarehouseController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/warehouses",
+      "to": "controller:WarehouseController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/warehouses/{id}",
+      "to": "controller:WarehouseController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/customers",
+      "to": "controller:CustomerAdminController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/customers",
+      "to": "service:CustomerAdminService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/customers",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/customers/{id}",
+      "to": "controller:CustomerAdminController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/customers/{id}",
+      "to": "service:CustomerAdminService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/customers/{id}",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/customers/{id}/status",
+      "to": "controller:CustomerAdminController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/customers/{id}/status",
+      "to": "service:CustomerAdminService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/customers/{id}/status",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/brands",
+      "to": "controller:BrandController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/brands",
+      "to": "service:BrandService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/brands",
+      "to": "table:commerce.brand",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/brands",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/brands",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/brands",
+      "to": "controller:BrandController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/brands/{id}",
+      "to": "controller:BrandController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/brands/{id}",
+      "to": "controller:BrandController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/after-sales",
+      "to": "controller:AfterSaleController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/after-sales",
+      "to": "service:AfterSaleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/after-sales",
+      "to": "table:commerce.after_sale",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/after-sales",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/after-sales/{id}",
+      "to": "controller:AfterSaleController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/after-sales/{id}",
+      "to": "service:AfterSaleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/after-sales/{id}",
+      "to": "table:commerce.after_sale",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/after-sales/{id}",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/after-sales/{id}/audit",
+      "to": "controller:AfterSaleController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/after-sales/{id}/audit",
+      "to": "service:AfterSaleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/after-sales/{id}/audit",
+      "to": "table:commerce.after_sale",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/after-sales/{id}/audit",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products",
+      "to": "controller:ProductController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/products",
+      "to": "service:ProductService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/products",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/products",
+      "to": "controller:ProductController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/products",
+      "to": "service:ProductService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/products",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/products",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/products",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/products",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/products",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/batch-off",
+      "to": "controller:ProductController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/products/batch-off",
+      "to": "service:ProductService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/products/batch-off",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/batch-off",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/batch-off",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/batch-off",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/batch-off",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/admin/products/{id}",
+      "to": "controller:ProductController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/products/{id}",
+      "to": "service:ProductService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:DELETE:/admin/products/{id}",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/admin/products/{id}",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/admin/products/{id}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/admin/products/{id}",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/admin/products/{id}",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products/{id}",
+      "to": "controller:ProductController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/products/{id}",
+      "to": "service:ProductService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/products/{id}",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products/{id}",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products/{id}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products/{id}",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/products/{id}",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}",
+      "to": "controller:ProductController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}",
+      "to": "service:ProductService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/off",
+      "to": "controller:ProductController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/off",
+      "to": "service:ProductService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/off",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/off",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/off",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/off",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/off",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/on",
+      "to": "controller:ProductController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/on",
+      "to": "service:ProductService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/on",
+      "to": "table:commerce.category",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/on",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/on",
+      "to": "table:commerce.spu",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/on",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/products/{id}/on",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/dict-items",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/dict-items",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/dict-items/by-code",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/dict-items/{id}",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/dict-items/{id}",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/dicts",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/dicts",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/dicts/{id}",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/dicts/{id}",
+      "to": "controller:DictController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/attributes",
+      "to": "controller:AttributeController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/attributes",
+      "to": "service:AttributeService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/attributes",
+      "to": "table:commerce.attribute",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/attributes",
+      "to": "controller:AttributeController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/attributes/{id}",
+      "to": "controller:AttributeController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/attributes/{id}",
+      "to": "controller:AttributeController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/dashboard/stats",
+      "to": "controller:DashboardController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/stocks",
+      "to": "controller:StockController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/stocks",
+      "to": "service:StockService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/stocks",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/stocks",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/stocks",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/stocks",
+      "to": "table:commerce.warehouse",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/stocks/adjust",
+      "to": "controller:StockController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/stocks/adjust",
+      "to": "service:StockService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/stocks/adjust",
+      "to": "table:commerce.sku",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/stocks/adjust",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/stocks/adjust",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/stocks/adjust",
+      "to": "table:commerce.warehouse",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/operation-logs",
+      "to": "controller:OperationLogController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/operation-logs/export",
+      "to": "controller:OperationLogController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/operation-logs/{id}",
+      "to": "controller:OperationLogController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/operation-logs/{id}",
+      "to": "service:OperationLogService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/operation-logs/{id}",
+      "to": "table:identity.operation_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/files/confirm",
+      "to": "controller:FileController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/files/presign",
+      "to": "controller:FileController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/files/upload",
+      "to": "controller:FileController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/files/view",
+      "to": "controller:FileController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/users",
+      "to": "controller:AdminUserController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/users",
+      "to": "service:AdminUserService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/users",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/users",
+      "to": "controller:AdminUserController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/users",
+      "to": "service:AdminUserService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/users",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/admin/users/{id}",
+      "to": "controller:AdminUserController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/users/{id}",
+      "to": "service:AdminUserService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:DELETE:/admin/users/{id}",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/users/{id}",
+      "to": "controller:AdminUserController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/users/{id}",
+      "to": "service:AdminUserService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/users/{id}",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/users/{id}",
+      "to": "controller:AdminUserController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/users/{id}",
+      "to": "service:AdminUserService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/users/{id}",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/users/{id}/password",
+      "to": "controller:AdminUserController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/users/{id}/status",
+      "to": "controller:AdminUserController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/categories",
+      "to": "controller:CategoryController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/categories",
+      "to": "controller:CategoryController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/categories/tree",
+      "to": "controller:CategoryController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/categories/{id}",
+      "to": "controller:CategoryController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/categories/{id}",
+      "to": "controller:CategoryController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/system-configs",
+      "to": "controller:SystemConfigController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/system-configs/{id}",
+      "to": "controller:SystemConfigController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/permissions",
+      "to": "controller:PermissionController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/permissions",
+      "to": "controller:PermissionController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/permissions/tree",
+      "to": "controller:PermissionController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/permissions/tree",
+      "to": "service:PermissionQueryService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/permissions/tree",
+      "to": "table:identity.admin_role",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/permissions/tree",
+      "to": "table:identity.permission",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/permissions/tree",
+      "to": "table:identity.role",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/permissions/tree",
+      "to": "table:identity.role_permission",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/admin/permissions/{id}",
+      "to": "controller:PermissionController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/permissions/{id}",
+      "to": "controller:PermissionController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/roles",
+      "to": "controller:RoleController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/roles",
+      "to": "service:RoleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/roles",
+      "to": "table:identity.role",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/roles",
+      "to": "controller:RoleController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/roles",
+      "to": "service:RoleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/roles",
+      "to": "table:identity.role",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/roles/all",
+      "to": "controller:RoleController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/roles/all",
+      "to": "service:RoleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/roles/all",
+      "to": "table:identity.role",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:DELETE:/admin/roles/{id}",
+      "to": "controller:RoleController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/roles/{id}",
+      "to": "service:RoleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:DELETE:/admin/roles/{id}",
+      "to": "table:identity.role",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/roles/{id}",
+      "to": "controller:RoleController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/roles/{id}",
+      "to": "service:RoleService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/roles/{id}",
+      "to": "table:identity.role",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders",
+      "to": "controller:OrderController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/orders",
+      "to": "service:OrderService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/orders",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders",
+      "to": "table:commerce.payment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders",
+      "to": "table:commerce.shipment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/export",
+      "to": "controller:OrderController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/orders/export",
+      "to": "service:OrderService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/orders/export",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/export",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/export",
+      "to": "table:commerce.payment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/export",
+      "to": "table:commerce.shipment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/export",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/export",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/{id}",
+      "to": "controller:OrderController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/orders/{id}",
+      "to": "service:OrderService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/orders/{id}",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/{id}",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/{id}",
+      "to": "table:commerce.payment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/{id}",
+      "to": "table:commerce.shipment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/{id}",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/orders/{id}",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/orders/{id}/ship",
+      "to": "controller:OrderController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/orders/{id}/ship",
+      "to": "service:OrderService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/orders/{id}/ship",
+      "to": "table:commerce.order",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/orders/{id}/ship",
+      "to": "table:commerce.order_item",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/orders/{id}/ship",
+      "to": "table:commerce.payment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/orders/{id}/ship",
+      "to": "table:commerce.shipment",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/orders/{id}/ship",
+      "to": "table:commerce.stock",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/orders/{id}/ship",
+      "to": "table:commerce.stock_log",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/auth/login",
+      "to": "controller:AuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/auth/login",
+      "to": "service:AuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/auth/login",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/auth/logout",
+      "to": "controller:AuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/auth/logout",
+      "to": "service:AuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/auth/logout",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/auth/me",
+      "to": "controller:AuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/auth/me",
+      "to": "service:AuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/admin/auth/me",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/admin/auth/refresh",
+      "to": "controller:AuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/auth/refresh",
+      "to": "service:AuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/admin/auth/refresh",
+      "to": "table:identity.admin_user",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/admin/reviews/{id}/reply",
+      "to": "controller:AdminOpsController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/reviews/{id}/reply",
+      "to": "service:ReviewAdminService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/admin/reviews/{id}/reply",
+      "to": "table:commerce.review",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/admin/depts",
+      "to": "controller:DeptController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/admin/depts",
+      "to": "controller:DeptController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/admin/depts/tree",
+      "to": "controller:DeptController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:DELETE:/admin/depts/{id}",
+      "to": "controller:DeptController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/admin/depts/{id}",
+      "to": "controller:DeptController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/auth/login",
+      "to": "controller:CustomerAuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/auth/login",
+      "to": "service:CustomerAuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/auth/login",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/auth/logout",
+      "to": "controller:CustomerAuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/auth/logout",
+      "to": "service:CustomerAuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/auth/logout",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/auth/phone",
+      "to": "controller:CustomerAuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/auth/phone",
+      "to": "service:CustomerAuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/auth/phone",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/auth/refresh",
+      "to": "controller:CustomerAuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/auth/refresh",
+      "to": "service:CustomerAuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/auth/refresh",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:POST:/api/auth/sms/send",
+      "to": "controller:CustomerAuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:POST:/api/auth/sms/send",
+      "to": "service:CustomerAuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:POST:/api/auth/sms/send",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:GET:/api/me",
+      "to": "controller:CustomerAuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:GET:/api/me",
+      "to": "service:CustomerAuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:GET:/api/me",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "api:PUT:/api/me",
+      "to": "controller:CustomerAuthController",
+      "type": "handled_by"
+    },
+    {
+      "from": "api:PUT:/api/me",
+      "to": "service:CustomerAuthService",
+      "type": "calls_service"
+    },
+    {
+      "from": "api:PUT:/api/me",
+      "to": "table:identity.customer",
+      "type": "accesses_table"
+    },
+    {
+      "from": "EXT-AI-001",
+      "to": "api:POST:/api/customer-service/chat",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "EXT-REVIEW-REPLY-001",
+      "to": "api:GET:/admin/reviews",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "EXT-REVIEW-REPLY-001",
+      "to": "api:PUT:/admin/reviews/{id}/reply",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "EXT-REVIEW-REPLY-001",
+      "to": "api:GET:/api/products/{spuId}/reviews",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-001",
+      "to": "api:POST:/admin/auth/login",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "api:DELETE:/admin/users/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "api:GET:/admin/depts/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "api:GET:/admin/roles/all",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "api:GET:/admin/users",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "api:POST:/admin/users",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "api:PUT:/admin/users/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "api:PUT:/admin/users/{id}/password",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-002",
+      "to": "api:PUT:/admin/users/{id}/status",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-003",
+      "to": "api:DELETE:/admin/roles/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-003",
+      "to": "api:GET:/admin/permissions/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-003",
+      "to": "api:GET:/admin/roles",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-003",
+      "to": "api:GET:/admin/users",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-003",
+      "to": "api:POST:/admin/roles",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-003",
+      "to": "api:PUT:/admin/roles/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-004",
+      "to": "api:DELETE:/admin/permissions/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-004",
+      "to": "api:GET:/admin/permissions/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-004",
+      "to": "api:GET:/admin/roles",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-004",
+      "to": "api:POST:/admin/permissions",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-004",
+      "to": "api:PUT:/admin/permissions/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-005",
+      "to": "api:DELETE:/admin/depts/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-005",
+      "to": "api:GET:/admin/depts/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-005",
+      "to": "api:GET:/admin/users",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-005",
+      "to": "api:POST:/admin/depts",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-005",
+      "to": "api:PUT:/admin/depts/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "api:DELETE:/admin/dict-items/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "api:DELETE:/admin/dicts/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "api:GET:/admin/dict-items",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "api:GET:/admin/dicts",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "api:POST:/admin/dict-items",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "api:POST:/admin/dicts",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "api:PUT:/admin/dict-items/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-006",
+      "to": "api:PUT:/admin/dicts/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-007",
+      "to": "api:GET:/admin/operation-logs",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-007",
+      "to": "api:GET:/admin/operation-logs/export",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-007",
+      "to": "api:GET:/admin/operation-logs/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:DELETE:/admin/attributes/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:DELETE:/admin/brands/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:DELETE:/admin/categories/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:GET:/admin/attributes",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:GET:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:GET:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:POST:/admin/attributes",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:POST:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:POST:/admin/categories",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:PUT:/admin/attributes/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:PUT:/admin/brands/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-008",
+      "to": "api:PUT:/admin/categories/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:DELETE:/admin/attributes/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:DELETE:/admin/brands/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:DELETE:/admin/categories/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:GET:/admin/attributes",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:GET:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:GET:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:POST:/admin/attributes",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:POST:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:POST:/admin/categories",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:PUT:/admin/attributes/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:PUT:/admin/brands/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-009",
+      "to": "api:PUT:/admin/categories/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:DELETE:/admin/attributes/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:DELETE:/admin/brands/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:DELETE:/admin/categories/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:GET:/admin/attributes",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:GET:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:GET:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:POST:/admin/attributes",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:POST:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:POST:/admin/categories",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:PUT:/admin/attributes/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:PUT:/admin/brands/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-010",
+      "to": "api:PUT:/admin/categories/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "api:GET:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "api:GET:/admin/products/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "api:POST:/admin/files/upload",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "api:POST:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "api:PUT:/admin/products/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-011",
+      "to": "api:PUT:/admin/products/{id}/on",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-012",
+      "to": "api:DELETE:/admin/products/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-012",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-012",
+      "to": "api:GET:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-012",
+      "to": "api:GET:/admin/stocks",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-012",
+      "to": "api:PUT:/admin/products/batch-off",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-012",
+      "to": "api:PUT:/admin/products/{id}/off",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-012",
+      "to": "api:PUT:/admin/products/{id}/on",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-013",
+      "to": "api:DELETE:/admin/products/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-013",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-013",
+      "to": "api:GET:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-013",
+      "to": "api:GET:/admin/stocks",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-013",
+      "to": "api:PUT:/admin/products/batch-off",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-013",
+      "to": "api:PUT:/admin/products/{id}/off",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-013",
+      "to": "api:PUT:/admin/products/{id}/on",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:GET:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:GET:/admin/products/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:GET:/admin/site/brand",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:POST:/admin/files/upload",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:POST:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:PUT:/admin/products/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:PUT:/admin/products/{id}/on",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-014",
+      "to": "api:PUT:/admin/site/brand",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-015",
+      "to": "api:GET:/admin/stocks",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-015",
+      "to": "api:PUT:/admin/stocks/adjust",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-016",
+      "to": "api:GET:/admin/stocks",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-016",
+      "to": "api:PUT:/admin/stocks/adjust",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-017",
+      "to": "api:GET:/admin/stocks",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-017",
+      "to": "api:PUT:/admin/stocks/adjust",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-018",
+      "to": "api:GET:/admin/orders",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-018",
+      "to": "api:GET:/admin/orders/export",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-018",
+      "to": "api:GET:/admin/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-018",
+      "to": "api:POST:/admin/orders/{id}/ship",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-019",
+      "to": "api:GET:/admin/orders",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-019",
+      "to": "api:GET:/admin/orders/export",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-019",
+      "to": "api:GET:/admin/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-019",
+      "to": "api:POST:/admin/orders/{id}/ship",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-020",
+      "to": "api:GET:/admin/after-sales",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-020",
+      "to": "api:GET:/admin/after-sales/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-020",
+      "to": "api:GET:/admin/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-020",
+      "to": "api:POST:/admin/after-sales/{id}/audit",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-021",
+      "to": "api:GET:/admin/after-sales",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-021",
+      "to": "api:GET:/admin/after-sales/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-021",
+      "to": "api:GET:/admin/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-021",
+      "to": "api:POST:/admin/after-sales/{id}/audit",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-022",
+      "to": "api:GET:/admin/system-configs",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-022",
+      "to": "api:PUT:/admin/system-configs/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-023",
+      "to": "api:GET:/admin/dashboard/stats",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V1-FR-023",
+      "to": "api:GET:/admin/stocks",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-001",
+      "to": "api:GET:/api/me",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-001",
+      "to": "api:POST:/api/auth/login",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-001",
+      "to": "api:POST:/api/auth/logout",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-001",
+      "to": "api:POST:/api/auth/sms/send",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-001",
+      "to": "api:PUT:/api/me",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-002",
+      "to": "api:GET:/api/me",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-002",
+      "to": "api:POST:/api/auth/login",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-002",
+      "to": "api:POST:/api/auth/logout",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-002",
+      "to": "api:POST:/api/auth/sms/send",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-002",
+      "to": "api:PUT:/api/me",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-003",
+      "to": "api:GET:/api/categories",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-003",
+      "to": "api:GET:/api/home",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-003",
+      "to": "api:GET:/api/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "api:DELETE:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "api:GET:/api/categories",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "api:GET:/api/home",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "api:GET:/api/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "api:GET:/api/search",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "api:POST:/api/cart/items",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-004",
+      "to": "api:POST:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "api:DELETE:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "api:GET:/api/categories",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "api:GET:/api/home",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "api:GET:/api/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "api:GET:/api/search",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "api:POST:/api/cart/items",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-005",
+      "to": "api:POST:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-006",
+      "to": "api:DELETE:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-006",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-006",
+      "to": "api:POST:/api/cart/items",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-006",
+      "to": "api:POST:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-007",
+      "to": "api:DELETE:/api/cart/items/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-007",
+      "to": "api:POST:/api/cart/clear-invalid",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-007",
+      "to": "api:PUT:/api/cart/items/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-008",
+      "to": "api:GET:/api/addresses",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-008",
+      "to": "api:GET:/api/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-008",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-008",
+      "to": "api:POST:/api/orders",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-008",
+      "to": "api:POST:/api/payment/sandbox",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-009",
+      "to": "api:GET:/api/addresses",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-009",
+      "to": "api:GET:/api/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-009",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-009",
+      "to": "api:POST:/api/orders",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-009",
+      "to": "api:POST:/api/payment/sandbox",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-010",
+      "to": "api:GET:/api/addresses",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-010",
+      "to": "api:GET:/api/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-010",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-010",
+      "to": "api:POST:/api/orders",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-010",
+      "to": "api:POST:/api/payment/sandbox",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "api:GET:/api/orders",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "api:GET:/api/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "api:GET:/api/orders/{id}/logistics",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "api:POST:/api/files/upload",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "api:POST:/api/orders/{id}/cancel",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "api:POST:/api/orders/{id}/confirm",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-011",
+      "to": "api:POST:/api/reviews",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-012",
+      "to": "api:GET:/api/after-sales",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-012",
+      "to": "api:GET:/api/after-sales/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-012",
+      "to": "api:GET:/api/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-012",
+      "to": "api:POST:/api/after-sales",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-012",
+      "to": "api:POST:/api/files/upload",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:DELETE:/api/addresses/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:DELETE:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:DELETE:/api/history",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:GET:/api/addresses",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:GET:/api/favorites",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:GET:/api/history",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:GET:/api/me",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:POST:/api/addresses",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-013",
+      "to": "api:PUT:/api/addresses/{id}/default",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:DELETE:/api/addresses/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:DELETE:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:DELETE:/api/history",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:GET:/api/addresses",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:GET:/api/favorites",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:GET:/api/history",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:GET:/api/me",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:POST:/api/addresses",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-014",
+      "to": "api:PUT:/api/addresses/{id}/default",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-015",
+      "to": "api:DELETE:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-015",
+      "to": "api:GET:/api/products/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-015",
+      "to": "api:POST:/api/cart/items",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-015",
+      "to": "api:POST:/api/favorites/{spuId}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "api:DELETE:/api/cart/items/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "api:GET:/api/categories",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "api:GET:/api/home",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "api:GET:/api/me",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "api:GET:/api/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "api:POST:/api/cart/clear-invalid",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-016",
+      "to": "api:PUT:/api/cart/items/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-017",
+      "to": "api:GET:/admin/customers",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-017",
+      "to": "api:PUT:/admin/customers/{id}/status",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-018",
+      "to": "api:GET:/admin/site/brand",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-018",
+      "to": "api:POST:/admin/files/upload",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-018",
+      "to": "api:PUT:/admin/site/brand",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-019",
+      "to": "api:GET:/admin/home/slots",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-019",
+      "to": "api:GET:/admin/home/slots/{code}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-019",
+      "to": "api:GET:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-019",
+      "to": "api:PUT:/admin/home/slots/{code}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-020",
+      "to": "api:GET:/admin/system-configs",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-020",
+      "to": "api:PUT:/admin/system-configs/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-021",
+      "to": "api:GET:/admin/orders",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-021",
+      "to": "api:GET:/admin/orders/export",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-021",
+      "to": "api:GET:/admin/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-021",
+      "to": "api:POST:/admin/orders/{id}/ship",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-022",
+      "to": "api:GET:/admin/orders",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-022",
+      "to": "api:GET:/admin/orders/export",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-022",
+      "to": "api:GET:/admin/orders/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-022",
+      "to": "api:POST:/admin/orders/{id}/ship",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "api:GET:/admin/brands",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "api:GET:/admin/categories/tree",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "api:GET:/admin/products/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "api:POST:/admin/files/upload",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "api:POST:/admin/products",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "api:PUT:/admin/products/{id}",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-023",
+      "to": "api:PUT:/admin/products/{id}/on",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-024",
+      "to": "api:GET:/admin/in-out",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-024",
+      "to": "api:GET:/admin/stocks",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-024",
+      "to": "api:POST:/admin/in-out",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-025",
+      "to": "api:GET:/admin/reviews",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-025",
+      "to": "api:PUT:/admin/reviews/{id}/reply",
+      "type": "requirement_has_api"
+    },
+    {
+      "from": "V2-FR-025",
+      "to": "api:PUT:/admin/reviews/{id}/status",
+      "type": "requirement_has_api"
+    }
+  ]
+}

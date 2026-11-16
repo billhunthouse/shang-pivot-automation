@@ -8,4 +8,7 @@ public interface SystemConfigApi {
     String getValue(String configKey, String defaultValue);
 
     int getInt(String configKey, int defaultValue);
+
+    /** 配置更新后清除对应缓存。 */
+    void evict(String configKey);
 }

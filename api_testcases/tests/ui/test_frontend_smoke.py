@@ -6,17 +6,21 @@ browser (`python -m playwright install chromium`) to enable this layer.
 import os
 from pathlib import Path
 
+import allure
 import pytest
 
 
 @pytest.mark.ui
+@allure.title("UI-PAGE-MALL-000 商城首页基础冒烟")
 def test_storefront_home(page):
     if os.getenv("RUN_UI", "0") != "1":
         pytest.skip("RUN_UI != 1; Playwright UI layer is opt-in")
-    base = os.getenv("APP_BASE_URL", "http://103.236.91.136:60080").rstrip("/")
-    page.goto(base, wait_until="domcontentloaded", timeout=30_000)
-    assert page.locator("body").is_visible()
-    assert page.title() or page.locator("body").inner_text()
+    base = os.getenv("MALL_UI_URL", "http://127.0.0.1:5174").rstrip("/")
+    with allure.step("打开商城首页"):
+        page.goto(base, wait_until="domcontentloaded", timeout=30_000)
+        assert page.locator("body").is_visible()
+        assert page.title() or page.locator("body").inner_text()
+        allure.attach(page.screenshot(full_page=True), name="商城首页.png", attachment_type=allure.attachment_type.PNG)
 
 
 @pytest.fixture

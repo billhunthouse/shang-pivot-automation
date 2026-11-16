@@ -47,7 +47,11 @@ public class OrderSubmitService {
 
     @Transactional
     public Map<String, Object> submit(SubmitReq req) {
-        Long customerId = requireActiveCustomer();
+        Long customerId = SecurityContexts.requireUserId();
+        CustomerQueryApi.ActiveCustomer activeCustomer = customerQueryApi.findActive(customerId);
+        if (activeCustomer == null) {
+            throw new BizException(ErrorCode.CUSTOMER_FROZEN);
+        }
         if (!StringUtils.hasText(req.getIdempotentKey())) {
             throw new BizException(ErrorCode.BAD_REQUEST, "idempotentKey 必填");
         }
@@ -89,7 +93,7 @@ public class OrderSubmitService {
         order.setPayAmount(payAmount);
         order.setFreight(freight);
         order.setClientType(user == null ? null : user.getClientType());
-        order.setCustomerPhoneMask(customerQueryApi.maskedPhone(customerId));
+        order.setCustomerPhoneMask(activeCustomer.maskedPhone());
         order.setIdempotentKey(req.getIdempotentKey());
         Map<String, Object> snapshot = new HashMap<>();
         snapshot.put("name", address.getName());
@@ -204,20 +208,13 @@ public class OrderSubmitService {
     }
 
     private void lockStock(Long skuId, int qty) {
-        Stock stock = stockMapper.selectOne(new LambdaQueryWrapper<Stock>().eq(Stock::getSkuId, skuId).last("LIMIT 1 FOR UPDATE"));
-        if (stock == null) {
+        Long warehouseId = stockMapper.lockStock(skuId, qty);
+        if (warehouseId == null) {
             throw new BizException(ErrorCode.STOCK_INSUFFICIENT);
         }
-        int physical = stock.getPhysicalStock() == null ? 0 : stock.getPhysicalStock();
-        int locked = stock.getLockedStock() == null ? 0 : stock.getLockedStock();
-        if (physical - locked < qty) {
-            throw new BizException(ErrorCode.STOCK_INSUFFICIENT);
-        }
-        stock.setLockedStock(locked + qty);
-        stockMapper.updateById(stock);
         StockLog logRow = new StockLog();
         logRow.setSkuId(skuId);
-        logRow.setWarehouseId(stock.getWarehouseId());
+        logRow.setWarehouseId(warehouseId);
         logRow.setChangeQty(qty);
         logRow.setType("LOCK");
         logRow.setReason("下单锁库存");

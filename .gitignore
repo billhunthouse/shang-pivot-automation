@@ -77,4 +77,14 @@ temp/
 # 可观测平台的运行记录（告警日志等）
 observability/records/
 
+# ---------- 智能体计划与本地过程记录 ----------
+.planning/
+
+# ---------- 压测/测试运行产物 ----------
+artifacts/
+api_testcases/artifacts/allure*/
+api_testcases/artifacts/failures/
+api_testcases/artifacts/*.xml
+api_testcases/artifacts/*.json
+
 .zcode/

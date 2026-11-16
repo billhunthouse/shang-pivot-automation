@@ -5,6 +5,7 @@ import com.shangpivot.common.exception.BizException;
 import com.shangpivot.common.result.ErrorCode;
 import com.shangpivot.common.result.Result;
 import com.shangpivot.common.audit.OpLog;
+import com.shangpivot.identity.api.SystemConfigApi;
 import com.shangpivot.identity.entity.SystemConfig;
 import com.shangpivot.identity.mapper.SystemConfigMapper;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,6 +25,7 @@ import java.util.Map;
 @Tag(name = "系统配置", description = "系统参数配置的查询与更新")
 public class SystemConfigController {
     private final SystemConfigMapper systemConfigMapper;
+    private final SystemConfigApi systemConfigApi;
 
     @GetMapping
     @Operation(summary = "查询系统配置", description = "按分类查询系统配置列表，敏感值自动脱敏")
@@ -48,6 +50,7 @@ public class SystemConfigController {
         cfg.setConfigValue(patch.getConfigValue());
         cfg.setRemark(patch.getRemark());
         systemConfigMapper.updateById(cfg);
+        systemConfigApi.evict(cfg.getConfigKey());
         return Result.ok();
     }
 

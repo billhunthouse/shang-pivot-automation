@@ -12,9 +12,10 @@
 | V1 怎么实现 | [`v1.0/开发设计.md`](./04-architecture/v1.0/开发设计.md) · [`数据模型`](./04-architecture/v1.0/数据模型.md) · [`接口`](./04-architecture/v1.0/接口设计.md) |
 | V2 怎么实现 | [`v2.0/开发设计.md`](./04-architecture/v2.0/开发设计.md) · [`数据模型`](./04-architecture/v2.0/数据模型.md) · [`接口`](./04-architecture/v2.0/接口设计.md) |
 | 架构决策 | [`04-architecture/adr/`](./04-architecture/adr/) |
-| V3 客服（设计就绪，未实现） | [`03-ai/customer-service-智能客服.md`](./03-ai/customer-service-智能客服.md) |
+| V3 客服（C 端 AI 助手已接入，人工坐席未实现） | [`03-ai/customer-service-智能客服.md`](./03-ai/customer-service-智能客服.md) |
 | 启动 / 编码 / 出口 | [`开发与运维.md`](./开发与运维.md) |
 | 当前代码是哪一版 · 数据字典 · 业务规则 · 跨版本验证 | [`06-baseline/README.md`](./06-baseline/README.md) |
+| LLM/RAG 知识库（需求-页面-接口-代码） | [`llm-wiki/README.md`](./llm-wiki/README.md) |
 | 原型本地预览（VSCode Live Server） | [`VSCode查看本地项目原型.md`](./VSCode查看本地项目原型.md) |
 | 演示商品图原件（MinIO 种子数据） | [`05-assets/`](./05-assets/) |
 

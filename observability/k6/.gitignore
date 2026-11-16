@@ -1,0 +1,2 @@
+# 压测账号 token 属于运行时凭据，不提交
+data/order-users-*.json

@@ -14,9 +14,9 @@ spring:
     hikari:
       connection-timeout: 20000
       validation-timeout: 5000
-      maximum-pool-size: 5
-      # 低于 maximum，idle-timeout 才生效；远程库少养闲连接
-      minimum-idle: 1
+      maximum-pool-size: ${DB_POOL_MAX:20}
+      # 低于 maximum，idle-timeout 才生效；本地压测默认 5，生产按 DB 容量调
+      minimum-idle: ${DB_POOL_MIN_IDLE:5}
       # >0：启动时在窗口内重试拿首连，避免公网偶发 EOF 直接把进程打挂
       initialization-fail-timeout: 60000
       # 远程/NAT 常先关空闲连接：lifetime 与 keepalive 要更积极
@@ -60,6 +60,10 @@ spring:
 server:
   port: ${SERVER_PORT:8080}
   tomcat:
+    threads:
+      max: ${TOMCAT_MAX_THREADS:400}
+      min-spare: ${TOMCAT_MIN_SPARE_THREADS:20}
+    accept-count: ${TOMCAT_ACCEPT_COUNT:300}
     mbeanregistry:
       # 打开 Tomcat 的 MBean 注册表，Micrometer 才会暴露 tomcat_threads_* / tomcat_connections_*；
       # 不打开时线程池饱和在监控上是盲区（可观测平台的告警与面板依赖这几个指标）

@@ -1,0 +1,5346 @@
+{
+  "generated_at": "2026-11-11T16:48:21.473961+00:00",
+  "count": 137,
+  "items": [
+    {
+      "id": "api:POST:/api/customer-service/chat",
+      "method": "POST",
+      "path": "/api/customer-service/chat",
+      "tag": "C端AI助手",
+      "summary": "商城 C 端 AI 助手对话（商品/知识/订单查询）",
+      "auth": "免认证（可选会员 token 透传）",
+      "public": true,
+      "controller": "CustomerServiceController",
+      "method_name": "chat",
+      "services": [
+        "CustomerServiceAgentClient"
+      ],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/src/api/customer-service.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "message",
+        "sessionId"
+      ],
+      "body_keys": [
+        "message",
+        "sessionId"
+      ],
+      "codes": [],
+      "operation_id": "CustomerServiceController_chat"
+    },
+    {
+      "id": "api:GET:/api/addresses",
+      "method": "GET",
+      "path": "/api/addresses",
+      "tag": "C端商城",
+      "summary": "查询当前会员收货地址",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "addresses",
+      "services": [
+        "AddressService"
+      ],
+      "tables": [
+        "commerce.address"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_addresses"
+    },
+    {
+      "id": "api:POST:/api/addresses",
+      "method": "POST",
+      "path": "/api/addresses",
+      "tag": "C端商城",
+      "summary": "新增收货地址",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "createAddress",
+      "services": [
+        "AddressService"
+      ],
+      "tables": [
+        "commerce.address"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "name:String",
+        "phone:String",
+        "province:String",
+        "city:String",
+        "district:String",
+        "detail:String",
+        "isDefault:Boolean"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_createAddress"
+    },
+    {
+      "id": "api:DELETE:/api/addresses/{id}",
+      "method": "DELETE",
+      "path": "/api/addresses/{id}",
+      "tag": "C端商城",
+      "summary": "删除收货地址",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "deleteAddress",
+      "services": [
+        "AddressService"
+      ],
+      "tables": [
+        "commerce.address"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_deleteAddress"
+    },
+    {
+      "id": "api:PUT:/api/addresses/{id}",
+      "method": "PUT",
+      "path": "/api/addresses/{id}",
+      "tag": "C端商城",
+      "summary": "修改收货地址",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "updateAddress",
+      "services": [
+        "AddressService"
+      ],
+      "tables": [
+        "commerce.address"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [
+        "name:String",
+        "phone:String",
+        "province:String",
+        "city:String",
+        "district:String",
+        "detail:String",
+        "isDefault:Boolean"
+      ],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_updateAddress"
+    },
+    {
+      "id": "api:PUT:/api/addresses/{id}/default",
+      "method": "PUT",
+      "path": "/api/addresses/{id}/default",
+      "tag": "C端商城",
+      "summary": "设置默认收货地址",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "defaultAddress",
+      "services": [
+        "AddressService"
+      ],
+      "tables": [
+        "commerce.address"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_defaultAddress"
+    },
+    {
+      "id": "api:GET:/api/after-sales",
+      "method": "GET",
+      "path": "/api/after-sales",
+      "tag": "C端商城",
+      "summary": "查询当前会员售后单",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "myAfterSales",
+      "services": [
+        "AfterSaleService"
+      ],
+      "tables": [
+        "commerce.after_sale",
+        "commerce.order"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_myAfterSales"
+    },
+    {
+      "id": "api:POST:/api/after-sales",
+      "method": "POST",
+      "path": "/api/after-sales",
+      "tag": "C端商城",
+      "summary": "申请售后",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "applyAfterSale",
+      "services": [
+        "AfterSaleService"
+      ],
+      "tables": [
+        "commerce.after_sale",
+        "commerce.order"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "orderId:Long",
+        "type:String",
+        "reason:String",
+        "evidenceKeys:java.util.List<String>",
+        "refundAmount:java.math.BigDecimal"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "NOT_FOUND",
+        "ORDER_STATUS_INVALID",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_applyAfterSale"
+    },
+    {
+      "id": "api:GET:/api/after-sales/{id}",
+      "method": "GET",
+      "path": "/api/after-sales/{id}",
+      "tag": "C端商城",
+      "summary": "查询售后详情",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "afterSaleDetail",
+      "services": [
+        "AfterSaleService"
+      ],
+      "tables": [
+        "commerce.after_sale",
+        "commerce.order"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_afterSaleDetail"
+    },
+    {
+      "id": "api:GET:/api/cart",
+      "method": "GET",
+      "path": "/api/cart",
+      "tag": "C端商城",
+      "summary": "查询购物车",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "cart",
+      "services": [
+        "CartService"
+      ],
+      "tables": [
+        "commerce.cart",
+        "commerce.cart_item",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/cart.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_cart"
+    },
+    {
+      "id": "api:POST:/api/cart/clear-invalid",
+      "method": "POST",
+      "path": "/api/cart/clear-invalid",
+      "tag": "C端商城",
+      "summary": "清理失效购物车条目",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "clearInvalid",
+      "services": [
+        "CartService"
+      ],
+      "tables": [
+        "commerce.cart",
+        "commerce.cart_item",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/cart.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_clearInvalid"
+    },
+    {
+      "id": "api:POST:/api/cart/items",
+      "method": "POST",
+      "path": "/api/cart/items",
+      "tag": "C端商城",
+      "summary": "加入购物车",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "addCart",
+      "services": [
+        "CartService"
+      ],
+      "tables": [
+        "commerce.cart",
+        "commerce.cart_item",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/cart.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "quantity",
+        "skuId"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "STOCK_INSUFFICIENT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_addCart"
+    },
+    {
+      "id": "api:DELETE:/api/cart/items/{id}",
+      "method": "DELETE",
+      "path": "/api/cart/items/{id}",
+      "tag": "C端商城",
+      "summary": "移除购物车条目",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "removeCart",
+      "services": [
+        "CartService"
+      ],
+      "tables": [
+        "commerce.cart",
+        "commerce.cart_item",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/cart.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_removeCart"
+    },
+    {
+      "id": "api:PUT:/api/cart/items/{id}",
+      "method": "PUT",
+      "path": "/api/cart/items/{id}",
+      "tag": "C端商城",
+      "summary": "修改购物车条目",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "updateCart",
+      "services": [
+        "CartService"
+      ],
+      "tables": [
+        "commerce.cart",
+        "commerce.cart_item",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/cart.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [
+        "quantity",
+        "selected"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "STOCK_INSUFFICIENT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_updateCart"
+    },
+    {
+      "id": "api:GET:/api/categories",
+      "method": "GET",
+      "path": "/api/categories",
+      "tag": "C端商城",
+      "summary": "查询类目树",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "StorefrontController",
+      "method_name": "categories",
+      "services": [
+        "CatalogReadService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.review",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/catalog.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_categories"
+    },
+    {
+      "id": "api:GET:/api/favorites",
+      "method": "GET",
+      "path": "/api/favorites",
+      "tag": "C端商城",
+      "summary": "查询收藏列表",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "favorites",
+      "services": [
+        "FavoriteBrowseService"
+      ],
+      "tables": [
+        "commerce.browse_history",
+        "commerce.favorite",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_favorites"
+    },
+    {
+      "id": "api:DELETE:/api/favorites/{spuId}",
+      "method": "DELETE",
+      "path": "/api/favorites/{spuId}",
+      "tag": "C端商城",
+      "summary": "取消收藏",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "removeFavorite",
+      "services": [
+        "FavoriteBrowseService"
+      ],
+      "tables": [
+        "commerce.browse_history",
+        "commerce.favorite",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [
+        {
+          "name": "spuId",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_removeFavorite"
+    },
+    {
+      "id": "api:POST:/api/favorites/{spuId}",
+      "method": "POST",
+      "path": "/api/favorites/{spuId}",
+      "tag": "C端商城",
+      "summary": "收藏商品",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "addFavorite",
+      "services": [
+        "FavoriteBrowseService"
+      ],
+      "tables": [
+        "commerce.browse_history",
+        "commerce.favorite",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [
+        {
+          "name": "spuId",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_addFavorite"
+    },
+    {
+      "id": "api:DELETE:/api/history",
+      "method": "DELETE",
+      "path": "/api/history",
+      "tag": "C端商城",
+      "summary": "清空浏览足迹",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "clearHistory",
+      "services": [
+        "FavoriteBrowseService"
+      ],
+      "tables": [
+        "commerce.browse_history",
+        "commerce.favorite",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_clearHistory"
+    },
+    {
+      "id": "api:GET:/api/history",
+      "method": "GET",
+      "path": "/api/history",
+      "tag": "C端商城",
+      "summary": "查询浏览足迹",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "history",
+      "services": [
+        "FavoriteBrowseService"
+      ],
+      "tables": [
+        "commerce.browse_history",
+        "commerce.favorite",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_history"
+    },
+    {
+      "id": "api:GET:/api/home",
+      "method": "GET",
+      "path": "/api/home",
+      "tag": "C端商城",
+      "summary": "首页聚合（品牌、运营位、推荐流）",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "StorefrontController",
+      "method_name": "home",
+      "services": [
+        "CatalogReadService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.review",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/catalog.ts"
+      ],
+      "params": [
+        {
+          "name": "feedSize",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_home"
+    },
+    {
+      "id": "api:GET:/api/orders",
+      "method": "GET",
+      "path": "/api/orders",
+      "tag": "C端商城",
+      "summary": "查询当前会员订单",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "myOrders",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_myOrders"
+    },
+    {
+      "id": "api:POST:/api/orders",
+      "method": "POST",
+      "path": "/api/orders",
+      "tag": "C端商城",
+      "summary": "提交订单",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "submit",
+      "services": [
+        "OrderSubmitService"
+      ],
+      "tables": [
+        "commerce.address",
+        "commerce.cart",
+        "commerce.cart_item",
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "addressId:Long",
+        "cartItemIds:List<Long>",
+        "skuId:Long",
+        "quantity:Integer",
+        "idempotentKey:String"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_submit"
+    },
+    {
+      "id": "api:GET:/api/orders/{id}",
+      "method": "GET",
+      "path": "/api/orders/{id}",
+      "tag": "C端商城",
+      "summary": "查询订单详情",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "orderDetail",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_orderDetail"
+    },
+    {
+      "id": "api:POST:/api/orders/{id}/cancel",
+      "method": "POST",
+      "path": "/api/orders/{id}/cancel",
+      "tag": "C端商城",
+      "summary": "取消订单",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "cancel",
+      "services": [
+        "OrderSubmitService"
+      ],
+      "tables": [
+        "commerce.address",
+        "commerce.cart",
+        "commerce.cart_item",
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "NOT_FOUND",
+        "ORDER_STATUS_INVALID",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_cancel"
+    },
+    {
+      "id": "api:POST:/api/orders/{id}/confirm",
+      "method": "POST",
+      "path": "/api/orders/{id}/confirm",
+      "tag": "C端商城",
+      "summary": "确认收货",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "confirm",
+      "services": [
+        "OrderSubmitService"
+      ],
+      "tables": [
+        "commerce.address",
+        "commerce.cart",
+        "commerce.cart_item",
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "NOT_FOUND",
+        "ORDER_STATUS_INVALID",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_confirm"
+    },
+    {
+      "id": "api:GET:/api/orders/{id}/logistics",
+      "method": "GET",
+      "path": "/api/orders/{id}/logistics",
+      "tag": "C端商城",
+      "summary": "查询订单物流",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "logistics",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_logistics"
+    },
+    {
+      "id": "api:POST:/api/payment/sandbox",
+      "method": "POST",
+      "path": "/api/payment/sandbox",
+      "tag": "C端商城",
+      "summary": "沙箱支付",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "sandboxPay",
+      "services": [
+        "PaymentSandboxService"
+      ],
+      "tables": [
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.payment",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "orderId"
+      ],
+      "codes": [
+        "CONFLICT",
+        "CUSTOMER_FROZEN",
+        "NOT_FOUND",
+        "ORDER_STATUS_INVALID",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_sandboxPay"
+    },
+    {
+      "id": "api:GET:/api/payment/{orderId}/status",
+      "method": "GET",
+      "path": "/api/payment/{orderId}/status",
+      "tag": "C端商城",
+      "summary": "查询支付状态",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "payStatus",
+      "services": [
+        "PaymentSandboxService"
+      ],
+      "tables": [
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.payment",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [
+        {
+          "name": "orderId",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_payStatus"
+    },
+    {
+      "id": "api:GET:/api/products",
+      "method": "GET",
+      "path": "/api/products",
+      "tag": "C端商城",
+      "summary": "分页查询商品",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "StorefrontController",
+      "method_name": "products",
+      "services": [
+        "CatalogReadService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.review",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/catalog.ts"
+      ],
+      "params": [
+        {
+          "name": "categoryId",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_products"
+    },
+    {
+      "id": "api:GET:/api/products/{spuId}",
+      "method": "GET",
+      "path": "/api/products/{spuId}",
+      "tag": "C端商城",
+      "summary": "查询商品详情（SKU/库存）",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "StorefrontController",
+      "method_name": "productDetail",
+      "services": [
+        "CatalogReadService",
+        "FavoriteBrowseService"
+      ],
+      "tables": [
+        "commerce.browse_history",
+        "commerce.category",
+        "commerce.favorite",
+        "commerce.review",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/catalog.ts",
+        "shang-mall/catalog.ts"
+      ],
+      "params": [
+        {
+          "name": "spuId",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "PRODUCT_UNAVAILABLE",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_productDetail"
+    },
+    {
+      "id": "api:GET:/api/products/{spuId}/reviews",
+      "method": "GET",
+      "path": "/api/products/{spuId}/reviews",
+      "tag": "C端商城",
+      "summary": "查询商品评价",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "StorefrontController",
+      "method_name": "productReviews",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/catalog.ts"
+      ],
+      "params": [
+        {
+          "name": "spuId",
+          "in": "path",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_productReviews"
+    },
+    {
+      "id": "api:POST:/api/reviews",
+      "method": "POST",
+      "path": "/api/reviews",
+      "tag": "C端商城",
+      "summary": "发表评价",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "StorefrontController",
+      "method_name": "createReview",
+      "services": [],
+      "tables": [],
+      "cross_api": [
+        "CustomerQueryApi"
+      ],
+      "fe_callers": [
+        "shang-mall/order.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "content",
+        "orderItemId",
+        "picKeys",
+        "rating"
+      ],
+      "codes": [
+        "CUSTOMER_FROZEN",
+        "NOT_FOUND",
+        "ORDER_STATUS_INVALID",
+        "REVIEW_EXISTS",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_createReview"
+    },
+    {
+      "id": "api:GET:/api/search",
+      "method": "GET",
+      "path": "/api/search",
+      "tag": "C端商城",
+      "summary": "关键词搜索商品",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "StorefrontController",
+      "method_name": "search",
+      "services": [
+        "CatalogReadService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.review",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/catalog.ts"
+      ],
+      "params": [
+        {
+          "name": "q",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_search"
+    },
+    {
+      "id": "api:GET:/api/site/brand",
+      "method": "GET",
+      "path": "/api/site/brand",
+      "tag": "C端商城",
+      "summary": "查询站点品牌",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "StorefrontController",
+      "method_name": "brand",
+      "services": [
+        "SiteBrandService"
+      ],
+      "tables": [
+        "commerce.site_brand"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/catalog.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StorefrontController_brand"
+    },
+    {
+      "id": "api:POST:/api/files/confirm",
+      "method": "POST",
+      "path": "/api/files/confirm",
+      "tag": "C端文件",
+      "summary": "确认文件上传",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "CustomerFileController",
+      "method_name": "confirm",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "bizType",
+        "contentType",
+        "objectKey",
+        "sizeBytes"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerFileController_confirm"
+    },
+    {
+      "id": "api:POST:/api/files/presign",
+      "method": "POST",
+      "path": "/api/files/presign",
+      "tag": "C端文件",
+      "summary": "申请文件预签名上传",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "CustomerFileController",
+      "method_name": "presign",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "bizType",
+        "contentType",
+        "filename",
+        "size",
+        "sizeBytes"
+      ],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerFileController_presign"
+    },
+    {
+      "id": "api:POST:/api/files/upload",
+      "method": "POST",
+      "path": "/api/files/upload",
+      "tag": "C端文件",
+      "summary": "直传上传",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "CustomerFileController",
+      "method_name": "upload",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/customer.ts"
+      ],
+      "params": [
+        {
+          "name": "bizType",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerFileController_upload"
+    },
+    {
+      "id": "api:GET:/api/files/view",
+      "method": "GET",
+      "path": "/api/files/view",
+      "tag": "C端文件",
+      "summary": "查看文件",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "CustomerFileController",
+      "method_name": "view",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [
+        {
+          "name": "objectKey",
+          "in": "query",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerFileController_view"
+    },
+    {
+      "id": "api:GET:/admin/home/slots",
+      "method": "GET",
+      "path": "/admin/home/slots",
+      "tag": "V2运营补丁",
+      "summary": "运营位列表",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "listSlots",
+      "services": [
+        "HomeSlotService"
+      ],
+      "tables": [
+        "commerce.home_slot",
+        "commerce.home_slot_item",
+        "commerce.sku",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/homeSlots.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_listSlots"
+    },
+    {
+      "id": "api:GET:/admin/home/slots/{code}",
+      "method": "GET",
+      "path": "/admin/home/slots/{code}",
+      "tag": "V2运营补丁",
+      "summary": "运营位详情",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "getSlot",
+      "services": [
+        "HomeSlotService"
+      ],
+      "tables": [
+        "commerce.home_slot",
+        "commerce.home_slot_item",
+        "commerce.sku",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/homeSlots.ts"
+      ],
+      "params": [
+        {
+          "name": "code",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_getSlot"
+    },
+    {
+      "id": "api:PUT:/admin/home/slots/{code}",
+      "method": "PUT",
+      "path": "/admin/home/slots/{code}",
+      "tag": "V2运营补丁",
+      "summary": "保存运营位",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "saveSlot",
+      "services": [
+        "HomeSlotService"
+      ],
+      "tables": [
+        "commerce.home_slot",
+        "commerce.home_slot_item",
+        "commerce.sku",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/homeSlots.ts"
+      ],
+      "params": [
+        {
+          "name": "code",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [
+        "title:String",
+        "status:String",
+        "sort:Integer",
+        "validFrom:OffsetDateTime",
+        "validTo:OffsetDateTime",
+        "items:List<SlotItemReq>",
+        "sort:Integer",
+        "spuId:Long",
+        "imageKey:String",
+        "linkType:String",
+        "linkValue:String",
+        "title:String",
+        "status:String"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_saveSlot"
+    },
+    {
+      "id": "api:GET:/admin/in-out",
+      "method": "GET",
+      "path": "/admin/in-out",
+      "tag": "V2运营补丁",
+      "summary": "出入库分页",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "inOutPage",
+      "services": [
+        "InOutOrderService"
+      ],
+      "tables": [
+        "commerce.in_out_item",
+        "commerce.in_out_order",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/inout.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "billNo",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "skuId",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_inOutPage"
+    },
+    {
+      "id": "api:POST:/admin/in-out",
+      "method": "POST",
+      "path": "/admin/in-out",
+      "tag": "V2运营补丁",
+      "summary": "创建出入库单",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "createInOut",
+      "services": [
+        "InOutOrderService"
+      ],
+      "tables": [
+        "commerce.in_out_item",
+        "commerce.in_out_order",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/inout.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "type:String",
+        "warehouseId:Long",
+        "remark:String",
+        "items:List<ItemReq>",
+        "skuId:Long",
+        "qty:Integer",
+        "remark:String"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_createInOut"
+    },
+    {
+      "id": "api:GET:/admin/reviews",
+      "method": "GET",
+      "path": "/admin/reviews",
+      "tag": "V2运营补丁",
+      "summary": "评价分页",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "reviews",
+      "services": [
+        "ReviewAdminService"
+      ],
+      "tables": [
+        "commerce.review",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/reviews.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "rating",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "ratingMax",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "keyword",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_reviews"
+    },
+    {
+      "id": "api:PUT:/admin/reviews/{id}/status",
+      "method": "PUT",
+      "path": "/admin/reviews/{id}/status",
+      "tag": "V2运营补丁",
+      "summary": "隐藏/恢复评价",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "reviewStatus",
+      "services": [
+        "ReviewAdminService"
+      ],
+      "tables": [
+        "commerce.review",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/reviews.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [
+        "status"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_reviewStatus"
+    },
+    {
+      "id": "api:GET:/admin/site/brand",
+      "method": "GET",
+      "path": "/admin/site/brand",
+      "tag": "V2运营补丁",
+      "summary": "获取站点品牌",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "getBrand",
+      "services": [
+        "SiteBrandService"
+      ],
+      "tables": [
+        "commerce.site_brand"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/content.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_getBrand"
+    },
+    {
+      "id": "api:PUT:/admin/site/brand",
+      "method": "PUT",
+      "path": "/admin/site/brand",
+      "tag": "V2运营补丁",
+      "summary": "更新站点品牌",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "updateBrand",
+      "services": [
+        "SiteBrandService"
+      ],
+      "tables": [
+        "commerce.site_brand"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/content.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminOpsController_updateBrand"
+    },
+    {
+      "id": "api:GET:/admin/warehouses",
+      "method": "GET",
+      "path": "/admin/warehouses",
+      "tag": "仓库管理",
+      "summary": "获取仓库列表",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "WarehouseController",
+      "method_name": "list",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "WarehouseController_list"
+    },
+    {
+      "id": "api:POST:/admin/warehouses",
+      "method": "POST",
+      "path": "/admin/warehouses",
+      "tag": "仓库管理",
+      "summary": "创建仓库",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "WarehouseController",
+      "method_name": "create",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [
+        "name:String",
+        "status:String"
+      ],
+      "body_keys": [
+        "id",
+        "name",
+        "status"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "WarehouseController_create"
+    },
+    {
+      "id": "api:PUT:/admin/warehouses/{id}",
+      "method": "PUT",
+      "path": "/admin/warehouses/{id}",
+      "tag": "仓库管理",
+      "summary": "更新仓库",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "WarehouseController",
+      "method_name": "update",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "仓库ID"
+        }
+      ],
+      "dto_fields": [
+        "name:String",
+        "status:String"
+      ],
+      "body_keys": [
+        "name",
+        "status"
+      ],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "WarehouseController_update"
+    },
+    {
+      "id": "api:GET:/admin/customers",
+      "method": "GET",
+      "path": "/admin/customers",
+      "tag": "会员管理",
+      "summary": "分页查询会员",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "CustomerAdminController",
+      "method_name": "page",
+      "services": [
+        "CustomerAdminService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/customers.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "nickname",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "clientType",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerAdminController_page"
+    },
+    {
+      "id": "api:GET:/admin/customers/{id}",
+      "method": "GET",
+      "path": "/admin/customers/{id}",
+      "tag": "会员管理",
+      "summary": "会员详情",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "CustomerAdminController",
+      "method_name": "detail",
+      "services": [
+        "CustomerAdminService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/customers.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "会员ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerAdminController_detail"
+    },
+    {
+      "id": "api:PUT:/admin/customers/{id}/status",
+      "method": "PUT",
+      "path": "/admin/customers/{id}/status",
+      "tag": "会员管理",
+      "summary": "冻结/解冻会员",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "CustomerAdminController",
+      "method_name": "updateStatus",
+      "services": [
+        "CustomerAdminService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/customers.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [
+        "status"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerAdminController_updateStatus"
+    },
+    {
+      "id": "api:GET:/admin/brands",
+      "method": "GET",
+      "path": "/admin/brands",
+      "tag": "品牌管理",
+      "summary": "分页查询品牌",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "BrandController",
+      "method_name": "page",
+      "services": [
+        "BrandService"
+      ],
+      "tables": [
+        "commerce.brand",
+        "commerce.category",
+        "commerce.spu"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "name",
+          "in": "query",
+          "required": false,
+          "description": "品牌名称（模糊匹配）"
+        },
+        {
+          "name": "categoryId",
+          "in": "query",
+          "required": false,
+          "description": "类目ID：仅返回该类目树下有商品关联的品牌"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "BrandController_page"
+    },
+    {
+      "id": "api:POST:/admin/brands",
+      "method": "POST",
+      "path": "/admin/brands",
+      "tag": "品牌管理",
+      "summary": "创建品牌",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "BrandController",
+      "method_name": "create",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "categoryId:Long",
+        "name:String",
+        "logo:String",
+        "sort:Integer",
+        "status:String"
+      ],
+      "body_keys": [
+        "categoryId",
+        "id",
+        "name",
+        "sort",
+        "status"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "BrandController_create"
+    },
+    {
+      "id": "api:DELETE:/admin/brands/{id}",
+      "method": "DELETE",
+      "path": "/admin/brands/{id}",
+      "tag": "品牌管理",
+      "summary": "删除品牌",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "BrandController",
+      "method_name": "delete",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "品牌ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "BrandController_delete"
+    },
+    {
+      "id": "api:PUT:/admin/brands/{id}",
+      "method": "PUT",
+      "path": "/admin/brands/{id}",
+      "tag": "品牌管理",
+      "summary": "更新品牌",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "BrandController",
+      "method_name": "update",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "品牌ID"
+        }
+      ],
+      "dto_fields": [
+        "categoryId:Long",
+        "name:String",
+        "logo:String",
+        "sort:Integer",
+        "status:String"
+      ],
+      "body_keys": [
+        "categoryId",
+        "logo",
+        "name",
+        "sort",
+        "status"
+      ],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "BrandController_update"
+    },
+    {
+      "id": "api:GET:/admin/after-sales",
+      "method": "GET",
+      "path": "/admin/after-sales",
+      "tag": "售后管理",
+      "summary": "分页查询售后单",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AfterSaleController",
+      "method_name": "page",
+      "services": [
+        "AfterSaleService"
+      ],
+      "tables": [
+        "commerce.after_sale",
+        "commerce.order"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/aftersales.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": "售后状态：PENDING_AUDIT / REFUNDING / COMPLETED / REJECTED"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "description": "售后类型：REFUND / RETURN"
+        },
+        {
+          "name": "afterSaleNo",
+          "in": "query",
+          "required": false,
+          "description": "售后单号（模糊匹配）"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AfterSaleController_page"
+    },
+    {
+      "id": "api:GET:/admin/after-sales/{id}",
+      "method": "GET",
+      "path": "/admin/after-sales/{id}",
+      "tag": "售后管理",
+      "summary": "获取售后详情",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AfterSaleController",
+      "method_name": "detail",
+      "services": [
+        "AfterSaleService"
+      ],
+      "tables": [
+        "commerce.after_sale",
+        "commerce.order"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/aftersales.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "售后单ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AfterSaleController_detail"
+    },
+    {
+      "id": "api:POST:/admin/after-sales/{id}/audit",
+      "method": "POST",
+      "path": "/admin/after-sales/{id}/audit",
+      "tag": "售后管理",
+      "summary": "审核售后单",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AfterSaleController",
+      "method_name": "audit",
+      "services": [
+        "AfterSaleService"
+      ],
+      "tables": [
+        "commerce.after_sale",
+        "commerce.order"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/aftersales.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "售后单ID"
+        }
+      ],
+      "dto_fields": [
+        "approved:Boolean",
+        "remark:String",
+        "orderId:Long",
+        "type:String",
+        "reason:String",
+        "evidenceKeys:java.util.List<String>",
+        "refundAmount:java.math.BigDecimal"
+      ],
+      "body_keys": [],
+      "codes": [
+        "AFTER_SALE_STATUS_INVALID",
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AfterSaleController_audit"
+    },
+    {
+      "id": "api:GET:/admin/products",
+      "method": "GET",
+      "path": "/admin/products",
+      "tag": "商品管理",
+      "summary": "分页查询商品",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "ProductController",
+      "method_name": "page",
+      "services": [
+        "ProductService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/products.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "name",
+          "in": "query",
+          "required": false,
+          "description": "商品名称（模糊匹配）"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": "商品状态：ON / OFF / DRAFT"
+        },
+        {
+          "name": "categoryId",
+          "in": "query",
+          "required": false,
+          "description": "类目ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "ProductController_page"
+    },
+    {
+      "id": "api:POST:/admin/products",
+      "method": "POST",
+      "path": "/admin/products",
+      "tag": "商品管理",
+      "summary": "创建商品",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "ProductController",
+      "method_name": "create",
+      "services": [
+        "ProductService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/products.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "categoryId:Long",
+        "brandId:Long",
+        "name:String",
+        "subtitle:String",
+        "pics:List<String>",
+        "videos:List<String>",
+        "detailHtml:String",
+        "status:String",
+        "scheduleOnAt:java.time.OffsetDateTime",
+        "clearScheduleOnAt:Boolean",
+        "skus:List<SkuSave>",
+        "title:String",
+        "price:BigDecimal",
+        "costPrice:BigDecimal",
+        "barCode:String",
+        "pic:String",
+        "status:String",
+        "initStock:Integer",
+        "warehouseId:Long",
+        "lowThreshold:Integer"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "ProductController_create"
+    },
+    {
+      "id": "api:PUT:/admin/products/batch-off",
+      "method": "PUT",
+      "path": "/admin/products/batch-off",
+      "tag": "商品管理",
+      "summary": "批量下架",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "ProductController",
+      "method_name": "batchOff",
+      "services": [
+        "ProductService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/products.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "ProductController_batchOff"
+    },
+    {
+      "id": "api:DELETE:/admin/products/{id}",
+      "method": "DELETE",
+      "path": "/admin/products/{id}",
+      "tag": "商品管理",
+      "summary": "删除商品",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "ProductController",
+      "method_name": "delete",
+      "services": [
+        "ProductService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/products.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "商品ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "ProductController_delete"
+    },
+    {
+      "id": "api:GET:/admin/products/{id}",
+      "method": "GET",
+      "path": "/admin/products/{id}",
+      "tag": "商品管理",
+      "summary": "获取商品详情",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "ProductController",
+      "method_name": "detail",
+      "services": [
+        "ProductService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/products.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "商品ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "ProductController_detail"
+    },
+    {
+      "id": "api:PUT:/admin/products/{id}",
+      "method": "PUT",
+      "path": "/admin/products/{id}",
+      "tag": "商品管理",
+      "summary": "更新商品",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "ProductController",
+      "method_name": "update",
+      "services": [
+        "ProductService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/products.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "商品ID"
+        }
+      ],
+      "dto_fields": [
+        "categoryId:Long",
+        "brandId:Long",
+        "name:String",
+        "subtitle:String",
+        "pics:List<String>",
+        "videos:List<String>",
+        "detailHtml:String",
+        "status:String",
+        "scheduleOnAt:java.time.OffsetDateTime",
+        "clearScheduleOnAt:Boolean",
+        "skus:List<SkuSave>",
+        "title:String",
+        "price:BigDecimal",
+        "costPrice:BigDecimal",
+        "barCode:String",
+        "pic:String",
+        "status:String",
+        "initStock:Integer",
+        "warehouseId:Long",
+        "lowThreshold:Integer"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "ProductController_update"
+    },
+    {
+      "id": "api:PUT:/admin/products/{id}/off",
+      "method": "PUT",
+      "path": "/admin/products/{id}/off",
+      "tag": "商品管理",
+      "summary": "商品下架",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "ProductController",
+      "method_name": "off",
+      "services": [
+        "ProductService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/products.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "商品ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "ProductController_off"
+    },
+    {
+      "id": "api:PUT:/admin/products/{id}/on",
+      "method": "PUT",
+      "path": "/admin/products/{id}/on",
+      "tag": "商品管理",
+      "summary": "商品上架",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "ProductController",
+      "method_name": "on",
+      "services": [
+        "ProductService"
+      ],
+      "tables": [
+        "commerce.category",
+        "commerce.sku",
+        "commerce.spu",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/products.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "商品ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "ProductController_on"
+    },
+    {
+      "id": "api:GET:/admin/dict-items",
+      "method": "GET",
+      "path": "/admin/dict-items",
+      "tag": "字典管理",
+      "summary": "查询字典项",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "items",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [
+        {
+          "name": "dictId",
+          "in": "query",
+          "required": true,
+          "description": "字典ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_items"
+    },
+    {
+      "id": "api:POST:/admin/dict-items",
+      "method": "POST",
+      "path": "/admin/dict-items",
+      "tag": "字典管理",
+      "summary": "创建字典项",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "createItem",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "dictId:Long",
+        "label:String",
+        "value:String",
+        "sort:Integer",
+        "status:String"
+      ],
+      "body_keys": [
+        "dictId",
+        "id",
+        "label",
+        "sort",
+        "status",
+        "value"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_createItem"
+    },
+    {
+      "id": "api:GET:/admin/dict-items/by-code",
+      "method": "GET",
+      "path": "/admin/dict-items/by-code",
+      "tag": "字典管理",
+      "summary": "按编码查询字典项",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "itemsByCode",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [
+        {
+          "name": "code",
+          "in": "query",
+          "required": true,
+          "description": "字典编码"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_itemsByCode"
+    },
+    {
+      "id": "api:DELETE:/admin/dict-items/{id}",
+      "method": "DELETE",
+      "path": "/admin/dict-items/{id}",
+      "tag": "字典管理",
+      "summary": "删除字典项",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "deleteItem",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "字典项ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_deleteItem"
+    },
+    {
+      "id": "api:PUT:/admin/dict-items/{id}",
+      "method": "PUT",
+      "path": "/admin/dict-items/{id}",
+      "tag": "字典管理",
+      "summary": "更新字典项",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "updateItem",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "字典项ID"
+        }
+      ],
+      "dto_fields": [
+        "dictId:Long",
+        "label:String",
+        "value:String",
+        "sort:Integer",
+        "status:String"
+      ],
+      "body_keys": [
+        "label",
+        "sort",
+        "status",
+        "value"
+      ],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_updateItem"
+    },
+    {
+      "id": "api:GET:/admin/dicts",
+      "method": "GET",
+      "path": "/admin/dicts",
+      "tag": "字典管理",
+      "summary": "分页查询字典",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "page",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "code",
+          "in": "query",
+          "required": false,
+          "description": "字典编码（模糊匹配）"
+        },
+        {
+          "name": "name",
+          "in": "query",
+          "required": false,
+          "description": "字典名称（模糊匹配）"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_page"
+    },
+    {
+      "id": "api:POST:/admin/dicts",
+      "method": "POST",
+      "path": "/admin/dicts",
+      "tag": "字典管理",
+      "summary": "创建字典",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "createDict",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "code:String",
+        "name:String",
+        "remark:String"
+      ],
+      "body_keys": [
+        "code",
+        "id",
+        "name"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_createDict"
+    },
+    {
+      "id": "api:DELETE:/admin/dicts/{id}",
+      "method": "DELETE",
+      "path": "/admin/dicts/{id}",
+      "tag": "字典管理",
+      "summary": "删除字典",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "deleteDict",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "字典ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_deleteDict"
+    },
+    {
+      "id": "api:PUT:/admin/dicts/{id}",
+      "method": "PUT",
+      "path": "/admin/dicts/{id}",
+      "tag": "字典管理",
+      "summary": "更新字典",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DictController",
+      "method_name": "updateDict",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dicts.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "字典ID"
+        }
+      ],
+      "dto_fields": [
+        "code:String",
+        "name:String",
+        "remark:String"
+      ],
+      "body_keys": [
+        "name",
+        "remark"
+      ],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DictController_updateDict"
+    },
+    {
+      "id": "api:GET:/admin/attributes",
+      "method": "GET",
+      "path": "/admin/attributes",
+      "tag": "属性管理",
+      "summary": "查询属性列表",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AttributeController",
+      "method_name": "list",
+      "services": [
+        "AttributeService"
+      ],
+      "tables": [
+        "commerce.attribute"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [
+        {
+          "name": "categoryId",
+          "in": "query",
+          "required": false,
+          "description": "类目ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AttributeController_list"
+    },
+    {
+      "id": "api:POST:/admin/attributes",
+      "method": "POST",
+      "path": "/admin/attributes",
+      "tag": "属性管理",
+      "summary": "创建属性",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AttributeController",
+      "method_name": "create",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "categoryId:Long",
+        "name:String",
+        "type:String",
+        "options:List<String>",
+        "sort:Integer"
+      ],
+      "body_keys": [
+        "categoryId",
+        "id",
+        "name",
+        "sort",
+        "type"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AttributeController_create"
+    },
+    {
+      "id": "api:DELETE:/admin/attributes/{id}",
+      "method": "DELETE",
+      "path": "/admin/attributes/{id}",
+      "tag": "属性管理",
+      "summary": "删除属性",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AttributeController",
+      "method_name": "delete",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "属性ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AttributeController_delete"
+    },
+    {
+      "id": "api:PUT:/admin/attributes/{id}",
+      "method": "PUT",
+      "path": "/admin/attributes/{id}",
+      "tag": "属性管理",
+      "summary": "更新属性",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AttributeController",
+      "method_name": "update",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "属性ID"
+        }
+      ],
+      "dto_fields": [
+        "categoryId:Long",
+        "name:String",
+        "type:String",
+        "options:List<String>",
+        "sort:Integer"
+      ],
+      "body_keys": [
+        "categoryId",
+        "name",
+        "options",
+        "sort",
+        "type"
+      ],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AttributeController_update"
+    },
+    {
+      "id": "api:GET:/admin/dashboard/stats",
+      "method": "GET",
+      "path": "/admin/dashboard/stats",
+      "tag": "工作台",
+      "summary": "获取工作台统计",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DashboardController",
+      "method_name": "stats",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dashboard.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DashboardController_stats"
+    },
+    {
+      "id": "api:GET:/admin/stocks",
+      "method": "GET",
+      "path": "/admin/stocks",
+      "tag": "库存管理",
+      "summary": "分页查询库存",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "StockController",
+      "method_name": "page",
+      "services": [
+        "StockService"
+      ],
+      "tables": [
+        "commerce.sku",
+        "commerce.stock",
+        "commerce.stock_log",
+        "commerce.warehouse"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/dashboard.ts",
+        "shang-admin-web/inventory.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "skuId",
+          "in": "query",
+          "required": false,
+          "description": "SKU ID"
+        },
+        {
+          "name": "warehouseId",
+          "in": "query",
+          "required": false,
+          "description": "仓库ID"
+        },
+        {
+          "name": "lowOnly",
+          "in": "query",
+          "required": false,
+          "description": "仅低库存（可售 ≤ 阈值）"
+        },
+        {
+          "name": "warnOnly",
+          "in": "query",
+          "required": false,
+          "description": "预警档：低库存 + 关注（可售 ≤ 阈值 × 1.5）"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StockController_page"
+    },
+    {
+      "id": "api:PUT:/admin/stocks/adjust",
+      "method": "PUT",
+      "path": "/admin/stocks/adjust",
+      "tag": "库存管理",
+      "summary": "调整库存",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "StockController",
+      "method_name": "adjust",
+      "services": [
+        "StockService"
+      ],
+      "tables": [
+        "commerce.sku",
+        "commerce.stock",
+        "commerce.stock_log",
+        "commerce.warehouse"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/inventory.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "skuId:Long",
+        "warehouseId:Long",
+        "changeQty:Integer",
+        "reason:String"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "STOCK_INSUFFICIENT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "StockController_adjust"
+    },
+    {
+      "id": "api:GET:/admin/operation-logs",
+      "method": "GET",
+      "path": "/admin/operation-logs",
+      "tag": "操作日志",
+      "summary": "分页查询操作日志",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "OperationLogController",
+      "method_name": "page",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/logs.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "username",
+          "in": "query",
+          "required": false,
+          "description": "用户名或操作内容（模糊匹配）"
+        },
+        {
+          "name": "module",
+          "in": "query",
+          "required": false,
+          "description": "操作模块"
+        },
+        {
+          "name": "userId",
+          "in": "query",
+          "required": false,
+          "description": "操作人用户ID"
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "description": "开始日期 yyyy-MM-dd（含当日）"
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "description": "结束日期 yyyy-MM-dd（含当日）"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "OperationLogController_page"
+    },
+    {
+      "id": "api:GET:/admin/operation-logs/export",
+      "method": "GET",
+      "path": "/admin/operation-logs/export",
+      "tag": "操作日志",
+      "summary": "导出操作日志",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "OperationLogController",
+      "method_name": "export",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/logs.ts"
+      ],
+      "params": [
+        {
+          "name": "username",
+          "in": "query",
+          "required": false,
+          "description": "用户名或操作内容（模糊匹配）"
+        },
+        {
+          "name": "module",
+          "in": "query",
+          "required": false,
+          "description": "操作模块"
+        },
+        {
+          "name": "userId",
+          "in": "query",
+          "required": false,
+          "description": "操作人用户ID"
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "description": "开始日期 yyyy-MM-dd"
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "description": "结束日期 yyyy-MM-dd"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "OperationLogController_export"
+    },
+    {
+      "id": "api:GET:/admin/operation-logs/{id}",
+      "method": "GET",
+      "path": "/admin/operation-logs/{id}",
+      "tag": "操作日志",
+      "summary": "操作日志详情",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "OperationLogController",
+      "method_name": "detail",
+      "services": [
+        "OperationLogService"
+      ],
+      "tables": [
+        "identity.operation_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/logs.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "日志ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "OperationLogController_detail"
+    },
+    {
+      "id": "api:POST:/admin/files/confirm",
+      "method": "POST",
+      "path": "/admin/files/confirm",
+      "tag": "文件上传",
+      "summary": "确认上传完成",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "FileController",
+      "method_name": "confirm",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "bizType",
+        "contentType",
+        "objectKey",
+        "sizeBytes",
+        "visibility"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "FileController_confirm"
+    },
+    {
+      "id": "api:POST:/admin/files/presign",
+      "method": "POST",
+      "path": "/admin/files/presign",
+      "tag": "文件上传",
+      "summary": "获取预签名上传地址",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "FileController",
+      "method_name": "presign",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "bizType",
+        "contentType",
+        "filename",
+        "size"
+      ],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "FileController_presign"
+    },
+    {
+      "id": "api:POST:/admin/files/upload",
+      "method": "POST",
+      "path": "/admin/files/upload",
+      "tag": "文件上传",
+      "summary": "直传上传文件",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "FileController",
+      "method_name": "upload",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/files.ts"
+      ],
+      "params": [
+        {
+          "name": "bizType",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "FileController_upload"
+    },
+    {
+      "id": "api:GET:/admin/files/view",
+      "method": "GET",
+      "path": "/admin/files/view",
+      "tag": "文件上传",
+      "summary": "查看/下载文件",
+      "auth": "免认证（GET）",
+      "public": true,
+      "controller": "FileController",
+      "method_name": "view",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [
+        {
+          "name": "objectKey",
+          "in": "query",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "FileController_view"
+    },
+    {
+      "id": "api:GET:/admin/users",
+      "method": "GET",
+      "path": "/admin/users",
+      "tag": "用户管理",
+      "summary": "分页查询用户",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminUserController",
+      "method_name": "page",
+      "services": [
+        "AdminUserService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/users.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "username",
+          "in": "query",
+          "required": false,
+          "description": "用户名（模糊匹配）"
+        },
+        {
+          "name": "phone",
+          "in": "query",
+          "required": false,
+          "description": "手机号（模糊匹配）"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": "状态：ENABLED / DISABLED"
+        },
+        {
+          "name": "deptId",
+          "in": "query",
+          "required": false,
+          "description": "部门ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminUserController_page"
+    },
+    {
+      "id": "api:POST:/admin/users",
+      "method": "POST",
+      "path": "/admin/users",
+      "tag": "用户管理",
+      "summary": "创建用户",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminUserController",
+      "method_name": "create",
+      "services": [
+        "AdminUserService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/users.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "roleIds"
+      ],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminUserController_create"
+    },
+    {
+      "id": "api:DELETE:/admin/users/{id}",
+      "method": "DELETE",
+      "path": "/admin/users/{id}",
+      "tag": "用户管理",
+      "summary": "删除用户",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminUserController",
+      "method_name": "delete",
+      "services": [
+        "AdminUserService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/users.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "用户ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminUserController_delete"
+    },
+    {
+      "id": "api:GET:/admin/users/{id}",
+      "method": "GET",
+      "path": "/admin/users/{id}",
+      "tag": "用户管理",
+      "summary": "获取用户详情",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminUserController",
+      "method_name": "get",
+      "services": [
+        "AdminUserService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/users.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "用户ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminUserController_get"
+    },
+    {
+      "id": "api:PUT:/admin/users/{id}",
+      "method": "PUT",
+      "path": "/admin/users/{id}",
+      "tag": "用户管理",
+      "summary": "更新用户",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminUserController",
+      "method_name": "update",
+      "services": [
+        "AdminUserService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/users.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "用户ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [
+        "roleIds"
+      ],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminUserController_update"
+    },
+    {
+      "id": "api:PUT:/admin/users/{id}/password",
+      "method": "PUT",
+      "path": "/admin/users/{id}/password",
+      "tag": "用户管理",
+      "summary": "重置密码",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminUserController",
+      "method_name": "resetPassword",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/users.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "用户ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [
+        "password"
+      ],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminUserController_resetPassword"
+    },
+    {
+      "id": "api:PUT:/admin/users/{id}/status",
+      "method": "PUT",
+      "path": "/admin/users/{id}/status",
+      "tag": "用户管理",
+      "summary": "更新用户状态",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminUserController",
+      "method_name": "status",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/users.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "用户ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [
+        "status"
+      ],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AdminUserController_status"
+    },
+    {
+      "id": "api:GET:/admin/categories",
+      "method": "GET",
+      "path": "/admin/categories",
+      "tag": "类目管理",
+      "summary": "获取类目列表",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "CategoryController",
+      "method_name": "list",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CategoryController_list"
+    },
+    {
+      "id": "api:POST:/admin/categories",
+      "method": "POST",
+      "path": "/admin/categories",
+      "tag": "类目管理",
+      "summary": "创建类目",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "CategoryController",
+      "method_name": "create",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "parentId:Long",
+        "name:String",
+        "level:Integer",
+        "sort:Integer",
+        "status:String"
+      ],
+      "body_keys": [
+        "id",
+        "level",
+        "name",
+        "parentId",
+        "sort",
+        "status"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CategoryController_create"
+    },
+    {
+      "id": "api:GET:/admin/categories/tree",
+      "method": "GET",
+      "path": "/admin/categories/tree",
+      "tag": "类目管理",
+      "summary": "获取类目树",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "CategoryController",
+      "method_name": "tree",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CategoryController_tree"
+    },
+    {
+      "id": "api:DELETE:/admin/categories/{id}",
+      "method": "DELETE",
+      "path": "/admin/categories/{id}",
+      "tag": "类目管理",
+      "summary": "删除类目",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "CategoryController",
+      "method_name": "delete",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "类目ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CategoryController_delete"
+    },
+    {
+      "id": "api:PUT:/admin/categories/{id}",
+      "method": "PUT",
+      "path": "/admin/categories/{id}",
+      "tag": "类目管理",
+      "summary": "更新类目",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "CategoryController",
+      "method_name": "update",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/categories.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "类目ID"
+        }
+      ],
+      "dto_fields": [
+        "parentId:Long",
+        "name:String",
+        "level:Integer",
+        "sort:Integer",
+        "status:String"
+      ],
+      "body_keys": [
+        "level",
+        "name",
+        "parentId",
+        "sort",
+        "status"
+      ],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CategoryController_update"
+    },
+    {
+      "id": "api:GET:/admin/system-configs",
+      "method": "GET",
+      "path": "/admin/system-configs",
+      "tag": "系统配置",
+      "summary": "查询系统配置",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "SystemConfigController",
+      "method_name": "list",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/settings.ts"
+      ],
+      "params": [
+        {
+          "name": "category",
+          "in": "query",
+          "required": false,
+          "description": "配置分类"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "SystemConfigController_list"
+    },
+    {
+      "id": "api:PUT:/admin/system-configs/{id}",
+      "method": "PUT",
+      "path": "/admin/system-configs/{id}",
+      "tag": "系统配置",
+      "summary": "更新系统配置",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "SystemConfigController",
+      "method_name": "update",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/settings.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "配置ID"
+        }
+      ],
+      "dto_fields": [
+        "configKey:String",
+        "configValue:String",
+        "category:String",
+        "isSecret:Boolean",
+        "remark:String"
+      ],
+      "body_keys": [
+        "configValue",
+        "remark"
+      ],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "SystemConfigController_update"
+    },
+    {
+      "id": "api:GET:/admin/permissions",
+      "method": "GET",
+      "path": "/admin/permissions",
+      "tag": "菜单权限",
+      "summary": "权限列表",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "PermissionController",
+      "method_name": "list",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/menus.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "PermissionController_list"
+    },
+    {
+      "id": "api:POST:/admin/permissions",
+      "method": "POST",
+      "path": "/admin/permissions",
+      "tag": "菜单权限",
+      "summary": "创建权限",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "PermissionController",
+      "method_name": "create",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/menus.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "parentId:Long",
+        "code:String",
+        "name:String",
+        "type:String",
+        "path:String",
+        "component:String",
+        "icon:String",
+        "sort:Integer",
+        "visible:Boolean",
+        "status:String"
+      ],
+      "body_keys": [
+        "code",
+        "id",
+        "name",
+        "parentId",
+        "sort",
+        "status",
+        "type",
+        "visible"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "PermissionController_create"
+    },
+    {
+      "id": "api:GET:/admin/permissions/tree",
+      "method": "GET",
+      "path": "/admin/permissions/tree",
+      "tag": "菜单权限",
+      "summary": "权限树",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "PermissionController",
+      "method_name": "tree",
+      "services": [
+        "PermissionQueryService"
+      ],
+      "tables": [
+        "identity.admin_role",
+        "identity.permission",
+        "identity.role",
+        "identity.role_permission"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/menus.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "PermissionController_tree"
+    },
+    {
+      "id": "api:DELETE:/admin/permissions/{id}",
+      "method": "DELETE",
+      "path": "/admin/permissions/{id}",
+      "tag": "菜单权限",
+      "summary": "删除权限",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "PermissionController",
+      "method_name": "delete",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/menus.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "权限ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "PermissionController_delete"
+    },
+    {
+      "id": "api:PUT:/admin/permissions/{id}",
+      "method": "PUT",
+      "path": "/admin/permissions/{id}",
+      "tag": "菜单权限",
+      "summary": "更新权限",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "PermissionController",
+      "method_name": "update",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/menus.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "权限ID"
+        }
+      ],
+      "dto_fields": [
+        "parentId:Long",
+        "code:String",
+        "name:String",
+        "type:String",
+        "path:String",
+        "component:String",
+        "icon:String",
+        "sort:Integer",
+        "visible:Boolean",
+        "status:String"
+      ],
+      "body_keys": [
+        "code",
+        "component",
+        "icon",
+        "name",
+        "parentId",
+        "path",
+        "sort",
+        "status",
+        "type",
+        "visible"
+      ],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "PermissionController_update"
+    },
+    {
+      "id": "api:GET:/admin/roles",
+      "method": "GET",
+      "path": "/admin/roles",
+      "tag": "角色管理",
+      "summary": "分页查询角色",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "RoleController",
+      "method_name": "page",
+      "services": [
+        "RoleService"
+      ],
+      "tables": [
+        "identity.role"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/roles.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "name",
+          "in": "query",
+          "required": false,
+          "description": "角色名称（模糊匹配）"
+        },
+        {
+          "name": "code",
+          "in": "query",
+          "required": false,
+          "description": "角色编码（模糊匹配）"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "RoleController_page"
+    },
+    {
+      "id": "api:POST:/admin/roles",
+      "method": "POST",
+      "path": "/admin/roles",
+      "tag": "角色管理",
+      "summary": "创建角色",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "RoleController",
+      "method_name": "create",
+      "services": [
+        "RoleService"
+      ],
+      "tables": [
+        "identity.role"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/roles.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "code",
+        "dataScope",
+        "name",
+        "permissionIds",
+        "remark",
+        "status"
+      ],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "RoleController_create"
+    },
+    {
+      "id": "api:GET:/admin/roles/all",
+      "method": "GET",
+      "path": "/admin/roles/all",
+      "tag": "角色管理",
+      "summary": "查询全部角色",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "RoleController",
+      "method_name": "all",
+      "services": [
+        "RoleService"
+      ],
+      "tables": [
+        "identity.role"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/roles.ts",
+        "shang-admin-web/users.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "RoleController_all"
+    },
+    {
+      "id": "api:DELETE:/admin/roles/{id}",
+      "method": "DELETE",
+      "path": "/admin/roles/{id}",
+      "tag": "角色管理",
+      "summary": "删除角色",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "RoleController",
+      "method_name": "delete",
+      "services": [
+        "RoleService"
+      ],
+      "tables": [
+        "identity.role"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/roles.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "角色ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "RoleController_delete"
+    },
+    {
+      "id": "api:PUT:/admin/roles/{id}",
+      "method": "PUT",
+      "path": "/admin/roles/{id}",
+      "tag": "角色管理",
+      "summary": "更新角色",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "RoleController",
+      "method_name": "update",
+      "services": [
+        "RoleService"
+      ],
+      "tables": [
+        "identity.role"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/roles.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "角色ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [
+        "dataScope",
+        "name",
+        "permissionIds",
+        "remark",
+        "status"
+      ],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "RoleController_update"
+    },
+    {
+      "id": "api:GET:/admin/orders",
+      "method": "GET",
+      "path": "/admin/orders",
+      "tag": "订单管理",
+      "summary": "分页查询订单",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "OrderController",
+      "method_name": "page",
+      "services": [
+        "OrderService"
+      ],
+      "tables": [
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.payment",
+        "commerce.shipment",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/orders.ts"
+      ],
+      "params": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "页码"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "description": "每页条数"
+        },
+        {
+          "name": "orderNo",
+          "in": "query",
+          "required": false,
+          "description": "订单号（模糊匹配）"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": "订单状态"
+        },
+        {
+          "name": "customerName",
+          "in": "query",
+          "required": false,
+          "description": "客户名称（模糊匹配）"
+        },
+        {
+          "name": "phoneTail",
+          "in": "query",
+          "required": false,
+          "description": "手机尾号"
+        },
+        {
+          "name": "clientType",
+          "in": "query",
+          "required": false,
+          "description": "来源端 web/h5"
+        },
+        {
+          "name": "createdFrom",
+          "in": "query",
+          "required": false,
+          "description": "下单起始时间"
+        },
+        {
+          "name": "createdTo",
+          "in": "query",
+          "required": false,
+          "description": "下单截止时间"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "OrderController_page"
+    },
+    {
+      "id": "api:GET:/admin/orders/export",
+      "method": "GET",
+      "path": "/admin/orders/export",
+      "tag": "订单管理",
+      "summary": "导出订单 CSV",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "OrderController",
+      "method_name": "export",
+      "services": [
+        "OrderService"
+      ],
+      "tables": [
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.payment",
+        "commerce.shipment",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/orders.ts"
+      ],
+      "params": [
+        {
+          "name": "orderNo",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "customerName",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "phoneTail",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "clientType",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "createdFrom",
+          "in": "query",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "createdTo",
+          "in": "query",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "OrderController_export"
+    },
+    {
+      "id": "api:GET:/admin/orders/{id}",
+      "method": "GET",
+      "path": "/admin/orders/{id}",
+      "tag": "订单管理",
+      "summary": "获取订单详情",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "OrderController",
+      "method_name": "detail",
+      "services": [
+        "OrderService"
+      ],
+      "tables": [
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.payment",
+        "commerce.shipment",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/orders.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "订单ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "OrderController_detail"
+    },
+    {
+      "id": "api:POST:/admin/orders/{id}/ship",
+      "method": "POST",
+      "path": "/admin/orders/{id}/ship",
+      "tag": "订单管理",
+      "summary": "订单发货",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "OrderController",
+      "method_name": "ship",
+      "services": [
+        "OrderService"
+      ],
+      "tables": [
+        "commerce.order",
+        "commerce.order_item",
+        "commerce.payment",
+        "commerce.shipment",
+        "commerce.stock",
+        "commerce.stock_log"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/orders.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "订单ID"
+        }
+      ],
+      "dto_fields": [
+        "carrier:String",
+        "trackingNo:String"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "ORDER_STATUS_INVALID",
+        "STOCK_INSUFFICIENT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "OrderController_ship"
+    },
+    {
+      "id": "api:POST:/admin/auth/login",
+      "method": "POST",
+      "path": "/admin/auth/login",
+      "tag": "认证授权",
+      "summary": "用户登录",
+      "auth": "免认证",
+      "public": true,
+      "controller": "AuthController",
+      "method_name": "login",
+      "services": [
+        "AuthService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/auth.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "username:String",
+        "password:String"
+      ],
+      "body_keys": [],
+      "codes": [
+        "ACCOUNT_LOCKED",
+        "FORBIDDEN",
+        "LOGIN_FAILED"
+      ],
+      "operation_id": "AuthController_login"
+    },
+    {
+      "id": "api:POST:/admin/auth/logout",
+      "method": "POST",
+      "path": "/admin/auth/logout",
+      "tag": "认证授权",
+      "summary": "退出登录",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AuthController",
+      "method_name": "logout",
+      "services": [
+        "AuthService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/auth.ts"
+      ],
+      "params": [
+        {
+          "name": "Authorization",
+          "in": "header",
+          "required": false,
+          "description": "Bearer 访问令牌"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "TOKEN_EXPIRED",
+        "TOKEN_INVALID",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AuthController_logout"
+    },
+    {
+      "id": "api:GET:/admin/auth/me",
+      "method": "GET",
+      "path": "/admin/auth/me",
+      "tag": "认证授权",
+      "summary": "获取当前用户信息",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AuthController",
+      "method_name": "me",
+      "services": [
+        "AuthService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/auth.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AuthController_me"
+    },
+    {
+      "id": "api:POST:/admin/auth/refresh",
+      "method": "POST",
+      "path": "/admin/auth/refresh",
+      "tag": "认证授权",
+      "summary": "刷新令牌",
+      "auth": "免认证",
+      "public": true,
+      "controller": "AuthController",
+      "method_name": "refresh",
+      "services": [
+        "AuthService"
+      ],
+      "tables": [
+        "identity.admin_user"
+      ],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [
+        "refreshToken:String"
+      ],
+      "body_keys": [
+        "refreshToken"
+      ],
+      "codes": [
+        "TOKEN_EXPIRED",
+        "TOKEN_INVALID",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "AuthController_refresh"
+    },
+    {
+      "id": "api:PUT:/admin/reviews/{id}/reply",
+      "method": "PUT",
+      "path": "/admin/reviews/{id}/reply",
+      "tag": "评价管理",
+      "summary": "回复评价（商家回复）",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "AdminOpsController",
+      "method_name": "reviewReply",
+      "services": [
+        "ReviewAdminService"
+      ],
+      "tables": [
+        "commerce.review"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/src/api/reviews.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "reply"
+      ],
+      "body_keys": [
+        "reply"
+      ],
+      "codes": [
+        "UNAUTHORIZED",
+        "NOT_FOUND",
+        "BAD_REQUEST"
+      ],
+      "operation_id": "AdminOpsController_reviewReply"
+    },
+    {
+      "id": "api:GET:/admin/depts",
+      "method": "GET",
+      "path": "/admin/depts",
+      "tag": "部门管理",
+      "summary": "部门列表",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DeptController",
+      "method_name": "list",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/depts.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DeptController_list"
+    },
+    {
+      "id": "api:POST:/admin/depts",
+      "method": "POST",
+      "path": "/admin/depts",
+      "tag": "部门管理",
+      "summary": "创建部门",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DeptController",
+      "method_name": "create",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/depts.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "parentId:Long",
+        "name:String",
+        "sort:Integer",
+        "status:String"
+      ],
+      "body_keys": [
+        "id",
+        "name",
+        "parentId",
+        "sort",
+        "status"
+      ],
+      "codes": [
+        "BAD_REQUEST",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DeptController_create"
+    },
+    {
+      "id": "api:GET:/admin/depts/tree",
+      "method": "GET",
+      "path": "/admin/depts/tree",
+      "tag": "部门管理",
+      "summary": "部门树",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DeptController",
+      "method_name": "tree",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/depts.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DeptController_tree"
+    },
+    {
+      "id": "api:DELETE:/admin/depts/{id}",
+      "method": "DELETE",
+      "path": "/admin/depts/{id}",
+      "tag": "部门管理",
+      "summary": "删除部门",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DeptController",
+      "method_name": "delete",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/depts.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "部门ID"
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "CONFLICT",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DeptController_delete"
+    },
+    {
+      "id": "api:PUT:/admin/depts/{id}",
+      "method": "PUT",
+      "path": "/admin/depts/{id}",
+      "tag": "部门管理",
+      "summary": "更新部门",
+      "auth": "管理员 token",
+      "public": false,
+      "controller": "DeptController",
+      "method_name": "update",
+      "services": [],
+      "tables": [],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-admin-web/depts.ts"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "部门ID"
+        }
+      ],
+      "dto_fields": [
+        "parentId:Long",
+        "name:String",
+        "sort:Integer",
+        "status:String"
+      ],
+      "body_keys": [
+        "name",
+        "parentId",
+        "sort",
+        "status"
+      ],
+      "codes": [
+        "NOT_FOUND",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "DeptController_update"
+    },
+    {
+      "id": "api:POST:/api/auth/login",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "tag": "顾客认证",
+      "summary": "手机号验证码登录",
+      "auth": "免认证",
+      "public": true,
+      "controller": "CustomerAuthController",
+      "method_name": "login",
+      "services": [
+        "CustomerAuthService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/auth.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "phone:String",
+        "code:String",
+        "clientType:String"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "CUSTOMER_FROZEN",
+        "LOGIN_FAILED"
+      ],
+      "operation_id": "CustomerAuthController_login_1"
+    },
+    {
+      "id": "api:POST:/api/auth/logout",
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "tag": "顾客认证",
+      "summary": "退出登录",
+      "auth": "免认证",
+      "public": true,
+      "controller": "CustomerAuthController",
+      "method_name": "logout",
+      "services": [
+        "CustomerAuthService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/auth.ts"
+      ],
+      "params": [
+        {
+          "name": "Authorization",
+          "in": "header",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "TOKEN_EXPIRED",
+        "TOKEN_INVALID"
+      ],
+      "operation_id": "CustomerAuthController_logout"
+    },
+    {
+      "id": "api:POST:/api/auth/phone",
+      "method": "POST",
+      "path": "/api/auth/phone",
+      "tag": "顾客认证",
+      "summary": "手机号验证码登录",
+      "auth": "免认证",
+      "public": true,
+      "controller": "CustomerAuthController",
+      "method_name": "login",
+      "services": [
+        "CustomerAuthService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [
+        "phone:String",
+        "code:String",
+        "clientType:String"
+      ],
+      "body_keys": [],
+      "codes": [
+        "BAD_REQUEST",
+        "CUSTOMER_FROZEN",
+        "LOGIN_FAILED"
+      ],
+      "operation_id": "CustomerAuthController_login"
+    },
+    {
+      "id": "api:POST:/api/auth/refresh",
+      "method": "POST",
+      "path": "/api/auth/refresh",
+      "tag": "顾客认证",
+      "summary": "刷新令牌",
+      "auth": "免认证",
+      "public": true,
+      "controller": "CustomerAuthController",
+      "method_name": "refresh",
+      "services": [
+        "CustomerAuthService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [],
+      "params": [],
+      "dto_fields": [
+        "refreshToken:String"
+      ],
+      "body_keys": [
+        "refreshToken"
+      ],
+      "codes": [
+        "CUSTOMER_FROZEN",
+        "TOKEN_EXPIRED",
+        "TOKEN_INVALID"
+      ],
+      "operation_id": "CustomerAuthController_refresh"
+    },
+    {
+      "id": "api:POST:/api/auth/sms/send",
+      "method": "POST",
+      "path": "/api/auth/sms/send",
+      "tag": "顾客认证",
+      "summary": "发送验证码",
+      "auth": "免认证",
+      "public": true,
+      "controller": "CustomerAuthController",
+      "method_name": "sendSms",
+      "services": [
+        "CustomerAuthService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/auth.ts"
+      ],
+      "params": [],
+      "dto_fields": [
+        "phone:String"
+      ],
+      "body_keys": [
+        "phone"
+      ],
+      "codes": [
+        "BAD_REQUEST"
+      ],
+      "operation_id": "CustomerAuthController_sendSms"
+    },
+    {
+      "id": "api:GET:/api/me",
+      "method": "GET",
+      "path": "/api/me",
+      "tag": "顾客认证",
+      "summary": "当前顾客资料",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "CustomerAuthController",
+      "method_name": "me",
+      "services": [
+        "CustomerAuthService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/auth.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [],
+      "codes": [
+        "CUSTOMER_FROZEN",
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerAuthController_me"
+    },
+    {
+      "id": "api:PUT:/api/me",
+      "method": "PUT",
+      "path": "/api/me",
+      "tag": "顾客认证",
+      "summary": "更新资料",
+      "auth": "会员 token",
+      "public": false,
+      "controller": "CustomerAuthController",
+      "method_name": "updateMe",
+      "services": [
+        "CustomerAuthService"
+      ],
+      "tables": [
+        "identity.customer"
+      ],
+      "cross_api": [],
+      "fe_callers": [
+        "shang-mall/auth.ts"
+      ],
+      "params": [],
+      "dto_fields": [],
+      "body_keys": [
+        "avatar",
+        "nickname"
+      ],
+      "codes": [
+        "UNAUTHORIZED"
+      ],
+      "operation_id": "CustomerAuthController_updateMe"
+    }
+  ]
+}

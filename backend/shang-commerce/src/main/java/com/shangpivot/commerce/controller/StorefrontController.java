@@ -211,7 +211,16 @@ public class StorefrontController {
         }
         Map<String, Object> m = new HashMap<>();
         m.put("order", order);
-        m.put("items", orderItemMapper.selectList(new LambdaQueryWrapper<OrderItem>().eq(OrderItem::getOrderId, id)));
+        List<OrderItem> items = orderItemMapper.selectList(
+                new LambdaQueryWrapper<OrderItem>().eq(OrderItem::getOrderId, id));
+        m.put("items", items);
+        List<Long> itemIds = items.stream().map(OrderItem::getId).toList();
+        List<String> reviewedItemIds = itemIds.isEmpty()
+                ? List.of()
+                : reviewMapper.selectList(
+                        new LambdaQueryWrapper<Review>().in(Review::getOrderItemId, itemIds))
+                .stream().map(review -> String.valueOf(review.getOrderItemId())).toList();
+        m.put("reviewedItemIds", reviewedItemIds);
         m.put("shipments", shipmentMapper.selectList(new LambdaQueryWrapper<Shipment>().eq(Shipment::getOrderId, id)));
         return Result.ok(m);
     }

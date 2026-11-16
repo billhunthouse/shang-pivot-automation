@@ -78,6 +78,14 @@ public class AdminOpsController {
         return Result.ok();
     }
 
+    @PutMapping("/admin/reviews/{id}/reply")
+    @OpLog(module = "review", action = "reply")
+    @Operation(summary = "回复评价")
+    public Result<Void> reviewReply(@PathVariable Long id, @RequestBody Map<String, String> body) {
+        reviewAdminService.reply(id, body.get("reply"));
+        return Result.ok();
+    }
+
     @GetMapping("/admin/in-out")
     @Operation(summary = "出入库分页")
     public Result<PageResult<Map<String, Object>>> inOutPage(

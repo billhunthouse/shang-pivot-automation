@@ -25,3 +25,7 @@ export function updateReviewStatus(
 ): Promise<ApiResult<unknown>> {
   return http({ url: `/admin/reviews/${id}/status`, method: 'PUT', data: { status } })
 }
+
+export function replyReview(id: string | number, reply: string): Promise<ApiResult<unknown>> {
+  return http({ url: `/admin/reviews/${id}/reply`, method: 'PUT', data: { reply } })
+}

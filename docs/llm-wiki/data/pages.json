@@ -1,0 +1,907 @@
+{
+  "generated_at": "2026-11-11T16:48:21.473962+00:00",
+  "count": 41,
+  "items": [
+    {
+      "id": "page:mall:/login",
+      "area": "mall",
+      "route": "/login",
+      "deployed_path": "/login",
+      "title": "登录",
+      "view": "shang-mall/src/views/LoginView.vue",
+      "api_modules": [],
+      "api_functions": [],
+      "api_ids": [
+        "api:POST:/api/auth/login",
+        "api:POST:/api/auth/sms/send"
+      ]
+    },
+    {
+      "id": "page:mall:/",
+      "area": "mall",
+      "route": "/",
+      "deployed_path": "/",
+      "title": "首页",
+      "view": "shang-mall/src/views/HomeView.vue",
+      "api_modules": [
+        "catalog"
+      ],
+      "api_functions": [
+        "shang-mall:fetchCategories",
+        "shang-mall:fetchHome",
+        "shang-mall:fetchProducts"
+      ],
+      "api_ids": [
+        "api:GET:/api/categories",
+        "api:GET:/api/home",
+        "api:GET:/api/products"
+      ]
+    },
+    {
+      "id": "page:mall:/promo/:code",
+      "area": "mall",
+      "route": "/promo/:code",
+      "deployed_path": "/promo/:code",
+      "title": "活动专区",
+      "view": "shang-mall/src/views/PromoView.vue",
+      "api_modules": [
+        "catalog"
+      ],
+      "api_functions": [
+        "shang-mall:fetchHome"
+      ],
+      "api_ids": [
+        "api:GET:/api/home"
+      ]
+    },
+    {
+      "id": "page:mall:/category",
+      "area": "mall",
+      "route": "/category",
+      "deployed_path": "/category",
+      "title": "分类",
+      "view": "shang-mall/src/views/CategoryView.vue",
+      "api_modules": [
+        "catalog"
+      ],
+      "api_functions": [
+        "shang-mall:fetchCategories",
+        "shang-mall:fetchProducts"
+      ],
+      "api_ids": [
+        "api:GET:/api/categories",
+        "api:GET:/api/products"
+      ]
+    },
+    {
+      "id": "page:mall:/product/:spuId",
+      "area": "mall",
+      "route": "/product/:spuId",
+      "deployed_path": "/product/:spuId",
+      "title": "商品详情",
+      "view": "shang-mall/src/views/ProductView.vue",
+      "api_modules": [
+        "cart",
+        "catalog",
+        "customer"
+      ],
+      "api_functions": [
+        "shang-mall:addCartItem",
+        "shang-mall:addFavorite",
+        "shang-mall:fetchProductDetail",
+        "shang-mall:removeFavorite"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/favorites/{spuId}",
+        "api:GET:/api/products/{spuId}",
+        "api:POST:/api/cart/items",
+        "api:POST:/api/favorites/{spuId}"
+      ]
+    },
+    {
+      "id": "page:mall:/search",
+      "area": "mall",
+      "route": "/search",
+      "deployed_path": "/search",
+      "title": "搜索",
+      "view": "shang-mall/src/views/SearchView.vue",
+      "api_modules": [
+        "catalog"
+      ],
+      "api_functions": [
+        "shang-mall:fetchHome",
+        "shang-mall:fetchProducts",
+        "shang-mall:searchProducts"
+      ],
+      "api_ids": [
+        "api:GET:/api/home",
+        "api:GET:/api/products",
+        "api:GET:/api/search"
+      ]
+    },
+    {
+      "id": "page:mall:/cart",
+      "area": "mall",
+      "route": "/cart",
+      "deployed_path": "/cart",
+      "title": "购物车",
+      "view": "shang-mall/src/views/CartView.vue",
+      "api_modules": [
+        "cart"
+      ],
+      "api_functions": [
+        "shang-mall:clearInvalidCartItems",
+        "shang-mall:removeCartItem",
+        "shang-mall:updateCartItem"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/cart/items/{id}",
+        "api:POST:/api/cart/clear-invalid",
+        "api:PUT:/api/cart/items/{id}"
+      ]
+    },
+    {
+      "id": "page:mall:/checkout",
+      "area": "mall",
+      "route": "/checkout",
+      "deployed_path": "/checkout",
+      "title": "确认订单",
+      "view": "shang-mall/src/views/CheckoutView.vue",
+      "api_modules": [
+        "catalog",
+        "customer",
+        "order"
+      ],
+      "api_functions": [
+        "shang-mall:fetchAddresses",
+        "shang-mall:fetchProductDetail",
+        "shang-mall:submitOrder"
+      ],
+      "api_ids": [
+        "api:GET:/api/addresses",
+        "api:GET:/api/products/{spuId}",
+        "api:POST:/api/orders"
+      ]
+    },
+    {
+      "id": "page:mall:/orders",
+      "area": "mall",
+      "route": "/orders",
+      "deployed_path": "/orders",
+      "title": "我的订单",
+      "view": "shang-mall/src/views/OrdersView.vue",
+      "api_modules": [
+        "order"
+      ],
+      "api_functions": [
+        "shang-mall:fetchOrders"
+      ],
+      "api_ids": [
+        "api:GET:/api/orders"
+      ]
+    },
+    {
+      "id": "page:mall:/orders/:id",
+      "area": "mall",
+      "route": "/orders/:id",
+      "deployed_path": "/orders/:id",
+      "title": "订单详情",
+      "view": "shang-mall/src/views/OrderDetailView.vue",
+      "api_modules": [
+        "customer",
+        "order"
+      ],
+      "api_functions": [
+        "shang-mall:cancelOrder",
+        "shang-mall:confirmOrder",
+        "shang-mall:createReview",
+        "shang-mall:fetchOrderDetail",
+        "shang-mall:fetchOrderLogistics",
+        "shang-mall:uploadFile"
+      ],
+      "api_ids": [
+        "api:GET:/api/orders/{id}",
+        "api:GET:/api/orders/{id}/logistics",
+        "api:POST:/api/files/upload",
+        "api:POST:/api/orders/{id}/cancel",
+        "api:POST:/api/orders/{id}/confirm",
+        "api:POST:/api/reviews"
+      ]
+    },
+    {
+      "id": "page:mall:/pay/:orderId",
+      "area": "mall",
+      "route": "/pay/:orderId",
+      "deployed_path": "/pay/:orderId",
+      "title": "支付",
+      "view": "shang-mall/src/views/PayView.vue",
+      "api_modules": [
+        "order"
+      ],
+      "api_functions": [
+        "shang-mall:fetchOrderDetail",
+        "shang-mall:sandboxPay"
+      ],
+      "api_ids": [
+        "api:GET:/api/orders/{id}",
+        "api:POST:/api/payment/sandbox"
+      ]
+    },
+    {
+      "id": "page:mall:/me",
+      "area": "mall",
+      "route": "/me",
+      "deployed_path": "/me",
+      "title": "个人中心",
+      "view": "shang-mall/src/views/ProfileView.vue",
+      "api_modules": [],
+      "api_functions": [],
+      "api_ids": [
+        "api:GET:/api/me"
+      ]
+    },
+    {
+      "id": "page:mall:/settings",
+      "area": "mall",
+      "route": "/settings",
+      "deployed_path": "/settings",
+      "title": "个人设置",
+      "view": "shang-mall/src/views/SettingsView.vue",
+      "api_modules": [],
+      "api_functions": [],
+      "api_ids": [
+        "api:GET:/api/me",
+        "api:POST:/api/auth/logout",
+        "api:PUT:/api/me"
+      ]
+    },
+    {
+      "id": "page:mall:/addresses",
+      "area": "mall",
+      "route": "/addresses",
+      "deployed_path": "/addresses",
+      "title": "收货地址",
+      "view": "shang-mall/src/views/AddressView.vue",
+      "api_modules": [
+        "customer"
+      ],
+      "api_functions": [
+        "shang-mall:createAddress",
+        "shang-mall:fetchAddresses",
+        "shang-mall:removeAddress",
+        "shang-mall:setDefaultAddress"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/addresses/{id}",
+        "api:GET:/api/addresses",
+        "api:POST:/api/addresses",
+        "api:PUT:/api/addresses/{id}/default"
+      ]
+    },
+    {
+      "id": "page:mall:/favorites",
+      "area": "mall",
+      "route": "/favorites",
+      "deployed_path": "/favorites",
+      "title": "我的收藏",
+      "view": "shang-mall/src/views/FavoritesView.vue",
+      "api_modules": [
+        "catalog",
+        "customer"
+      ],
+      "api_functions": [
+        "shang-mall:fetchFavorites",
+        "shang-mall:removeFavorite"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/favorites/{spuId}",
+        "api:GET:/api/favorites"
+      ]
+    },
+    {
+      "id": "page:mall:/history",
+      "area": "mall",
+      "route": "/history",
+      "deployed_path": "/history",
+      "title": "浏览足迹",
+      "view": "shang-mall/src/views/HistoryView.vue",
+      "api_modules": [
+        "catalog",
+        "customer"
+      ],
+      "api_functions": [
+        "shang-mall:clearHistory",
+        "shang-mall:fetchHistory"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/history",
+        "api:GET:/api/history"
+      ]
+    },
+    {
+      "id": "page:mall:/after-sales",
+      "area": "mall",
+      "route": "/after-sales",
+      "deployed_path": "/after-sales",
+      "title": "我的售后",
+      "view": "shang-mall/src/views/AfterSalesView.vue",
+      "api_modules": [
+        "order"
+      ],
+      "api_functions": [
+        "shang-mall:fetchAfterSales"
+      ],
+      "api_ids": [
+        "api:GET:/api/after-sales"
+      ]
+    },
+    {
+      "id": "page:mall:/after-sales/apply",
+      "area": "mall",
+      "route": "/after-sales/apply",
+      "deployed_path": "/after-sales/apply",
+      "title": "申请售后",
+      "view": "shang-mall/src/views/AfterSaleApplyView.vue",
+      "api_modules": [
+        "customer",
+        "order"
+      ],
+      "api_functions": [
+        "shang-mall:applyAfterSale",
+        "shang-mall:fetchOrderDetail",
+        "shang-mall:uploadFile"
+      ],
+      "api_ids": [
+        "api:GET:/api/orders/{id}",
+        "api:POST:/api/after-sales",
+        "api:POST:/api/files/upload"
+      ]
+    },
+    {
+      "id": "page:mall:/after-sales/:id",
+      "area": "mall",
+      "route": "/after-sales/:id",
+      "deployed_path": "/after-sales/:id",
+      "title": "售后详情",
+      "view": "shang-mall/src/views/AfterSaleDetailView.vue",
+      "api_modules": [
+        "order"
+      ],
+      "api_functions": [
+        "shang-mall:fetchAfterSaleDetail"
+      ],
+      "api_ids": [
+        "api:GET:/api/after-sales/{id}"
+      ]
+    },
+    {
+      "id": "page:admin:/login",
+      "area": "admin",
+      "route": "/login",
+      "deployed_path": "/admin/login",
+      "title": "登录",
+      "view": "shang-admin-web/src/views/LoginView.vue",
+      "api_modules": [],
+      "api_functions": [],
+      "api_ids": [
+        "api:POST:/admin/auth/login"
+      ]
+    },
+    {
+      "id": "page:admin:/dashboard",
+      "area": "admin",
+      "route": "/dashboard",
+      "deployed_path": "/admin/dashboard",
+      "title": "工作台",
+      "view": "shang-admin-web/src/views/DashboardView.vue",
+      "api_modules": [
+        "dashboard"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchDashboardStats",
+        "shang-admin-web:fetchLowStockPreview"
+      ],
+      "api_ids": [
+        "api:GET:/admin/dashboard/stats",
+        "api:GET:/admin/stocks"
+      ]
+    },
+    {
+      "id": "page:admin:/products",
+      "area": "admin",
+      "route": "/products",
+      "deployed_path": "/admin/products",
+      "title": "商品列表",
+      "view": "shang-admin-web/src/views/ProductsView.vue",
+      "api_modules": [
+        "categories",
+        "inventory",
+        "products"
+      ],
+      "api_functions": [
+        "shang-admin-web:batchOffShelf",
+        "shang-admin-web:deleteProduct",
+        "shang-admin-web:fetchCategoryTree",
+        "shang-admin-web:fetchProducts",
+        "shang-admin-web:fetchStocks",
+        "shang-admin-web:offShelf",
+        "shang-admin-web:onShelf"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/products/{id}",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products",
+        "api:GET:/admin/stocks",
+        "api:PUT:/admin/products/batch-off",
+        "api:PUT:/admin/products/{id}/off",
+        "api:PUT:/admin/products/{id}/on"
+      ]
+    },
+    {
+      "id": "page:admin:/products/edit",
+      "area": "admin",
+      "route": "/products/edit",
+      "deployed_path": "/admin/products/edit",
+      "title": "新增商品",
+      "view": "shang-admin-web/src/views/ProductEditView.vue",
+      "api_modules": [
+        "categories",
+        "files",
+        "products"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchBrands",
+        "shang-admin-web:fetchCategoryTree",
+        "shang-admin-web:fetchProduct",
+        "shang-admin-web:onShelf",
+        "shang-admin-web:saveProduct",
+        "shang-admin-web:uploadFile"
+      ],
+      "api_ids": [
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products/{id}",
+        "api:POST:/admin/files/upload",
+        "api:POST:/admin/products",
+        "api:PUT:/admin/products/{id}",
+        "api:PUT:/admin/products/{id}/on"
+      ]
+    },
+    {
+      "id": "page:admin:/products/edit/:id",
+      "area": "admin",
+      "route": "/products/edit/:id",
+      "deployed_path": "/admin/products/edit/:id",
+      "title": "编辑商品",
+      "view": "shang-admin-web/src/views/ProductEditView.vue",
+      "api_modules": [
+        "categories",
+        "files",
+        "products"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchBrands",
+        "shang-admin-web:fetchCategoryTree",
+        "shang-admin-web:fetchProduct",
+        "shang-admin-web:onShelf",
+        "shang-admin-web:saveProduct",
+        "shang-admin-web:uploadFile"
+      ],
+      "api_ids": [
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products/{id}",
+        "api:POST:/admin/files/upload",
+        "api:POST:/admin/products",
+        "api:PUT:/admin/products/{id}",
+        "api:PUT:/admin/products/{id}/on"
+      ]
+    },
+    {
+      "id": "page:admin:/categories",
+      "area": "admin",
+      "route": "/categories",
+      "deployed_path": "/admin/categories",
+      "title": "类目与品牌",
+      "view": "shang-admin-web/src/views/CategoriesView.vue",
+      "api_modules": [
+        "categories",
+        "products"
+      ],
+      "api_functions": [
+        "shang-admin-web:deleteAttribute",
+        "shang-admin-web:deleteBrand",
+        "shang-admin-web:deleteCategory",
+        "shang-admin-web:fetchAttributes",
+        "shang-admin-web:fetchBrands",
+        "shang-admin-web:fetchCategoryTree",
+        "shang-admin-web:fetchProducts",
+        "shang-admin-web:saveAttribute",
+        "shang-admin-web:saveBrand",
+        "shang-admin-web:saveCategory"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/attributes/{id}",
+        "api:DELETE:/admin/brands/{id}",
+        "api:DELETE:/admin/categories/{id}",
+        "api:GET:/admin/attributes",
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products",
+        "api:POST:/admin/attributes",
+        "api:POST:/admin/brands",
+        "api:POST:/admin/categories",
+        "api:PUT:/admin/attributes/{id}",
+        "api:PUT:/admin/brands/{id}",
+        "api:PUT:/admin/categories/{id}"
+      ]
+    },
+    {
+      "id": "page:admin:/inventory",
+      "area": "admin",
+      "route": "/inventory",
+      "deployed_path": "/admin/inventory",
+      "title": "库存管理",
+      "view": "shang-admin-web/src/views/InventoryView.vue",
+      "api_modules": [
+        "inventory"
+      ],
+      "api_functions": [
+        "shang-admin-web:adjustStock",
+        "shang-admin-web:fetchStocks"
+      ],
+      "api_ids": [
+        "api:GET:/admin/stocks",
+        "api:PUT:/admin/stocks/adjust"
+      ]
+    },
+    {
+      "id": "page:admin:/in-out",
+      "area": "admin",
+      "route": "/in-out",
+      "deployed_path": "/admin/in-out",
+      "title": "出入库单",
+      "view": "shang-admin-web/src/views/InOutView.vue",
+      "api_modules": [
+        "inout",
+        "inventory"
+      ],
+      "api_functions": [
+        "shang-admin-web:createInOutOrder",
+        "shang-admin-web:fetchInOutOrders",
+        "shang-admin-web:fetchStocks"
+      ],
+      "api_ids": [
+        "api:GET:/admin/in-out",
+        "api:GET:/admin/stocks",
+        "api:POST:/admin/in-out"
+      ]
+    },
+    {
+      "id": "page:admin:/orders",
+      "area": "admin",
+      "route": "/orders",
+      "deployed_path": "/admin/orders",
+      "title": "订单列表",
+      "view": "shang-admin-web/src/views/OrdersView.vue",
+      "api_modules": [
+        "orders"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchOrder",
+        "shang-admin-web:fetchOrders",
+        "shang-admin-web:shipOrder"
+      ],
+      "api_ids": [
+        "api:GET:/admin/orders",
+        "api:GET:/admin/orders/export",
+        "api:GET:/admin/orders/{id}",
+        "api:POST:/admin/orders/{id}/ship"
+      ]
+    },
+    {
+      "id": "page:admin:/aftersales",
+      "area": "admin",
+      "route": "/aftersales",
+      "deployed_path": "/admin/aftersales",
+      "title": "售后管理",
+      "view": "shang-admin-web/src/views/AftersalesView.vue",
+      "api_modules": [
+        "aftersales",
+        "orders"
+      ],
+      "api_functions": [
+        "shang-admin-web:auditAfterSale",
+        "shang-admin-web:fetchAfterSale",
+        "shang-admin-web:fetchAfterSales",
+        "shang-admin-web:fetchOrder"
+      ],
+      "api_ids": [
+        "api:GET:/admin/after-sales",
+        "api:GET:/admin/after-sales/{id}",
+        "api:GET:/admin/orders/{id}",
+        "api:POST:/admin/after-sales/{id}/audit"
+      ]
+    },
+    {
+      "id": "page:admin:/reviews",
+      "area": "admin",
+      "route": "/reviews",
+      "deployed_path": "/admin/reviews",
+      "title": "评价管理",
+      "view": "shang-admin-web/src/views/ReviewsView.vue",
+      "api_modules": [
+        "reviews"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchReviews",
+        "shang-admin-web:replyReview",
+        "shang-admin-web:updateReviewStatus"
+      ],
+      "api_ids": [
+        "api:GET:/admin/reviews",
+        "api:PUT:/admin/reviews/{id}/reply",
+        "api:PUT:/admin/reviews/{id}/status"
+      ]
+    },
+    {
+      "id": "page:admin:/customers",
+      "area": "admin",
+      "route": "/customers",
+      "deployed_path": "/admin/customers",
+      "title": "会员管理",
+      "view": "shang-admin-web/src/views/CustomersView.vue",
+      "api_modules": [
+        "customers"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchCustomers",
+        "shang-admin-web:updateCustomerStatus"
+      ],
+      "api_ids": [
+        "api:GET:/admin/customers",
+        "api:PUT:/admin/customers/{id}/status"
+      ]
+    },
+    {
+      "id": "page:admin:/site-brand",
+      "area": "admin",
+      "route": "/site-brand",
+      "deployed_path": "/admin/site-brand",
+      "title": "站点品牌",
+      "view": "shang-admin-web/src/views/SiteBrandView.vue",
+      "api_modules": [
+        "content",
+        "files"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchSiteBrand",
+        "shang-admin-web:updateSiteBrand",
+        "shang-admin-web:uploadFile"
+      ],
+      "api_ids": [
+        "api:GET:/admin/site/brand",
+        "api:POST:/admin/files/upload",
+        "api:PUT:/admin/site/brand"
+      ]
+    },
+    {
+      "id": "page:admin:/home-slots",
+      "area": "admin",
+      "route": "/home-slots",
+      "deployed_path": "/admin/home-slots",
+      "title": "首页运营位",
+      "view": "shang-admin-web/src/views/HomeSlotsView.vue",
+      "api_modules": [
+        "homeSlots",
+        "products"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchHomeSlot",
+        "shang-admin-web:fetchHomeSlots",
+        "shang-admin-web:fetchProducts",
+        "shang-admin-web:saveHomeSlot"
+      ],
+      "api_ids": [
+        "api:GET:/admin/home/slots",
+        "api:GET:/admin/home/slots/{code}",
+        "api:GET:/admin/products",
+        "api:PUT:/admin/home/slots/{code}"
+      ]
+    },
+    {
+      "id": "page:admin:/users",
+      "area": "admin",
+      "route": "/users",
+      "deployed_path": "/admin/users",
+      "title": "用户管理",
+      "view": "shang-admin-web/src/views/UsersView.vue",
+      "api_modules": [
+        "depts",
+        "users"
+      ],
+      "api_functions": [
+        "shang-admin-web:deleteUser",
+        "shang-admin-web:fetchDeptTree",
+        "shang-admin-web:fetchRolesAll",
+        "shang-admin-web:fetchUsers",
+        "shang-admin-web:resetUserPassword",
+        "shang-admin-web:saveUser",
+        "shang-admin-web:updateUserStatus"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/users/{id}",
+        "api:GET:/admin/depts/tree",
+        "api:GET:/admin/roles/all",
+        "api:GET:/admin/users",
+        "api:POST:/admin/users",
+        "api:PUT:/admin/users/{id}",
+        "api:PUT:/admin/users/{id}/password",
+        "api:PUT:/admin/users/{id}/status"
+      ]
+    },
+    {
+      "id": "page:admin:/roles",
+      "area": "admin",
+      "route": "/roles",
+      "deployed_path": "/admin/roles",
+      "title": "角色管理",
+      "view": "shang-admin-web/src/views/RolesView.vue",
+      "api_modules": [
+        "menus",
+        "roles",
+        "users"
+      ],
+      "api_functions": [
+        "shang-admin-web:deleteRole",
+        "shang-admin-web:fetchPermissionTree",
+        "shang-admin-web:fetchRoles",
+        "shang-admin-web:fetchUsers",
+        "shang-admin-web:saveRole"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/roles/{id}",
+        "api:GET:/admin/permissions/tree",
+        "api:GET:/admin/roles",
+        "api:GET:/admin/users",
+        "api:POST:/admin/roles",
+        "api:PUT:/admin/roles/{id}"
+      ]
+    },
+    {
+      "id": "page:admin:/menus",
+      "area": "admin",
+      "route": "/menus",
+      "deployed_path": "/admin/menus",
+      "title": "菜单与权限",
+      "view": "shang-admin-web/src/views/MenusView.vue",
+      "api_modules": [
+        "menus",
+        "roles"
+      ],
+      "api_functions": [
+        "shang-admin-web:deletePermission",
+        "shang-admin-web:fetchPermissionTree",
+        "shang-admin-web:fetchRoles",
+        "shang-admin-web:savePermission"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/permissions/{id}",
+        "api:GET:/admin/permissions/tree",
+        "api:GET:/admin/roles",
+        "api:POST:/admin/permissions",
+        "api:PUT:/admin/permissions/{id}"
+      ]
+    },
+    {
+      "id": "page:admin:/depts",
+      "area": "admin",
+      "route": "/depts",
+      "deployed_path": "/admin/depts",
+      "title": "部门管理",
+      "view": "shang-admin-web/src/views/DeptsView.vue",
+      "api_modules": [
+        "depts",
+        "users"
+      ],
+      "api_functions": [
+        "shang-admin-web:deleteDept",
+        "shang-admin-web:fetchDeptTree",
+        "shang-admin-web:fetchUsers",
+        "shang-admin-web:saveDept"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/depts/{id}",
+        "api:GET:/admin/depts/tree",
+        "api:GET:/admin/users",
+        "api:POST:/admin/depts",
+        "api:PUT:/admin/depts/{id}"
+      ]
+    },
+    {
+      "id": "page:admin:/dicts",
+      "area": "admin",
+      "route": "/dicts",
+      "deployed_path": "/admin/dicts",
+      "title": "字典管理",
+      "view": "shang-admin-web/src/views/DictsView.vue",
+      "api_modules": [
+        "dicts"
+      ],
+      "api_functions": [
+        "shang-admin-web:deleteDict",
+        "shang-admin-web:deleteDictItem",
+        "shang-admin-web:fetchDictItems",
+        "shang-admin-web:fetchDicts",
+        "shang-admin-web:saveDict",
+        "shang-admin-web:saveDictItem"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/dict-items/{id}",
+        "api:DELETE:/admin/dicts/{id}",
+        "api:GET:/admin/dict-items",
+        "api:GET:/admin/dicts",
+        "api:POST:/admin/dict-items",
+        "api:POST:/admin/dicts",
+        "api:PUT:/admin/dict-items/{id}",
+        "api:PUT:/admin/dicts/{id}"
+      ]
+    },
+    {
+      "id": "page:admin:/logs",
+      "area": "admin",
+      "route": "/logs",
+      "deployed_path": "/admin/logs",
+      "title": "操作日志",
+      "view": "shang-admin-web/src/views/LogsView.vue",
+      "api_modules": [
+        "logs"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchOperationLog",
+        "shang-admin-web:fetchOperationLogs"
+      ],
+      "api_ids": [
+        "api:GET:/admin/operation-logs",
+        "api:GET:/admin/operation-logs/export",
+        "api:GET:/admin/operation-logs/{id}"
+      ]
+    },
+    {
+      "id": "page:admin:/settings",
+      "area": "admin",
+      "route": "/settings",
+      "deployed_path": "/admin/settings",
+      "title": "系统设置",
+      "view": "shang-admin-web/src/views/SettingsView.vue",
+      "api_modules": [
+        "settings"
+      ],
+      "api_functions": [
+        "shang-admin-web:fetchSystemConfig",
+        "shang-admin-web:updateSystemConfig"
+      ],
+      "api_ids": [
+        "api:GET:/admin/system-configs",
+        "api:PUT:/admin/system-configs/{id}"
+      ]
+    },
+    {
+      "id": "page:mall:ai-assistant",
+      "area": "mall",
+      "route": "(global)",
+      "deployed_path": "所有 C 端页面右下角",
+      "title": "AI 助手浮窗",
+      "view": "shang-mall/src/components/AiAssistant.vue",
+      "api_modules": [
+        "customer-service"
+      ],
+      "api_functions": [
+        "shang-mall:chatWithAi"
+      ],
+      "api_ids": [
+        "api:POST:/api/customer-service/chat"
+      ]
+    }
+  ]
+}

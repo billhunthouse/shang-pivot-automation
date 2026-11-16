@@ -59,7 +59,7 @@ const TYPE_LABEL: Record<string, string> = {
 type RowTone = 'amber' | 'coral' | 'forest' | 'soft-forest' | 'brick'
 
 type AfterSaleRow = {
-  id: number
+  id: string
   afterSaleNo: string
   orderId: string
   customer: string
@@ -173,7 +173,7 @@ function mapRow(r: Record<string, unknown>): AfterSaleRow {
   const raw = String(r.status ?? '')
   const typeRaw = String(r.type ?? '')
   return {
-    id: Number(r.id),
+    id: String(r.id),
     afterSaleNo: String(r.afterSaleNo ?? r.id ?? ''),
     orderId: String(r.orderNo ?? r.orderId ?? '—'),
     customer: String(r.customerName ?? r.userId ?? '—'),
@@ -291,8 +291,9 @@ function buildDetail(row: AfterSaleRow, res: Record<string, unknown> | null): Af
 
 /** 关联商品不在售后接口里，单独取一次订单详情 */
 async function loadRelatedItems(orderId: unknown) {
-  const id = Number(orderId)
-  if (!id || Number.isNaN(id)) return
+  // 订单 ID 是 19 位雪花号，必须按字符串传递，Number() 会丢精度
+  const id = String(orderId ?? '').trim()
+  if (!/^\d+$/.test(id)) return
   try {
     const res = await fetchOrder(id)
     const data = (res.data as Record<string, unknown>) || {}
@@ -324,7 +325,7 @@ async function openDetail(row: AfterSaleRow) {
 }
 
 /** 审核后刷新抽屉内容（同一单） */
-async function refreshDetail(rowId: number) {
+async function refreshDetail(rowId: string) {
   if (!detailOpen.value || selected.value?.id !== rowId) return
   const row = rows.value.find((r) => r.id === rowId)
   if (!row) return

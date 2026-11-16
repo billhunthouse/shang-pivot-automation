@@ -1,0 +1,1016 @@
+{
+  "generated_at": "2026-11-11T16:48:21.473959+00:00",
+  "count": 52,
+  "items": [
+    {
+      "id": "EXT-AI-001",
+      "version": "EXT",
+      "module": "AI助手",
+      "title": "商城 C 端 AI 助手浮窗（商品/知识/订单）",
+      "priority": "P1",
+      "section": "agent_service + shang-customerservice",
+      "pages": [
+        "page:mall:ai-assistant"
+      ],
+      "api_ids": [
+        "api:POST:/api/customer-service/chat"
+      ],
+      "source": "docs/03-ai/Agent落地进展.md"
+    },
+    {
+      "id": "EXT-REVIEW-REPLY-001",
+      "version": "EXT",
+      "module": "评价管理",
+      "title": "商品评价商家回复（管理端回复、C 端展示）",
+      "priority": "P1",
+      "section": "PRD-V2.1-评价商家回复",
+      "pages": [
+        "page:admin:/reviews",
+        "page:mall:/product/:spuId"
+      ],
+      "api_ids": [
+        "api:GET:/admin/reviews",
+        "api:PUT:/admin/reviews/{id}/reply",
+        "api:GET:/api/products/{spuId}/reviews"
+      ],
+      "source": "docs/01-requirements/PRD-V2.1-评价商家回复.md"
+    },
+    {
+      "id": "V1-FR-001",
+      "version": "V1",
+      "module": "登录",
+      "title": "账密登录、失败锁定、登出",
+      "priority": "P0",
+      "section": "§8.1",
+      "pages": [
+        "page:admin:/login"
+      ],
+      "api_ids": [
+        "api:POST:/admin/auth/login"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-002",
+      "version": "V1",
+      "module": "用户管理",
+      "title": "用户增删改查、启禁用、重置密码",
+      "priority": "P0",
+      "section": "§8.2",
+      "pages": [
+        "page:admin:/users"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/users/{id}",
+        "api:GET:/admin/depts/tree",
+        "api:GET:/admin/roles/all",
+        "api:GET:/admin/users",
+        "api:POST:/admin/users",
+        "api:PUT:/admin/users/{id}",
+        "api:PUT:/admin/users/{id}/password",
+        "api:PUT:/admin/users/{id}/status"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-003",
+      "version": "V1",
+      "module": "角色管理",
+      "title": "角色、权限绑定、数据范围",
+      "priority": "P0",
+      "section": "§8.3",
+      "pages": [
+        "page:admin:/roles"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/roles/{id}",
+        "api:GET:/admin/permissions/tree",
+        "api:GET:/admin/roles",
+        "api:GET:/admin/users",
+        "api:POST:/admin/roles",
+        "api:PUT:/admin/roles/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-004",
+      "version": "V1",
+      "module": "菜单与权限",
+      "title": "权限树维护、侧栏与按钮权限",
+      "priority": "P0",
+      "section": "§8.4",
+      "pages": [
+        "page:admin:/menus"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/permissions/{id}",
+        "api:GET:/admin/permissions/tree",
+        "api:GET:/admin/roles",
+        "api:POST:/admin/permissions",
+        "api:PUT:/admin/permissions/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-005",
+      "version": "V1",
+      "module": "部门管理",
+      "title": "部门树增删改查",
+      "priority": "P0",
+      "section": "§8.5",
+      "pages": [
+        "page:admin:/depts"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/depts/{id}",
+        "api:GET:/admin/depts/tree",
+        "api:GET:/admin/users",
+        "api:POST:/admin/depts",
+        "api:PUT:/admin/depts/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-006",
+      "version": "V1",
+      "module": "字典管理",
+      "title": "字典类型与项",
+      "priority": "P0",
+      "section": "§8.6",
+      "pages": [
+        "page:admin:/dicts"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/dict-items/{id}",
+        "api:DELETE:/admin/dicts/{id}",
+        "api:GET:/admin/dict-items",
+        "api:GET:/admin/dicts",
+        "api:POST:/admin/dict-items",
+        "api:POST:/admin/dicts",
+        "api:PUT:/admin/dict-items/{id}",
+        "api:PUT:/admin/dicts/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-007",
+      "version": "V1",
+      "module": "操作日志",
+      "title": "记录、查询、详情、导出",
+      "priority": "P0",
+      "section": "§8.7",
+      "pages": [
+        "page:admin:/logs"
+      ],
+      "api_ids": [
+        "api:GET:/admin/operation-logs",
+        "api:GET:/admin/operation-logs/export",
+        "api:GET:/admin/operation-logs/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-008",
+      "version": "V1",
+      "module": "类目管理",
+      "title": "类目树增删改查",
+      "priority": "P0",
+      "section": "§8.8",
+      "pages": [
+        "page:admin:/categories"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/attributes/{id}",
+        "api:DELETE:/admin/brands/{id}",
+        "api:DELETE:/admin/categories/{id}",
+        "api:GET:/admin/attributes",
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products",
+        "api:POST:/admin/attributes",
+        "api:POST:/admin/brands",
+        "api:POST:/admin/categories",
+        "api:PUT:/admin/attributes/{id}",
+        "api:PUT:/admin/brands/{id}",
+        "api:PUT:/admin/categories/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-009",
+      "version": "V1",
+      "module": "品牌管理",
+      "title": "品牌增删改查、归属类目",
+      "priority": "P0",
+      "section": "§8.8",
+      "pages": [
+        "page:admin:/categories"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/attributes/{id}",
+        "api:DELETE:/admin/brands/{id}",
+        "api:DELETE:/admin/categories/{id}",
+        "api:GET:/admin/attributes",
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products",
+        "api:POST:/admin/attributes",
+        "api:POST:/admin/brands",
+        "api:POST:/admin/categories",
+        "api:PUT:/admin/attributes/{id}",
+        "api:PUT:/admin/brands/{id}",
+        "api:PUT:/admin/categories/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-010",
+      "version": "V1",
+      "module": "属性管理",
+      "title": "属性、规格值维护",
+      "priority": "P0",
+      "section": "§8.9",
+      "pages": [
+        "page:admin:/categories"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/attributes/{id}",
+        "api:DELETE:/admin/brands/{id}",
+        "api:DELETE:/admin/categories/{id}",
+        "api:GET:/admin/attributes",
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products",
+        "api:POST:/admin/attributes",
+        "api:POST:/admin/brands",
+        "api:POST:/admin/categories",
+        "api:PUT:/admin/attributes/{id}",
+        "api:PUT:/admin/brands/{id}",
+        "api:PUT:/admin/categories/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-011",
+      "version": "V1",
+      "module": "商品编辑",
+      "title": "SPU + 规格 + SKU 维护",
+      "priority": "P0",
+      "section": "§8.10",
+      "pages": [
+        "page:admin:/products/edit",
+        "page:admin:/products/edit/:id"
+      ],
+      "api_ids": [
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products/{id}",
+        "api:POST:/admin/files/upload",
+        "api:POST:/admin/products",
+        "api:PUT:/admin/products/{id}",
+        "api:PUT:/admin/products/{id}/on"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-012",
+      "version": "V1",
+      "module": "商品列表",
+      "title": "查询、聚合展示",
+      "priority": "P0",
+      "section": "§8.11",
+      "pages": [
+        "page:admin:/products"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/products/{id}",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products",
+        "api:GET:/admin/stocks",
+        "api:PUT:/admin/products/batch-off",
+        "api:PUT:/admin/products/{id}/off",
+        "api:PUT:/admin/products/{id}/on"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-013",
+      "version": "V1",
+      "module": "上下架",
+      "title": "上架校验、单个/批量下架、删除草稿",
+      "priority": "P0",
+      "section": "§8.11",
+      "pages": [
+        "page:admin:/products"
+      ],
+      "api_ids": [
+        "api:DELETE:/admin/products/{id}",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products",
+        "api:GET:/admin/stocks",
+        "api:PUT:/admin/products/batch-off",
+        "api:PUT:/admin/products/{id}/off",
+        "api:PUT:/admin/products/{id}/on"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-014",
+      "version": "V1",
+      "module": "文件上传",
+      "title": "图片上传与引用",
+      "priority": "P0",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/products/edit",
+        "page:admin:/products/edit/:id",
+        "page:admin:/site-brand"
+      ],
+      "api_ids": [
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products/{id}",
+        "api:GET:/admin/site/brand",
+        "api:POST:/admin/files/upload",
+        "api:POST:/admin/products",
+        "api:PUT:/admin/products/{id}",
+        "api:PUT:/admin/products/{id}/on",
+        "api:PUT:/admin/site/brand"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-015",
+      "version": "V1",
+      "module": "库存查询/调整",
+      "title": "三态查询、手动调整",
+      "priority": "P0",
+      "section": "§8.12",
+      "pages": [
+        "page:admin:/inventory"
+      ],
+      "api_ids": [
+        "api:GET:/admin/stocks",
+        "api:PUT:/admin/stocks/adjust"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-016",
+      "version": "V1",
+      "module": "库存预警",
+      "title": "阈值、低库存/关注两档、筛选",
+      "priority": "P1",
+      "section": "§8.12",
+      "pages": [
+        "page:admin:/inventory"
+      ],
+      "api_ids": [
+        "api:GET:/admin/stocks",
+        "api:PUT:/admin/stocks/adjust"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-017",
+      "version": "V1",
+      "module": "仓库",
+      "title": "默认仓种子；无独立管理页",
+      "priority": "P2",
+      "section": "§8.12",
+      "pages": [
+        "page:admin:/inventory"
+      ],
+      "api_ids": [
+        "api:GET:/admin/stocks",
+        "api:PUT:/admin/stocks/adjust"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-018",
+      "version": "V1",
+      "module": "订单列表",
+      "title": "列表、详情",
+      "priority": "P0",
+      "section": "§8.13",
+      "pages": [
+        "page:admin:/orders"
+      ],
+      "api_ids": [
+        "api:GET:/admin/orders",
+        "api:GET:/admin/orders/export",
+        "api:GET:/admin/orders/{id}",
+        "api:POST:/admin/orders/{id}/ship"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-019",
+      "version": "V1",
+      "module": "订单发货",
+      "title": "承运商 + 运单号、状态流转",
+      "priority": "P0",
+      "section": "§8.13",
+      "pages": [
+        "page:admin:/orders"
+      ],
+      "api_ids": [
+        "api:GET:/admin/orders",
+        "api:GET:/admin/orders/export",
+        "api:GET:/admin/orders/{id}",
+        "api:POST:/admin/orders/{id}/ship"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-020",
+      "version": "V1",
+      "module": "售后管理",
+      "title": "列表、详情",
+      "priority": "P0",
+      "section": "§8.14",
+      "pages": [
+        "page:admin:/aftersales"
+      ],
+      "api_ids": [
+        "api:GET:/admin/after-sales",
+        "api:GET:/admin/after-sales/{id}",
+        "api:GET:/admin/orders/{id}",
+        "api:POST:/admin/after-sales/{id}/audit"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-021",
+      "version": "V1",
+      "module": "售后审核",
+      "title": "同意/拒绝",
+      "priority": "P0",
+      "section": "§8.14",
+      "pages": [
+        "page:admin:/aftersales"
+      ],
+      "api_ids": [
+        "api:GET:/admin/after-sales",
+        "api:GET:/admin/after-sales/{id}",
+        "api:GET:/admin/orders/{id}",
+        "api:POST:/admin/after-sales/{id}/audit"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-022",
+      "version": "V1",
+      "module": "系统设置",
+      "title": "配置 KV（分类 Tab、敏感脱敏）",
+      "priority": "P0",
+      "section": "§8.16",
+      "pages": [
+        "page:admin:/settings"
+      ],
+      "api_ids": [
+        "api:GET:/admin/system-configs",
+        "api:PUT:/admin/system-configs/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-023",
+      "version": "V1",
+      "module": "工作台",
+      "title": "统计摘要、低库存入口",
+      "priority": "P0",
+      "section": "§8.17",
+      "pages": [
+        "page:admin:/dashboard"
+      ],
+      "api_ids": [
+        "api:GET:/admin/dashboard/stats",
+        "api:GET:/admin/stocks"
+      ],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V1-FR-024",
+      "version": "V1",
+      "module": "弹窗与提示",
+      "title": "全站统一的确认/表单/拒绝/提示规范",
+      "priority": "P0",
+      "section": "§8.18",
+      "pages": [],
+      "api_ids": [],
+      "source": "docs/01-requirements/PRD-V1.0-后台管理.md"
+    },
+    {
+      "id": "V2-FR-001",
+      "version": "V2",
+      "module": "账号",
+      "title": "手机号登录、游客浏览、登录引导、退出",
+      "priority": "P0",
+      "section": "§8.1",
+      "pages": [
+        "page:mall:/login",
+        "page:mall:/me",
+        "page:mall:/settings"
+      ],
+      "api_ids": [
+        "api:GET:/api/me",
+        "api:POST:/api/auth/login",
+        "api:POST:/api/auth/logout",
+        "api:POST:/api/auth/sms/send",
+        "api:PUT:/api/me"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-002",
+      "version": "V2",
+      "module": "账号",
+      "title": "个人资料",
+      "priority": "P1",
+      "section": "§8.1",
+      "pages": [
+        "page:mall:/login",
+        "page:mall:/me",
+        "page:mall:/settings"
+      ],
+      "api_ids": [
+        "api:GET:/api/me",
+        "api:POST:/api/auth/login",
+        "api:POST:/api/auth/logout",
+        "api:POST:/api/auth/sms/send",
+        "api:PUT:/api/me"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-003",
+      "version": "V2",
+      "module": "首页",
+      "title": "站点品牌、运营位、推荐流",
+      "priority": "P0",
+      "section": "§8.2",
+      "pages": [
+        "page:mall:/",
+        "page:mall:/promo/:code"
+      ],
+      "api_ids": [
+        "api:GET:/api/categories",
+        "api:GET:/api/home",
+        "api:GET:/api/products"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-004",
+      "version": "V2",
+      "module": "浏览",
+      "title": "分类导航与商品列表",
+      "priority": "P0",
+      "section": "§8.3",
+      "pages": [
+        "page:mall:/category",
+        "page:mall:/product/:spuId",
+        "page:mall:/search"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/favorites/{spuId}",
+        "api:GET:/api/categories",
+        "api:GET:/api/home",
+        "api:GET:/api/products",
+        "api:GET:/api/products/{spuId}",
+        "api:GET:/api/search",
+        "api:POST:/api/cart/items",
+        "api:POST:/api/favorites/{spuId}"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-005",
+      "version": "V2",
+      "module": "浏览",
+      "title": "搜索",
+      "priority": "P0",
+      "section": "§8.4",
+      "pages": [
+        "page:mall:/category",
+        "page:mall:/product/:spuId",
+        "page:mall:/search"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/favorites/{spuId}",
+        "api:GET:/api/categories",
+        "api:GET:/api/home",
+        "api:GET:/api/products",
+        "api:GET:/api/products/{spuId}",
+        "api:GET:/api/search",
+        "api:POST:/api/cart/items",
+        "api:POST:/api/favorites/{spuId}"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-006",
+      "version": "V2",
+      "module": "详情",
+      "title": "商品详情与加购/购买",
+      "priority": "P0",
+      "section": "§8.5",
+      "pages": [
+        "page:mall:/product/:spuId"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/favorites/{spuId}",
+        "api:GET:/api/products/{spuId}",
+        "api:POST:/api/cart/items",
+        "api:POST:/api/favorites/{spuId}"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-007",
+      "version": "V2",
+      "module": "购物车",
+      "title": "增删改、勾选、失效、角标",
+      "priority": "P0",
+      "section": "§8.6",
+      "pages": [
+        "page:mall:/cart"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/cart/items/{id}",
+        "api:POST:/api/cart/clear-invalid",
+        "api:PUT:/api/cart/items/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-008",
+      "version": "V2",
+      "module": "交易",
+      "title": "确认订单",
+      "priority": "P0",
+      "section": "§8.7",
+      "pages": [
+        "page:mall:/checkout",
+        "page:mall:/pay/:orderId"
+      ],
+      "api_ids": [
+        "api:GET:/api/addresses",
+        "api:GET:/api/orders/{id}",
+        "api:GET:/api/products/{spuId}",
+        "api:POST:/api/orders",
+        "api:POST:/api/payment/sandbox"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-009",
+      "version": "V2",
+      "module": "交易",
+      "title": "提交订单与待付款倒计时",
+      "priority": "P0",
+      "section": "§8.7",
+      "pages": [
+        "page:mall:/checkout",
+        "page:mall:/pay/:orderId"
+      ],
+      "api_ids": [
+        "api:GET:/api/addresses",
+        "api:GET:/api/orders/{id}",
+        "api:GET:/api/products/{spuId}",
+        "api:POST:/api/orders",
+        "api:POST:/api/payment/sandbox"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-010",
+      "version": "V2",
+      "module": "交易",
+      "title": "模拟支付与结果页",
+      "priority": "P0",
+      "section": "§8.7",
+      "pages": [
+        "page:mall:/checkout",
+        "page:mall:/pay/:orderId"
+      ],
+      "api_ids": [
+        "api:GET:/api/addresses",
+        "api:GET:/api/orders/{id}",
+        "api:GET:/api/products/{spuId}",
+        "api:POST:/api/orders",
+        "api:POST:/api/payment/sandbox"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-011",
+      "version": "V2",
+      "module": "订单",
+      "title": "列表、详情、取消、收货、物流",
+      "priority": "P0",
+      "section": "§8.8",
+      "pages": [
+        "page:mall:/orders",
+        "page:mall:/orders/:id"
+      ],
+      "api_ids": [
+        "api:GET:/api/orders",
+        "api:GET:/api/orders/{id}",
+        "api:GET:/api/orders/{id}/logistics",
+        "api:POST:/api/files/upload",
+        "api:POST:/api/orders/{id}/cancel",
+        "api:POST:/api/orders/{id}/confirm",
+        "api:POST:/api/reviews"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-012",
+      "version": "V2",
+      "module": "售后",
+      "title": "申请、列表、详情、凭证上传",
+      "priority": "P0",
+      "section": "§8.9",
+      "pages": [
+        "page:mall:/after-sales",
+        "page:mall:/after-sales/apply",
+        "page:mall:/after-sales/:id"
+      ],
+      "api_ids": [
+        "api:GET:/api/after-sales",
+        "api:GET:/api/after-sales/{id}",
+        "api:GET:/api/orders/{id}",
+        "api:POST:/api/after-sales",
+        "api:POST:/api/files/upload"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-013",
+      "version": "V2",
+      "module": "个人中心",
+      "title": "首页、收藏、足迹、设置",
+      "priority": "P0/P1",
+      "section": "§8.10",
+      "pages": [
+        "page:mall:/me",
+        "page:mall:/addresses",
+        "page:mall:/favorites",
+        "page:mall:/history"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/addresses/{id}",
+        "api:DELETE:/api/favorites/{spuId}",
+        "api:DELETE:/api/history",
+        "api:GET:/api/addresses",
+        "api:GET:/api/favorites",
+        "api:GET:/api/history",
+        "api:GET:/api/me",
+        "api:POST:/api/addresses",
+        "api:PUT:/api/addresses/{id}/default"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-014",
+      "version": "V2",
+      "module": "个人中心",
+      "title": "地址管理",
+      "priority": "P0",
+      "section": "§8.11",
+      "pages": [
+        "page:mall:/me",
+        "page:mall:/addresses",
+        "page:mall:/favorites",
+        "page:mall:/history"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/addresses/{id}",
+        "api:DELETE:/api/favorites/{spuId}",
+        "api:DELETE:/api/history",
+        "api:GET:/api/addresses",
+        "api:GET:/api/favorites",
+        "api:GET:/api/history",
+        "api:GET:/api/me",
+        "api:POST:/api/addresses",
+        "api:PUT:/api/addresses/{id}/default"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-015",
+      "version": "V2",
+      "module": "评价",
+      "title": "发表评价与详情页展示",
+      "priority": "P1",
+      "section": "§8.12",
+      "pages": [
+        "page:mall:/product/:spuId"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/favorites/{spuId}",
+        "api:GET:/api/products/{spuId}",
+        "api:POST:/api/cart/items",
+        "api:POST:/api/favorites/{spuId}"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-016",
+      "version": "V2",
+      "module": "多端",
+      "title": "Web/H5 双布局",
+      "priority": "P0",
+      "section": "§8.13",
+      "pages": [
+        "page:mall:/",
+        "page:mall:/category",
+        "page:mall:/cart",
+        "page:mall:/me"
+      ],
+      "api_ids": [
+        "api:DELETE:/api/cart/items/{id}",
+        "api:GET:/api/categories",
+        "api:GET:/api/home",
+        "api:GET:/api/me",
+        "api:GET:/api/products",
+        "api:POST:/api/cart/clear-invalid",
+        "api:PUT:/api/cart/items/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-017",
+      "version": "V2",
+      "module": "后台",
+      "title": "会员管理",
+      "priority": "P0",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/customers"
+      ],
+      "api_ids": [
+        "api:GET:/admin/customers",
+        "api:PUT:/admin/customers/{id}/status"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-018",
+      "version": "V2",
+      "module": "后台",
+      "title": "站点品牌",
+      "priority": "P0",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/site-brand"
+      ],
+      "api_ids": [
+        "api:GET:/admin/site/brand",
+        "api:POST:/admin/files/upload",
+        "api:PUT:/admin/site/brand"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-019",
+      "version": "V2",
+      "module": "后台",
+      "title": "首页运营位",
+      "priority": "P0",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/home-slots"
+      ],
+      "api_ids": [
+        "api:GET:/admin/home/slots",
+        "api:GET:/admin/home/slots/{code}",
+        "api:GET:/admin/products",
+        "api:PUT:/admin/home/slots/{code}"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-020",
+      "version": "V2",
+      "module": "后台",
+      "title": "交易配置",
+      "priority": "P0",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/settings"
+      ],
+      "api_ids": [
+        "api:GET:/admin/system-configs",
+        "api:PUT:/admin/system-configs/{id}"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-021",
+      "version": "V2",
+      "module": "后台",
+      "title": "超时关单与销量回写",
+      "priority": "P0",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/orders"
+      ],
+      "api_ids": [
+        "api:GET:/admin/orders",
+        "api:GET:/admin/orders/export",
+        "api:GET:/admin/orders/{id}",
+        "api:POST:/admin/orders/{id}/ship"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-022",
+      "version": "V2",
+      "module": "后台",
+      "title": "订单增强与导出",
+      "priority": "P1",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/orders"
+      ],
+      "api_ids": [
+        "api:GET:/admin/orders",
+        "api:GET:/admin/orders/export",
+        "api:GET:/admin/orders/{id}",
+        "api:POST:/admin/orders/{id}/ship"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-023",
+      "version": "V2",
+      "module": "后台",
+      "title": "定时上架",
+      "priority": "P1",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/products/edit",
+        "page:admin:/products/edit/:id"
+      ],
+      "api_ids": [
+        "api:GET:/admin/brands",
+        "api:GET:/admin/categories/tree",
+        "api:GET:/admin/products/{id}",
+        "api:POST:/admin/files/upload",
+        "api:POST:/admin/products",
+        "api:PUT:/admin/products/{id}",
+        "api:PUT:/admin/products/{id}/on"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-024",
+      "version": "V2",
+      "module": "后台",
+      "title": "出入库单",
+      "priority": "P1",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/in-out"
+      ],
+      "api_ids": [
+        "api:GET:/admin/in-out",
+        "api:GET:/admin/stocks",
+        "api:POST:/admin/in-out"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-025",
+      "version": "V2",
+      "module": "后台",
+      "title": "评价管理",
+      "priority": "P1",
+      "section": "§8.15",
+      "pages": [
+        "page:admin:/reviews"
+      ],
+      "api_ids": [
+        "api:GET:/admin/reviews",
+        "api:PUT:/admin/reviews/{id}/reply",
+        "api:PUT:/admin/reviews/{id}/status"
+      ],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    },
+    {
+      "id": "V2-FR-026",
+      "version": "V2",
+      "module": "全局",
+      "title": "弹窗与提示规范（C 端）",
+      "priority": "P0",
+      "section": "§8.14",
+      "pages": [],
+      "api_ids": [],
+      "source": "docs/01-requirements/PRD-V2.0-购物网站.md"
+    }
+  ]
+}

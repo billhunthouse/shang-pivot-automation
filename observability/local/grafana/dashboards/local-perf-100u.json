@@ -1,0 +1,122 @@
+{
+  "uid": "shang-pivot-local-perf",
+  "title": "尚品汇本地压测总览（100 并发）",
+  "tags": ["shang-pivot", "local-perf"],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "refresh": "5s",
+  "time": { "from": "now-15m", "to": "now" },
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "PG / Redis UP",
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "projectku-prometheus" },
+      "targets": [
+        { "refId": "A", "expr": "pg_up{job=\"shang-pivot-local-exporter\"}", "legendFormat": "PostgreSQL" },
+        { "refId": "B", "expr": "redis_up{job=\"shang-pivot-local-exporter\"}", "legendFormat": "Redis" }
+      ],
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "orientation": "horizontal" }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "k6 VU / RPS / P95 / 失败率",
+      "gridPos": { "h": 4, "w": 18, "x": 6, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "projectku-prometheus" },
+      "targets": [
+        { "refId": "A", "expr": "max(k6_vus{app=\"shang-pivot\"})", "legendFormat": "VU" },
+        { "refId": "B", "expr": "sum(rate(k6_http_reqs_total{app=\"shang-pivot\"}[1m]))", "legendFormat": "RPS" },
+        { "refId": "C", "expr": "avg(k6_http_req_duration_p95{app=\"shang-pivot\"})", "legendFormat": "P95 ms" },
+        { "refId": "D", "expr": "(sum(rate(k6_http_reqs_total{app=\"shang-pivot\",expected_response=\"false\"}[1m])) or vector(0)) / clamp_min(sum(rate(k6_http_reqs_total{app=\"shang-pivot\"}[1m])), 0.000001)", "legendFormat": "失败率" }
+      ],
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "orientation": "horizontal" }
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "数据库会话 / 锁等待",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 4 },
+      "datasource": { "type": "prometheus", "uid": "projectku-prometheus" },
+      "targets": [
+        { "refId": "A", "expr": "pg_activity_active{job=\"shang-pivot-local-exporter\"}", "legendFormat": "active" },
+        { "refId": "B", "expr": "pg_activity_lock_wait{job=\"shang-pivot-local-exporter\"}", "legendFormat": "lock wait" },
+        { "refId": "C", "expr": "pg_locks_waiting{job=\"shang-pivot-local-exporter\"}", "legendFormat": "not granted" },
+        { "refId": "D", "expr": "pg_activity_total{job=\"shang-pivot-local-exporter\"}", "legendFormat": "total" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "short", "custom": { "drawStyle": "line", "lineWidth": 1, "fillOpacity": 8 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } }
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "数据库事务速率",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 4 },
+      "datasource": { "type": "prometheus", "uid": "projectku-prometheus" },
+      "targets": [
+        { "refId": "A", "expr": "rate(pg_stat_database_xact_commit{job=\"shang-pivot-local-exporter\"}[1m])", "legendFormat": "commit/s" },
+        { "refId": "B", "expr": "rate(pg_stat_database_xact_rollback{job=\"shang-pivot-local-exporter\"}[1m])", "legendFormat": "rollback/s" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "ops", "custom": { "drawStyle": "line", "lineWidth": 1, "fillOpacity": 8 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } }
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "关键表扫描方式（累计）",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 12 },
+      "datasource": { "type": "prometheus", "uid": "projectku-prometheus" },
+      "targets": [
+        { "refId": "A", "expr": "pg_table_seq_scan{job=\"shang-pivot-local-exporter\",relname=~\"sku|spu|stock\"}", "legendFormat": "{{relname}} seq" },
+        { "refId": "B", "expr": "pg_table_idx_scan{job=\"shang-pivot-local-exporter\",relname=~\"sku|spu|stock\"}", "legendFormat": "{{relname}} idx" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "short", "custom": { "drawStyle": "line", "lineWidth": 1, "fillOpacity": 8 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } }
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "HikariCP 连接池",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 12 },
+      "datasource": { "type": "prometheus", "uid": "projectku-prometheus" },
+      "targets": [
+        { "refId": "A", "expr": "hikaricp_connections_active{job=\"shang-pivot\"}", "legendFormat": "active" },
+        { "refId": "B", "expr": "hikaricp_connections_pending{job=\"shang-pivot\"}", "legendFormat": "pending" },
+        { "refId": "C", "expr": "hikaricp_connections_max{job=\"shang-pivot\"}", "legendFormat": "max" },
+        { "refId": "D", "expr": "hikaricp_connections_idle{job=\"shang-pivot\"}", "legendFormat": "idle" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "short", "custom": { "drawStyle": "line", "lineWidth": 1, "fillOpacity": 8 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } }
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Redis 客户端 / OPS / 内存",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 20 },
+      "datasource": { "type": "prometheus", "uid": "projectku-prometheus" },
+      "targets": [
+        { "refId": "A", "expr": "redis_connected_clients{job=\"shang-pivot-local-exporter\"}", "legendFormat": "clients" },
+        { "refId": "B", "expr": "redis_ops_per_sec{job=\"shang-pivot-local-exporter\"}", "legendFormat": "ops/s" },
+        { "refId": "C", "expr": "redis_used_memory_bytes{job=\"shang-pivot-local-exporter\"}", "legendFormat": "memory" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "short", "custom": { "drawStyle": "line", "lineWidth": 1, "fillOpacity": 8 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } }
+    },
+    {
+      "id": 8,
+      "type": "timeseries",
+      "title": "服务端 QPS / 平均 / 最大 / JVM Heap",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 20 },
+      "datasource": { "type": "prometheus", "uid": "projectku-prometheus" },
+      "targets": [
+        { "refId": "A", "expr": "sum(rate(http_server_requests_seconds_count{job=\"shang-pivot\",uri!~\"/actuator.*\"}[1m]))", "legendFormat": "QPS" },
+        { "refId": "B", "expr": "sum(rate(http_server_requests_seconds_sum{job=\"shang-pivot\",uri!~\"/actuator.*\"}[1m])) / clamp_min(sum(rate(http_server_requests_seconds_count{job=\"shang-pivot\",uri!~\"/actuator.*\"}[1m])), 0.000001) * 1000", "legendFormat": "avg ms" },
+        { "refId": "D", "expr": "max(http_server_requests_seconds_max{job=\"shang-pivot\",uri!~\"/actuator.*\"}) * 1000", "legendFormat": "max ms" },
+        { "refId": "C", "expr": "sum(jvm_memory_used_bytes{job=\"shang-pivot\",area=\"heap\"})", "legendFormat": "heap bytes" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "short", "custom": { "drawStyle": "line", "lineWidth": 1, "fillOpacity": 8 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } }
+    }
+  ]
+}

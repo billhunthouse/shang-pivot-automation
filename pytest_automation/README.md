@@ -79,6 +79,7 @@ pytest_automation/
 │   ├── api_client.py           # Session、超时、GET 重试、日志、Allure 附件
 │   ├── assertions.py           # HTTP/业务码/分页/traceId 断言
 │   ├── base_page.py            # 导航、networkidle、截图
+│   ├── zentao_sync.py          # pytest → 禅道：套件/用例状态/Bug/附件
 │   └── logger.py               # 控制台 + artifacts/logs/automation.log
 ├── helpers/
 │   ├── auth_helper.py          # 登录、随机会员、选 SKU、加购、下单
@@ -107,6 +108,7 @@ pytest_automation/
     ├── ui/failures/*.png       # UI 失败截图
     ├── ui/steps/<nodeid>/      # 每步截图 + steps.json
     ├── ui/playwright/<nodeid>/ # 每用例一份 trace.zip
+    ├── zentao_sync.json        # 禅道同步结果：套件/用例/Bug/错误
     └── results.json            # 机器可读结果
 ```
 
@@ -145,6 +147,40 @@ TEST_ENV=dev  python3 -m pytest   # 本地后端 8086 + 本地 Vite 前端
 - 商城/后台前端只在演示站部署，本地没有起前端 dev server。
 - 本机实测：本地 8086 的下单接口返回 `50000 系统异常`，演示站下单正常。
 - 因此写操作（地址、购物车、订单、支付）默认打 `demo`；本地 `dev` 适合只读排查。
+
+### 3.3 禅道同步（可选）
+
+运行结束后可自动把用例执行状态同步到禅道；失败用例会创建 Bug，并上传失败文本、UI 截图和 Playwright trace。
+
+```bash
+TEST_ENV=dev \
+ADMIN_PASSWORD='Admin@123' \
+ZENTAO_SYNC_ENABLED=1 \
+ZENTAO_SYNC_MARKERS=smoke \
+ZENTAO_BASE_URL=http://49.233.135.247:60084 \
+ZENTAO_ACCOUNT=admin \
+ZENTAO_PASSWORD_FILE=$HOME/.zcode/secrets/zentao-admin-password \
+.venv/bin/python -m pytest -m smoke -q
+```
+
+| 变量 | 默认 | 作用 |
+|---|---|---|
+| `ZENTAO_SYNC_ENABLED` | `0` | 设为 `1` 开启同步 |
+| `ZENTAO_BASE_URL` | 空 | 禅道根地址 |
+| `ZENTAO_ACCOUNT` | `admin` | 禅道账号 |
+| `ZENTAO_PASSWORD_FILE` | 空 | 密码文件路径，推荐 |
+| `ZENTAO_PASSWORD` | 空 | 直接传密码，不推荐 |
+| `ZENTAO_PRODUCT_ID` | `1` | 禅道产品 ID |
+| `ZENTAO_PROJECT_ID` | `1` | 禅道项目 ID，写入 Bug 用 |
+| `ZENTAO_SUITE_NAME` | `自动化回归` | 测试套件名前缀 |
+| `ZENTAO_SYNC_MARKERS` | `smoke` | 同步哪些 marker；`all` 表示全部 |
+| `ZENTAO_SYNC_BUG` | `1` | 失败是否自动创建 Bug |
+| `ZENTAO_SYNC_ATTACHMENTS` | `1` | 是否上传截图/trace/失败文本 |
+
+同步结果写入 `artifacts/zentao_sync.json`，包含套件 ID、用例 ID、Bug ID 和错误信息。
+默认只同步 `smoke`，避免全量 845 条用例首次运行就全部写入禅道；需要全量同步时设 `ZENTAO_SYNC_MARKERS=all`。
+
+完整设计、API 调研和实测记录：[禅道自动化同步](docs/禅道自动化同步.md)。
 
 ---
 

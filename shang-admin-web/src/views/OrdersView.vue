@@ -61,7 +61,7 @@ const TAB_LABEL: Record<string, string> = {
 }
 
 type OrderRow = {
-  id: number
+  id: string
   orderNo: string
   customer: string
   phoneMask: string
@@ -218,7 +218,7 @@ async function load() {
     rows.value = pageData.records.map((o) => {
       const raw = String(o.status ?? '')
       return {
-        id: Number(o.id),
+        id: String(o.id),
         orderNo: String(o.orderNo ?? o.id ?? ''),
         customer: String(o.customerName ?? o.receiverName ?? o.userId ?? '—'),
         phoneMask: String(o.customerPhoneMask ?? o.receiverPhone ?? '—'),
@@ -332,7 +332,7 @@ async function openDetail(row: OrderRow) {
 }
 
 /** 打开抽屉后若同一单发货成功，同步刷新抽屉内容 */
-async function refreshDetail(rowId: number) {
+async function refreshDetail(rowId: string) {
   if (!detailOpen.value || selected.value?.id !== rowId) return
   const row = rows.value.find((r) => r.id === rowId)
   if (!row) return

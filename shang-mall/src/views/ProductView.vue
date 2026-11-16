@@ -465,6 +465,10 @@ async function onFavorite() {
             <span class="hint">{{ r.rating }} 分</span>
           </div>
           <p>{{ r.content || '用户未填写文字' }}</p>
+          <div v-if="r.merchantReply" class="merchant-reply">
+            <span class="merchant-reply-label">商家回复</span>
+            <span>{{ r.merchantReply }}</span>
+          </div>
         </div>
       </section>
 
@@ -1051,6 +1055,27 @@ async function onFavorite() {
 .review p {
   margin: 6px 0 0;
   font-size: 13px;
+}
+
+.merchant-reply {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f4efe4;
+  color: var(--stone);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.merchant-reply-label {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--forest);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
 }
 
 .star-row {

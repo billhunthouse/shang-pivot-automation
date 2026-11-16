@@ -15,6 +15,7 @@
  */
 import http from 'k6/http';
 import { sleep } from 'k6';
+import { Trend } from 'k6/metrics';
 import {
   buildOptions,
   customerLogin,
@@ -28,6 +29,18 @@ import {
   thinkTime,
   verifyTokenUsable,
 } from './lib/shang.js';
+
+const endpointTrends = {
+  home: new Trend('endpoint_home_duration'),
+  products: new Trend('endpoint_products_duration'),
+  search: new Trend('endpoint_search_duration'),
+  detail: new Trend('endpoint_detail_duration'),
+  categories: new Trend('endpoint_categories_duration'),
+  me: new Trend('endpoint_me_duration'),
+  cart: new Trend('endpoint_cart_duration'),
+  orders: new Trend('endpoint_orders_duration'),
+  favorites: new Trend('endpoint_favorites_duration'),
+};
 
 export const options = buildOptions(20, '3m');
 
@@ -69,6 +82,7 @@ export default function (data) {
     const page = randomInt(1, 4);
     const size = randomInt(8, 20);
     const response = http.get(`${baseUrl}/products?page=${page}&size=${size}`, jsonHeaders(token));
+    endpointTrends.products.add(response.timings.duration);
     expectOk(response, 'products list');
   } else if (roll < 0.65) {
     const keyword = pickRandom(KEYWORDS);
@@ -76,30 +90,44 @@ export default function (data) {
       `${baseUrl}/search?q=${encodeURIComponent(keyword)}&page=1&size=10`,
       jsonHeaders(token),
     );
+    endpointTrends.search.add(response.timings.duration);
     expectOk(response, 'search');
   } else if (roll < 0.85) {
     const spuId = pickRandom(data.spuIds);
     if (spuId !== null) {
       const response = http.get(`${baseUrl}/products/${spuId}`, jsonHeaders(token));
+      endpointTrends.detail.add(response.timings.duration);
       expectOk(response, 'product detail');
     }
   } else {
     // 首页聚合：品牌 + 运营位 + 推荐流，一次请求里包含多段查询
-    expectOk(http.get(`${baseUrl}/home`, jsonHeaders(token)), 'home');
+    const response = http.get(`${baseUrl}/home`, jsonHeaders(token));
+    endpointTrends.home.add(response.timings.duration);
+    expectOk(response, 'home');
   }
 
   if (token) {
     const extra = Math.random();
     if (extra < 0.3) {
-      expectOk(http.get(`${baseUrl}/categories`, jsonHeaders(token)), 'categories');
+      const response = http.get(`${baseUrl}/categories`, jsonHeaders(token));
+      endpointTrends.categories.add(response.timings.duration);
+      expectOk(response, 'categories');
     } else if (extra < 0.5) {
-      expectOk(http.get(`${baseUrl}/me`, jsonHeaders(token)), 'current customer');
+      const response = http.get(`${baseUrl}/me`, jsonHeaders(token));
+      endpointTrends.me.add(response.timings.duration);
+      expectOk(response, 'current customer');
     } else if (extra < 0.7) {
-      expectOk(http.get(`${baseUrl}/cart`, jsonHeaders(token)), 'cart');
+      const response = http.get(`${baseUrl}/cart`, jsonHeaders(token));
+      endpointTrends.cart.add(response.timings.duration);
+      expectOk(response, 'cart');
     } else if (extra < 0.85) {
-      expectOk(http.get(`${baseUrl}/orders?page=1&size=5`, jsonHeaders(token)), 'orders');
+      const response = http.get(`${baseUrl}/orders?page=1&size=5`, jsonHeaders(token));
+      endpointTrends.orders.add(response.timings.duration);
+      expectOk(response, 'orders');
     } else {
-      expectOk(http.get(`${baseUrl}/favorites?page=1&size=10`, jsonHeaders(token)), 'favorites');
+      const response = http.get(`${baseUrl}/favorites?page=1&size=10`, jsonHeaders(token));
+      endpointTrends.favorites.add(response.timings.duration);
+      expectOk(response, 'favorites');
     }
   }
 

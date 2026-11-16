@@ -5,12 +5,54 @@
 压内网入口 `127.0.0.1:8090`（C 端）/ `127.0.0.1:8091`（管理端），
 客户端指标用 remote write 写入服务器的 Prometheus（带 `app="shang-pivot"` 标签，仪表板据此过滤）。
 
+也可以在本机直接压本地后端：
+
+```bash
+k6 run browse-load.js -e BASE_URL=http://127.0.0.1:8086/api \
+  -e PHONE=13900000009 -e VUS=1 -e DURATION=30s \
+  --summary-export ../../artifacts/k6/baseline-summary.json
+```
+
+`browse-load.js` 会额外输出接口级 Trend：`endpoint_home_duration`、`endpoint_products_duration`、
+`endpoint_search_duration`、`endpoint_detail_duration` 等，便于定位首页/列表/搜索/详情的差异。
+
 | 脚本 | 用途 | 关键环境变量 |
 | --- | --- | --- |
 | `preflight.js` | 压测前预检：哪些接口真能压、写链路是否可用（单次执行，不产生负载） | `BASE_URL` `ADMIN_BASE_URL` `PHONE` `ACCOUNT` `PASSWORD` |
 | `browse-load.js` | 浏览型混合负载：列表 40% / 搜索 25% / 详情 20% / 首页 15%，登录后叠加受保护读 | `BASE_URL` `PHONE` `STAGES` 或 `VUS`+`DURATION` |
 | `login-load.js` | 登录风暴：`LOGIN_TARGET=customer`（手机号+验证码）或 `admin`（用户名+密码，BCrypt 纯 CPU） | `PHONES`/`ACCOUNTS` `RATE` `DURATION` |
 | `checkout-smoke.js` | 写链路：登录 → 加购 → 查购物车 → 下单 → 沙箱支付（**一账号一 VU**，会真实扣库存） | `PHONES` `VUS` `DURATION` `SKIP_SCAN` |
+
+## 300 并发下单
+
+```bash
+# 1) 生成 300 个测试账号 + 默认地址（本地一次性）
+python3 scripts/create_order_users_300.py
+
+# 2) 300 VU 一次性突刺
+K6_PROMETHEUS_RW_SERVER_URL=http://127.0.0.1:19090/api/v1/write \
+K6_PROMETHEUS_RW_TREND_STATS='p(90),p(95),p(99),avg,min,max' \
+k6 run -o experimental-prometheus-rw \
+  --tag app=shang-pivot --tag env=local-perf --tag scenario=order-300 \
+  -e BASE_URL=http://127.0.0.1:8086/api -e SKU_ID=10012 -e VUS=300 \
+  --summary-export artifacts/perf-300u/order-300-summary.json \
+  order-300.js
+
+# 3) 300 VU 持续 20s（推荐，便于 Prometheus 抓到排队）
+K6_PROMETHEUS_RW_SERVER_URL=http://127.0.0.1:19090/api/v1/write \
+K6_PROMETHEUS_RW_TREND_STATS='p(90),p(95),p(99),avg,min,max' \
+k6 run -o experimental-prometheus-rw \
+  --tag app=shang-pivot --tag env=local-perf --tag scenario=order-300-load \
+  -e BASE_URL=http://127.0.0.1:8086/api -e SKU_ID=10012 -e VUS=300 -e DURATION=20s \
+  --summary-export artifacts/perf-300u/order-300-sustained-summary.json \
+  order-300-sustained.js
+```
+
+Grafana：`http://127.0.0.1:13000/d/shang-pivot-local-perf-300`  
+报告：`../docs/测试资料/下单接口-300并发性能测试报告.md`  
+P0 复测：`../docs/测试资料/下单接口-300并发P0优化复测报告.md`
+
+测试前把 SKU 10012 的库存临时调高；测试后用 `scripts/cleanup_order_300.sql` 清理测试会员/订单并恢复本地 baseline（physical=130, locked=2）。账号 token 文件在 `data/`，已被 `.gitignore` 忽略。
 
 ## 跑法（本机一条命令，实际在服务器执行）
 

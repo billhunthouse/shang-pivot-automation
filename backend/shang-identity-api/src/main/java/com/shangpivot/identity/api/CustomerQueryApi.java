@@ -10,4 +10,13 @@ public interface CustomerQueryApi {
 
     /** 脱敏手机号；不存在返回 null。 */
     String maskedPhone(Long customerId);
+
+    /**
+     * 一次查询返回活跃顾客的脱敏手机号；不存在或冻结返回 null。
+     * 用于下单链路替代 isActive + maskedPhone 两次查询。
+     */
+    ActiveCustomer findActive(Long customerId);
+
+    record ActiveCustomer(String maskedPhone) {
+    }
 }

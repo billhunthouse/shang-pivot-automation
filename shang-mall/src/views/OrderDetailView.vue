@@ -42,10 +42,12 @@ async function load() {
       order?: Record<string, unknown>
       items?: Array<Record<string, unknown>>
       shipments?: Array<Record<string, unknown>>
+      reviewedItemIds?: Array<string | number>
     }
     order.value = data.order || null
     items.value = data.items || []
     shipments.value = data.shipments || []
+    reviewedItems.value = (data.reviewedItemIds || []).map(String)
   } catch {
     order.value = null
   } finally {

@@ -7,6 +7,7 @@ import com.shangpivot.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Data
@@ -21,4 +22,6 @@ public class Review extends BaseEntity {
     @TableField(typeHandler = JacksonTypeHandler.class)
     private List<String> pics;
     private String status;
+    private String merchantReply;
+    private OffsetDateTime repliedAt;
 }

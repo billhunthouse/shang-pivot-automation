@@ -531,13 +531,15 @@ def pytest_runtest_makereport(item, call):
     report = outcome.get_result()
     markers = {m.name for m in item.iter_markers()}
     if report.when == "call":
-        item.config._automation_results.append(
-            {
-                "nodeid": item.nodeid,
-                "outcome": report.outcome,
-                "duration_seconds": round(getattr(report, "duration", 0), 3),
-            }
-        )
+        record = {
+            "nodeid": item.nodeid,
+            "outcome": report.outcome,
+            "duration_seconds": round(getattr(report, "duration", 0), 3),
+            "when": report.when,
+        }
+        if report.outcome == "failed":
+            record["longrepr"] = str(getattr(report, "longrepr", ""))[:12000]
+        item.config._automation_results.append(record)
 
     # 失败/阻断留痕：失败依据 + 最后请求响应 + traceId 后端日志
     if report.outcome == "failed":
@@ -670,6 +672,14 @@ def pytest_sessionfinish(session, exitstatus):
     (settings.artifacts_dir / f"run-manifest{suffix}.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+
+    # 可选：把本次测试结果同步到禅道（默认关闭，失败不影响 pytest）
+    try:
+        from core.zentao_sync import sync_run
+
+        sync_run(session=session, exitstatus=exitstatus, results=results, run_id=run_id)
+    except Exception as exc:  # noqa: BLE001 - 同步失败不能掩盖测试结果
+        print(f"[zentao-sync] 同步入口失败：{exc}")
 
     try:  # 用例→接口映射（每个 worker 独立落盘，发布前由合并脚本汇总）
         if os.getenv("DISABLE_RECORDER") == "1":
